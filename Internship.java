@@ -15,23 +15,23 @@ public class Internship {
     private int numOfApplicants;
 
     public String getPosition() {
-
+        return "";
     }
 
     public ArrayList<String> getReqSkills() {
-
+        return requiredSkills;
     }
 
     public String getRecYear() {
-
+        return "";
     }
 
     public double getPayrate() {
-
+        return 0.0;
     }
 
     public ArrayList<Student> getApplicants() {
-        
+        return applicants;
     }
 
 }

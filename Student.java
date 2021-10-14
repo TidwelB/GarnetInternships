@@ -14,23 +14,23 @@ public class Student {
     private ArrayList<Internship> listOfAppJobs;
 
     public String getEmail() {
-
+        return "";
     }
 
     public Resume getResume() {
-
+        return resume;
     }
 
     public int getRating() {
-
+        return 0;
     }
 
     public ArrayList<String> getSkills() {
-
+        return skills;
     }
 
     public String getGradYear() {
-
+        return "";
     }
 
     public void apply(Internship internship) {
@@ -38,7 +38,7 @@ public class Student {
     }
     
     public ArrayList<Internship> getListOfAppJobs() {
-
+        return listOfAppJobs;
     }
 
     public void giveRating(Rating Rating) {
@@ -46,6 +46,6 @@ public class Student {
     }
 
     public void editResume() {
-        
+
     }
 }
