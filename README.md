@@ -1,1 +1,0 @@
-# we-lit-garnet-internships
