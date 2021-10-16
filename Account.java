@@ -7,6 +7,7 @@ public class Account {
     private String name;
     private String username;
     private String password;
+    private String priviledge; //Account type (student, admin, business)
 
     public String getName() {
         return "";
@@ -19,4 +20,5 @@ public class Account {
     public String setPassword(String password) {
         return "";
     }
+
 }

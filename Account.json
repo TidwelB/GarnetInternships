@@ -1,0 +1,7 @@
+[
+{"name":"Luke Howe", "username":"LaHowe", "password":"12345","priviledge":"Student"},
+{"name":"Thomas Lloyd","username":"Talloyd","password":"12345","priviledge":"Student"},
+{"name":"Nathan Russell","username":"Nrr1","password":"12345","priviledge":"Student"},
+{"name":"Ben Tidwell", "username":"Tidwelb", "password":"12345","priviledge":"Student"},
+{"name":"Portia Plante","username":"portiaportia","password":"<3CompSci","priviledge":"Admin"}
+]
