@@ -41,7 +41,7 @@ public class Student {
         return listOfAppJobs;
     }
 
-    public void giveRating(Rating Rating) {
+    public void giveRating(Rating rating) {
 
     }
 
