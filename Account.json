@@ -1,7 +1,7 @@
 [
-{"name":"Luke Howe", "username":"LaHowe", "password":"12345","priviledge":"Student"},
-{"name":"Thomas Lloyd","username":"Talloyd","password":"12345","priviledge":"Student"},
-{"name":"Nathan Russell","username":"Nrr1","password":"12345","priviledge":"Student"},
-{"name":"Ben Tidwell", "username":"Tidwelb", "password":"12345","priviledge":"Student"},
-{"name":"Portia Plante","username":"portiaportia","password":"<3CompSci","priviledge":"Admin"}
+{"name":"Luke Howe", "username":"LaHowe", "password":"12345","priviledge":"Student","id":"a00001","privilegeSpecific":["lhowe@email.sc.edu","r00001",[5.0,"very nice"],["Java","Python","Git"],"2023",""]},
+{"name":"Thomas Lloyd","username":"Talloyd","password":"12345","priviledge":"Student","id": "a00002","privilegeSpecific":["talloyd@email.sc.edu","r00002",[5.0,"very nice"],["Java","Python","Git"],"2024",""]},
+{"name":"Nathan Russell","username":"Nrr1","password":"12345","priviledge":"Student","id": "a00003","privilegeSpecific":["nrr1@email.sc.edu","r00003",[5.0,"very nice"],["Java","Python","Git"],"2024",""]},
+{"name":"Ben Tidwell", "username":"Tidwelb", "password":"12345","priviledge":"Student","id": "a00004","privilegeSpecific":["tidwelb@email.sc.edu","r00004",[5.0,"very nice"],["Java","Python","Git"],"2023",""]},
+{"name":"Portia Plante","username":"portiaportia","password":"<3CompSci","priviledge":"Admin","id": "a00005","privilegeSpecific":[]}
 ]

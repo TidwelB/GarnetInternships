@@ -1,0 +1,6 @@
+[
+    {"id":"r00001","priorEd":["high school degree"],"awards":["dean's scholar"],"relatedExp":["we lit summer camp"],"commExp":["donated canned food"]},
+    {"id": "r00002","priorEd": ["high school degree"],"awards": ["dean's scholar"],"relatedExp": ["we lit summer camp"],"commExp": ["helped lady across street"]},
+    {"id": "r00003","priorEd": ["high school degree"],"awards": ["dean's scholar"],"relatedExp": ["we lit summer camp"],"commExp": ["soup kitchen"]},
+    {"id": "r00004","priorEd": ["high school degree"],"awards": ["dean's scholar"],"relatedExp": ["we lit summer camp"],"commExp": ["donated to orphanage"]}
+]
