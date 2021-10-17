@@ -16,4 +16,11 @@ public class DataConstants {
     protected static final String RESUME_AWARDS = "awards";
     protected static final String RESUME_RELATED_EXPERIENCE = "relatedExp";
     protected static final String RESUME_COMMUNITY_EXPERIENCE = "commExp";
+    protected static final String INTERNSHIP_ID = "id";
+    protected static final String INTERNSHIP_POSITION = "position";
+    protected static final String INTERNSHIP_REQUIRED_SKILLS = "required skills";
+    protected static final String INTERNSHIP_RECYEAR = "recYear";
+    protected static final String INTERNSHIP_PAYRATE = "payrate";
+    protected static final String INTERNSHIP_APPLICANTS = "applicants";
+    protected static final String INTERNSHIP_NUM_APPLICANTS = "numofApplicants";
 }
