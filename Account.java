@@ -1,13 +1,16 @@
 /**
  * @author We Lit Design Company
  */
-public class Account {
+public abstract class Account {
     
     //Create instance variables
     private String name;
     private String username;
     private String password;
-    private String priviledge; //Account type (student, admin, business)
+
+    public Account(String name, String username, String password) {
+
+    }
 
     public String getName() {
         return "";

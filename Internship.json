@@ -1,7 +1,7 @@
 [
-    {"id":"i00001","position":"Software Developer","required skills":"Java,Python,C++","recYear":" ", "payrate":"12","applicants":"","numofApplicants":"3"},
-    {"id":"i00002","position":"Web Developer","required skills":"JavaScript,Python,HTML","recYear":" ", "payrate":"10","applicants":"","numofApplicants":"1"},
-    {"id":"i00003","position":"Data Analyst","required skills":"R,C++,MATLAB","recYear":" ", "payrate":"15","applicants":"","numofApplicants":"12"},
-    {"id":"i00003","position":"Networking","required skills":"JavaScript,Java,Router Maintanance","recYear":" ", "payrate":"12","applicants":"","numofApplicants":"6"}
+    {"id":"i00001","position":"Software Developer","required skills":"Java,Python,C++","recYear":"sophomore", "payrate":"12","applicants":["a00002","a00004"],"numofApplicants":"2"},
+    {"id":"i00002","position":"Web Developer","required skills":"JavaScript,Python,HTML","recYear":"junior", "payrate":"10","applicants":["a00003"],"numofApplicants":"1"},
+    {"id":"i00003","position":"Data Analyst","required skills":"R,C++,MATLAB","recYear":"sophomore", "payrate":"15","applicants":["a00001","a00002","a00003"],"numofApplicants":"3"},
+    {"id":"i00004","position":"Networking","required skills":"JavaScript,Java,Router Maintanance","recYear":"junior", "payrate":"12","applicants":["a00001","a00003","a00004"],"numofApplicants":"3"}
 
 ]
