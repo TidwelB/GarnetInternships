@@ -7,7 +7,11 @@ public class DataWriter {
 
     }
 
-    public void saveRecipes() {
-        //Where is Recipes coming from?
+    public void saveResumes() {
+        
+    }
+
+    public void saveInternships() {
+        
     }
 }

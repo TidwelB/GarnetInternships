@@ -12,4 +12,8 @@ public class DataLoader {
     public ArrayList<Account> getAccounts() {
         return null;
     }
+
+    public ArrayList<Resume> getResumes() {
+        return null;
+    }
 }
