@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * @author We Lit Design Company
  */
-public class Student {
+public class Student extends Account{
 
     //Create instance variables
     private String email;
@@ -12,6 +12,10 @@ public class Student {
     private ArrayList<String> skills;
     private String gradYear;
     private ArrayList<Internship> listOfAppJobs;
+
+    public Student(String name, String username, String password, String email, Resume resume, Rating rating, ArrayList<String> skills, String gradYear, ArrayList<Internship> listOfAppJobs) {
+        super(name, username, password);
+    }
 
     public String getEmail() {
         return "";

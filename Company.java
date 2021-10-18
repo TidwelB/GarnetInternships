@@ -12,6 +12,10 @@ public class Company extends Account {
     private Rating rating;
     private ArrayList<Internship> availJobs;
 
+    public Company(String name, String username, String password, Rating rating, ArrayList<Internship> availJobs) {
+        super(name, username, password);
+    }
+
     public Rating getRating() {
         return rating;
     }

@@ -7,6 +7,10 @@ public class Rating {
     private double numValue;
     private String description;
 
+    public Rating(double numValue, String description) {
+
+    }
+
     public double getNumValue() {
         return 0.0;
     }

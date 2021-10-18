@@ -14,6 +14,10 @@ public class Internship {
     private ArrayList<Student> applicants;
     private int numOfApplicants;
 
+    public Internship(String position, ArrayList<String> requiredSkills, String recYear, String payrate, ArrayList<Student> applicants, int numOfApplicants) {
+
+    }
+
     public String getPosition() {
         return "";
     }

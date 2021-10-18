@@ -8,6 +8,10 @@ public class Professor extends Account {
     private String email;
     private String credentials;
 
+    public Professor(String name, String username, String password, String email, String credentials) {
+        super(name, username, password);
+    }
+
     public void giveRating() {
 
     }
