@@ -9,13 +9,13 @@ public class DataConstants {
     protected static final String ACCOUNT_PRIVILEGE = "privilege";
     protected static final String ACCOUNT_ID = "id";
     protected static final String PRIVILEGE_SPECIFIC = "privilegeSpecific";
-    protected static final String INTERNSHIP_FILE_NAME = "/Account.json";
     protected static final String RESUME_FILE_NAME = "/Account.json";
     protected static final String RESUME_ID = "id";
     protected static final String RESUME_PRIOR_EDUCATION = "priorEd";
     protected static final String RESUME_AWARDS = "awards";
     protected static final String RESUME_RELATED_EXPERIENCE = "relatedExp";
     protected static final String RESUME_COMMUNITY_EXPERIENCE = "commExp";
+    protected static final String INTERNSHIP_FILE_NAME = "/Account.json";
     protected static final String INTERNSHIP_ID = "id";
     protected static final String INTERNSHIP_POSITION = "position";
     protected static final String INTERNSHIP_REQUIRED_SKILLS = "required skills";
@@ -23,4 +23,5 @@ public class DataConstants {
     protected static final String INTERNSHIP_PAYRATE = "payrate";
     protected static final String INTERNSHIP_APPLICANTS = "applicants";
     protected static final String INTERNSHIP_NUM_APPLICANTS = "numofApplicants";
+    protected static final String APPLICATIONS_FILE_NAME = "/Applications.java";
 }

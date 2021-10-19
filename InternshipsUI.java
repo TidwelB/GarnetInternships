@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.UUID;
 /**
  * @author We Lit Design Company
  */
@@ -16,6 +16,7 @@ public class InternshipsUI {
     }
 
     public static void main(String[] args) {
+        System.out.println(UUID.randomUUID());
         InternshipsUI driver = new InternshipsUI();
         driver.run();
     }
