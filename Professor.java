@@ -14,7 +14,7 @@ public class Professor extends Account {
 
     public void giveRating() {
         System.out.println("Enter a rating from 0-5");
-       // Student.giveRating;
+       //Student.giveRating;
     }
 
     public String getEmail() {
