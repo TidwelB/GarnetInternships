@@ -18,7 +18,7 @@ public class Rating {
     }
 
     public String getDescription() {
-        return description;
+        return " ";
     }
     
 }
