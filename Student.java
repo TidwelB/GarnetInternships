@@ -61,7 +61,6 @@ public class Student extends Account{
 
         // ---------------------------------------------EDUCATION
         try{
-            boolean quitEd = false;
         
         System.out.println("Enter your school.");    
         String school = keyboard.nextLine();
