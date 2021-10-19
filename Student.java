@@ -9,15 +9,13 @@ public class Student extends Account{
     private String email;
     private Resume resume;
     private Rating rating;
-    private ArrayList<String> skills;
     private String gradYear;
     private ArrayList<Internship> listOfAppJobs;
 
-    public Student(String name, String username, String password, String email, Resume resume, Rating rating, ArrayList<String> skills, String gradYear, ArrayList<Internship> listOfAppJobs) {
+    public Student(String name, String username, String password, String email, Resume resume, Rating rating, String gradYear, ArrayList<Internship> listOfAppJobs) {
         super(name, username, password);
         this.email = email;
         this.resume = resume;
-        this.skills = skills;
         this.gradYear = gradYear;
         this.listOfAppJobs = listOfAppJobs;
     }
@@ -32,10 +30,6 @@ public class Student extends Account{
 
     public Rating getRating() {
         return this.rating;
-    }
-
-    public ArrayList<String> getSkills() {
-        return this.skills;
     }
 
     public String getGradYear() {

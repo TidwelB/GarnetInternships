@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * @author We Lit Design Company
  */
@@ -5,10 +7,10 @@ public class Rating {
 
     //Create instance variables
     private double numValue;
-    private String description;
+    private ArrayList<String> description;
 
     public Rating(double numValue, String description) {
-
+        
     }
 
     public double getNumValue() {
