@@ -8,17 +8,22 @@ public class Internship {
 
     //Create instance variables
     private String position;
+    private String description;
     private ArrayList<String> requiredSkills;
     private String recYear;
     private double payrate;
     private ArrayList<Student> applicants;
     private int numOfApplicants;
 
-    public Internship(String position, ArrayList<String> requiredSkills, String recYear, String payrate, ArrayList<Student> applicants, int numOfApplicants) {
+    public Internship(String position, String description, ArrayList<String> requiredSkills, String recYear, String payrate, ArrayList<Student> applicants, int numOfApplicants) {
 
     }
 
     public String getPosition() {
+        return "";
+    }
+
+    public String getDescription() {
         return "";
     }
 
