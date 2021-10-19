@@ -9,11 +9,10 @@ public class Student extends Account{
     private String email;
     private Resume resume;
     private Rating rating;
-    private ArrayList<String> skills;
     private String gradYear;
     private ArrayList<Internship> listOfAppJobs;
 
-    public Student(String name, String username, String password, String email, Resume resume, Rating rating, ArrayList<String> skills, String gradYear, ArrayList<Internship> listOfAppJobs) {
+    public Student(String name, String username, String password, String email, Resume resume, Rating rating, String gradYear, ArrayList<Internship> listOfAppJobs) {
         super(name, username, password);
     }
 
@@ -27,10 +26,6 @@ public class Student extends Account{
 
     public int getRating() {
         return 0;
-    }
-
-    public ArrayList<String> getSkills() {
-        return skills;
     }
 
     public String getGradYear() {

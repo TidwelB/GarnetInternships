@@ -12,6 +12,11 @@
         ],
         "commExp": [
             "donated canned food"
+        ],
+        "skills": [
+            "Java",
+            "Python",
+            "Git"
         ]
     },
     {
@@ -27,6 +32,11 @@
         ],
         "commExp": [
             "helped lady across street"
+        ],
+        "skills": [
+            "Java",
+            "Python",
+            "Git"
         ]
     },
     {
@@ -42,6 +52,11 @@
         ],
         "commExp": [
             "soup kitchen"
+        ],
+        "skills": [
+            "Java",
+            "Python",
+            "Git"
         ]
     },
     {
@@ -57,6 +72,11 @@
         ],
         "commExp": [
             "donated to orphanage"
+        ],
+        "skills": [
+            "Java",
+            "Python",
+            "Git"
         ]
     }
 ]
