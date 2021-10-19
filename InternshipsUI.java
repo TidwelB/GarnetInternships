@@ -31,7 +31,7 @@ public class InternshipsUI {
 
     private void displayMainMenu() {
         //NEEDS DATA FOR IF STUDENT, PROFESSOR, COMPANY, AND ADMINISTRATOR
-        if(/*STUDENT*/) {
+        if(application.getUser().getClass().getName() == "Student") {
             System.out.println("\nWelcome 'Student'!");
             System.out.println("--------Menu--------");
             System.out.println("1. Edit Profile \n2. Edit Resume \n3. Search Internships\n");
