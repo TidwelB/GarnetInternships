@@ -12,11 +12,11 @@ public class Rating {
     }
 
     public double getNumValue() {
-        return 0.0;
+        return numValue;
     }
 
     public String getDescription() {
-        return "";
+        return description;
     }
     
 }
