@@ -11,36 +11,43 @@ public class Internship {
     private String description;
     private ArrayList<String> requiredSkills;
     private String recYear;
-    private double payrate;
+    private String payrate;
     private ArrayList<Student> applicants;
     private int numOfApplicants;
 
     public Internship(String position, String description, ArrayList<String> requiredSkills, String recYear, String payrate, ArrayList<Student> applicants, int numOfApplicants) {
-
+        this.position = position;
+        this.description = description;
+        this.requiredSkills = requiredSkills;
+        requiredSkills = new ArrayList<String>();
+        this.recYear = recYear;
+        this.payrate = payrate;
+        applicants = new ArrayList<Student>();
+        this.numOfApplicants = numOfApplicants;
     }
 
     public String getPosition() {
-        return "";
+        return this.position;
     }
 
     public String getDescription() {
-        return "";
+        return this.description;
     }
 
     public ArrayList<String> getReqSkills() {
-        return requiredSkills;
+        return this.requiredSkills;
     }
 
     public String getRecYear() {
-        return "";
+        return this.recYear;
     }
 
-    public double getPayrate() {
-        return 0.0;
+    public String getPayrate() {
+        return this.payrate;
     }
 
     public ArrayList<Student> getApplicants() {
-        return applicants;
+        return this.applicants;
     }
 
 }
