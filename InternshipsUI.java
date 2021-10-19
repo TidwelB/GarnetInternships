@@ -9,13 +9,12 @@ public class InternshipsUI {
 
     public void run() {
         displayMainMenu();
-        
     }
 
     private void displayMainMenu() {
         System.out.println("Welcome to Garnet Internships!\n-----Log In-----\nNetwork Username:");
-
         
+
     }
 
     public static void main(String[] args) {
