@@ -14,6 +14,10 @@ public class GarnetInternships {
 
     }
 
+    public Account getUser() {
+        return user;
+    }
+
     public ArrayList<Internship> viewInternships() {
         return null;
     }

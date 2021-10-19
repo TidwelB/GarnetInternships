@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.UUID;
+
 /**
  * @author We Lit Design Company
  */
@@ -12,8 +13,8 @@ public class InternshipsUI {
         scanner = new Scanner(System.in);
         application = new GarnetInternships();
     }
+
     public void run() {
-<<<<<<< HEAD
         System.out.println(WELCOME);
         login();
         displayMainMenu();
@@ -51,18 +52,6 @@ public class InternshipsUI {
             System.out.println("1. Hide Rating \n2. Remove Internship \n3. Delete Account\n");
             System.out.println("What would you like to do?\n");
         }
-=======
-        displayMainMenu();
-    }
-
-    private void displayMainMenu() {
-        System.out.println("Welcome to Garnet Internships!\n-----Log In-----\nNetwork Username:");
-        
-<<<<<<< HEAD
-
-=======
->>>>>>> e11d051c897ddec64ebad5183025bcf4c6fad11c
->>>>>>> 6e5c34470ac41d908930cc1134093f0e928c5371
     }
 
     public static void main(String[] args) {
@@ -71,4 +60,3 @@ public class InternshipsUI {
         driver.run();
     }
 }
-
