@@ -1,26 +1,31 @@
 [
     {
         "studentId": "661c297b-7ef5-4d7d-bb29-e952c09625a1",
-        "applicationIds": [
-            ""
+        "internshipIds": [
+            "a54d9fa5-1136-4525-b268-026fd1cd7bfc",
+            "i00043fe4cbb-37aa-4269-8f9b-86cd6a16aaa603"
         ]
     },
     {
         "studentId": "40198ece-832d-4bf3-aaf1-69b36ce3e0cb",
-        "applicationIds": [
-            ""
+        "internshipIds": [
+            "ec52eae4-8c19-41c1-b618-a325571b6856",
+            "81efb768-f3fd-41d7-bf21-c1b23e548fa1"
         ]
     },
     {
         "studentId": "10e9c60e-8d84-4b69-b27b-44260db41a17",
-        "applicationIds": [
-            ""
+        "internshipIds": [
+            "a54d9fa5-1136-4525-b268-026fd1cd7bfc",
+            "ec52eae4-8c19-41c1-b618-a325571b6856",
+            "81efb768-f3fd-41d7-bf21-c1b23e548fa1"
         ]
     },
     {
         "studentId": "41af19ff-921d-43a0-87ed-56979dd554cf",
-        "applicationIds": [
-            ""
+        "internshipIds": [
+            "i00043fe4cbb-37aa-4269-8f9b-86cd6a16aaa603",
+            "81efb768-f3fd-41d7-bf21-c1b23e548fa1"
         ]
     }
 ]

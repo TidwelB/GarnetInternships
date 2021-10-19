@@ -21,7 +21,8 @@ public class DataConstants {
     protected static final String INTERNSHIP_REQUIRED_SKILLS = "required skills";
     protected static final String INTERNSHIP_RECYEAR = "recYear";
     protected static final String INTERNSHIP_PAYRATE = "payrate";
-    protected static final String INTERNSHIP_APPLICANTS = "applicants";
-    protected static final String INTERNSHIP_NUM_APPLICANTS = "numofApplicants";
+    protected static final String INTERNSHIP_DESCRIPTION = "description";
     protected static final String APPLICATIONS_FILE_NAME = "/Applications.java";
+    protected static final String APPLICATIONS_STUDENT_ID = "studentId";
+    protected static final String APPLICATIONS_INTERNSHIP_IDS = "intershipId";
 }
