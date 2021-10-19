@@ -12,10 +12,18 @@ public class Education {
 
     // Create constructor
     public Education(String school, String graduationDate, String location, String degree) {
-
+        this.school = school;
+        this.graduationDate = graduationDate;
+        this.location = location;
+        this.degree = degree;
     }
 
     public String toString() {
-        return "";
+        String education = "----Education----";
+        education += "\nSchool: "+school;
+        education += "\nGraduation Date: "+graduationDate;
+        education += "\nLocation: "+location;
+        education += "\nDegree: "+degree;
+        return education;
     }
 }

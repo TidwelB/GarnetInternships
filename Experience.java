@@ -15,12 +15,22 @@ public class Experience {
     private String endDate;
     private ArrayList<String> accomplishments;
 
-public Experience(String organization, String location, String position, String startDate, String endDate, ArrayList<String> accomplishments) {
+    public Experience(String organization, String location, String position, String startDate, String endDate, ArrayList<String> accomplishments) {
+        accomplishments = new ArrayList<String>();
+        this.organization = organization;
+        this.location = location;
+        this.position = position;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
-}
-
-public String toString() {
-    return "";
-}
-
+    public String toString() {
+        String experience = "----Experience----";
+        experience += "\nOrganization: "+organization;
+        experience += "\nLocation: "+location;
+        experience += "\nPosition: "+position;
+        experience += "\nDate: "+startDate+" - "+endDate;
+        experience += "\nAccomplishments: "+accomplishments;
+        return experience;
+    }
 }
