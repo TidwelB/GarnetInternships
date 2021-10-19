@@ -14,7 +14,7 @@ public class Resume {
     private ArrayList<String> skills;
 
     // Create constructor
-    public Resume() {
+    public Resume(ArrayList<Education> ed, ArrayList<String> awards, ArrayList<Experience> relatedExp, ArrayList<Experience> commExp, ArrayList<String> skills) {
         priorEd = new ArrayList<Education>();
         awards = new ArrayList<String>();
         relatedExp = new ArrayList<Experience>();
