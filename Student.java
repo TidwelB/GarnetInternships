@@ -15,34 +15,39 @@ public class Student extends Account{
 
     public Student(String name, String username, String password, String email, Resume resume, Rating rating, ArrayList<String> skills, String gradYear, ArrayList<Internship> listOfAppJobs) {
         super(name, username, password);
+        this.email = email;
+        this.resume = resume;
+        this.skills = skills;
+        this.gradYear = gradYear;
+        this.listOfAppJobs = listOfAppJobs;
     }
 
     public String getEmail() {
-        return "";
+        return this.email;
     }
 
     public Resume getResume() {
-        return resume;
+        return this.resume;
     }
 
-    public int getRating() {
-        return 0;
+    public Rating getRating() {
+        return this.rating;
     }
 
     public ArrayList<String> getSkills() {
-        return skills;
+        return this.skills;
     }
 
     public String getGradYear() {
-        return "";
+        return this.gradYear;
     }
 
     public void apply(Internship internship) {
-
+        
     }
     
     public ArrayList<Internship> getListOfAppJobs() {
-        return listOfAppJobs;
+        return this.listOfAppJobs;
     }
 
     public void giveRating(Rating rating) {
