@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.UUID;
+
 /**
  * @author We Lit Design Company
  */
@@ -12,6 +13,7 @@ public class InternshipsUI {
         scanner = new Scanner(System.in);
         application = new GarnetInternships();
     }
+
     public void run() {
         System.out.println(WELCOME);
         login();
@@ -58,4 +60,3 @@ public class InternshipsUI {
         driver.run();
     }
 }
-
