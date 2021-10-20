@@ -72,7 +72,14 @@ public class Student extends Account{
                             System.out.println("Wrong input.");
                         }
                         else if(userSubOption == 1) {
+                            System.out.println("Which entry would you like to remove?");
                             resume.getPriorEd().toString();
+                        }
+                        else if(userSubOption == 2) {
+                            System.out.println("Which entry would you like to add?");
+                        }
+                        else if(userSubOption == 3) {
+                            System.out.println("Which entry would you like to edit?");
                         }
                     }
                     else if(userOption == 2) {
