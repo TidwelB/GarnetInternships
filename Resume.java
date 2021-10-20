@@ -23,23 +23,27 @@ public class Resume {
     }
 
     public ArrayList<Education> getPriorEd() {
-        return null;
+        return this.priorEd;
     }
 
     public ArrayList<String> getAwards() {
-        return null;
+        return this.awards;
     }
 
     public ArrayList<Experience> getRelatedExp() {
-        return null;
+        return this.relatedExp;
     }
 
     public ArrayList<Experience> getCommExp() {
-        return null;
+        return this.commExp;
     }
 
     public ArrayList<String> getSkills() {
-        return null;
+        return this.skills;
+    }
+
+    public String toString() {
+        return "Your Resume:\n:"+priorEd.toString()+"Awards:\n"+awards.toString()+relatedExp.toString()+commExp.toString()+"Skills:\n"+skills.toString();
     }
 
 
