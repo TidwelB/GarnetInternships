@@ -50,13 +50,13 @@ public class InternshipsUI {
     }
 
     private void displayMainMenu() {
-        if(garnetInternships.getUser().getClass().getName().equals("Student")) {
+        if(garnetInternships.getUser().getType() == 0) {
             StudentUI.StudentMenu();
-        } else if(garnetInternships.getUser().getClass().getName().equals("Professor")) {
+        } else if(garnetInternships.getUser().getType() == 3) {
             ProfessorUI.ProfessorMenu();
-        } else if(garnetInternships.getUser().getClass().getName().equals("Company")) {
+        } else if(garnetInternships.getUser().getType() == 2) {
             CompanyUI.CompanyMenu();
-        } else if(garnetInternships.getUser().getClass().getName().equals("Admin")) {
+        } else if(garnetInternships.getUser().getType() == 1) {
             AdminUI.AdminMenu();
         }
 

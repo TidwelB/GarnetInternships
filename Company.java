@@ -35,4 +35,8 @@ public class Company extends Account {
     public void removeJob(Internship internship) {
 
     }
+
+    public int getType(){
+        return 2;
+    }
 }

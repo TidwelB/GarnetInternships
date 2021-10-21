@@ -33,4 +33,8 @@ public class Professor extends Account {
     public void searchStudent() {
         student = application.getUser().getClass().getName();
     }
+
+    public int getType(){
+        return 3;
+    }
 }

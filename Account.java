@@ -24,4 +24,6 @@ public abstract class Account {
         return "";
     }
 
+    public abstract int getType();
+
 }
