@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * 
@@ -14,6 +15,7 @@ public class Internship {
     private String payrate;
     private ArrayList<Student> applicants;
     private int numOfApplicants;
+    private UUID id;
 
     public Internship(String position, String description, ArrayList<String> requiredSkills, String recYear, String payrate, ArrayList<Student> applicants, int numOfApplicants) {
         this.position = position;
