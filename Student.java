@@ -42,7 +42,7 @@ public class Student extends Account{
     }
 
     public void apply(Internship internship) {
-        
+        listOfAppJobs.add(internship);
     }
     
     public ArrayList<Internship> getListOfAppJobs() {
