@@ -13,11 +13,20 @@ public class InternshipsUI {
         application = new GarnetInternships();
     }
     public void run() {
-<<<<<<< HEAD
         System.out.println(WELCOME);
         login();
-        displayMainMenu();
-
+        while(true) {
+            displayMainMenu();
+            int userInput = scanner.nextInt();
+            scanner.nextLine();
+            switch(userInput) {
+                case(0):
+                    //Edit Profile
+                    break;
+                 case(1):
+                    //
+            }
+        }
     }
 
     private void login() {
@@ -51,16 +60,6 @@ public class InternshipsUI {
             System.out.println("1. Hide Rating \n2. Remove Internship \n3. Delete Account\n");
             System.out.println("What would you like to do?\n");
         }
-=======
-        displayMainMenu();
-        
-    }
-
-    private void displayMainMenu() {
-        System.out.println("Welcome to Garnet Internships!\n-----Log In-----\nNetwork Username:");
-
-        
->>>>>>> e11d051c897ddec64ebad5183025bcf4c6fad11c
     }
 
     public static void main(String[] args) {
