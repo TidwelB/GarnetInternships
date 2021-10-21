@@ -52,12 +52,6 @@ public class InternshipsUI {
             AdminUI.AdminMenu();
             AdminUI.AdminMenuChoice();
         }
-<<<<<<< HEAD
-=======
-
-        displayMainMenu();
-        
->>>>>>> 680db4bf51058045c1515fb3a505cc5b3427e354
     }
 
     public static void main(String[] args) {
