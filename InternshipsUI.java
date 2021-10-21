@@ -17,8 +17,18 @@ public class InternshipsUI {
     public void run() {
         System.out.println(WELCOME);
         login();
-        displayMainMenu();
-
+        while(true) {
+            displayMainMenu();
+            int userInput = scanner.nextInt();
+            scanner.nextLine();
+            switch(userInput) {
+                case(0):
+                    //Edit Profile
+                    break;
+                 case(1):
+                    //
+            }
+        }
     }
 
     private void login() {
@@ -52,17 +62,6 @@ public class InternshipsUI {
             System.out.println("1. Hide Rating \n2. Remove Internship \n3. Delete Account\n");
             System.out.println("What would you like to do?\n");
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        displayMainMenu();
-        
-=======
->>>>>>> 673066503ddc73d5a944895cf43d1866dfc1de89
->>>>>>> 037368f61c4fec9f1fd1151d0139d8c6023c681b
-=======
->>>>>>> 11cb4edc0feaeb89e525f8c867e7ba9d709478f0
     }
 
     public static void main(String[] args) {
