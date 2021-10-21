@@ -59,6 +59,9 @@ public class InternshipsUI {
         } else if(garnetInternships.getUser().getClass().getName().equals("Admin")) {
             AdminUI.AdminMenu();
         }
+
+        displayMainMenu();
+        
     }
 
     public static void main(String[] args) {

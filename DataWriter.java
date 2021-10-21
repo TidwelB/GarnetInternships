@@ -16,7 +16,7 @@ public class DataWriter extends DataConstants {
         JSONArray AccountJSON = new JSONArray();
 
     for(int i=0; i< AccountJSON.size(); i++) {
-        JSONArray AccountJSON.add(getAccountJSON(accounts.get(i)));
+        AccountJSON.add(getAccountJSON(accounts.get(i)));
     }
 
     try (FileWriter file = new FileWriter(ACCOUNT_FILE_NAME)){
@@ -30,10 +30,28 @@ public class DataWriter extends DataConstants {
     }
 
     public void saveResumes() {
-        
+        ResumeList resumeList = ResumeList.getInstance();
+        ArrayList<Resume> resumes = resumeList.getResumes();
+        JSONArray ResumeJSON = new JSONArray();
+
+    for(int i=0; i< ResumeJSON.size(); i++) {
+        ResumeJSON.add(getResumeJSON(resumes.get(i)));
+    }
+
+    try (FileWriter file = new FileWriter(RESUME_FILE_NAME)) {
+        file.write(ResumeJSON.toJSONString());
+        file.flush();
+    }
     }
 
     public void saveInternships() {
-        
+        InternshipList internshipList = InternshipList.getInstance();
+        ArrayList<Internship> internships = internshipList.getInternships();
+        JSONArray InternshipJSON = new JSONArray();
+
+    for(int i = 0; i < InternshipJSON.size(); i++) {
+        InternshipJSON.add(getInternshipJSON(internships.get(i)));
+    }
+
     }
 }
