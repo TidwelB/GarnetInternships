@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 /**
  * @author We Lit Design Company
  */
@@ -8,8 +10,8 @@ public class Admin extends Account {
     private String email;
     private String credentials;
 
-    public Admin(String name, String username, String password) {
-        super(name, username, password);
+    public Admin(String name, String username, String password, UUID id) {
+        super(name, username, password, id);
     }
 
     public void giveRating() {

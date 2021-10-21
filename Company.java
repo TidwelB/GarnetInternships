@@ -4,6 +4,7 @@
 
  // Import packages
  import java.util.ArrayList;
+import java.util.UUID;
 
 public class Company extends Account {
     
@@ -12,8 +13,8 @@ public class Company extends Account {
     private Rating rating;
     private ArrayList<Internship> availJobs;
 
-    public Company(String name, String username, String password, Rating rating, ArrayList<Internship> availJobs) {
-        super(name, username, password);
+    public Company(String name, String username, String password, Rating rating, ArrayList<Internship> availJobs, UUID id) {
+        super(name, username, password, id);
     }
 
     public Rating getRating() {
