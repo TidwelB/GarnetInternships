@@ -6,7 +6,7 @@
  import java.io.IOException;
  import java.util.ArrayList;
  import org.json.simple.JSONArray;
- import org.json.simpleJSONObject;
+ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
     
@@ -16,7 +16,7 @@ public class DataWriter extends DataConstants {
         JSONArray AccountJSON = new JSONArray();
 
     for(int i=0; i< AccountJSON.size(); i++) {
-        JSONArray AccountJSON.add(getAccountJSON(accounts.get(i)));
+        AccountJSON.add(getAccountJSON(accounts.get(i)));
     }
 
     try (FileWriter file = new FileWriter(ACCOUNT_FILE_NAME)){

@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 /**
  * @author We Lit Design Company
  */
@@ -7,8 +9,9 @@ public abstract class Account {
     private String name;
     private String username;
     private String password;
+    private UUID id;
 
-    public Account(String name, String username, String password) {
+    public Account(String name, String username, String password, UUID id) {
 
     }
 
