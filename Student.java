@@ -53,6 +53,10 @@ public class Student extends Account{
 
     }
 
+    public int getType() {
+        return 0;
+    }
+
     public void editResume() {
         boolean quitEdit = false;
         while(!quitEdit)

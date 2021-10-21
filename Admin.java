@@ -35,4 +35,8 @@ public class Admin extends Account {
     public void deleteAccount(Account account) {
         account = null;
     }
+
+    public int getType(){
+        return 1;
+    }
 }
