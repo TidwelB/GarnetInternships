@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 /**
  * @author We Lit Design Company
  */
@@ -12,6 +13,10 @@ public class GarnetInternships {
 
     public GarnetInternships() {
 
+    }
+
+    public Account getUser() {
+        return user;
     }
 
     public ArrayList<Internship> viewInternships() {

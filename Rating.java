@@ -17,8 +17,8 @@ public class Rating {
         return numValue;
     }
 
-    public String getDescription() {
-        return " ";
+    public ArrayList<String> getDescription() {
+        return description;
     }
     
 }

@@ -13,8 +13,12 @@ public class AccountList {
         
     }
 
-    public AccountList getInstance() {
+    public static AccountList getInstance() {
         return null;
+    }
+
+    public ArrayList<Account> getAccounts() {
+        return accounts;
     }
 
     public Account getAccount(String username) {
