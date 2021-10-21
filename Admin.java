@@ -23,4 +23,8 @@ public class Admin extends Account {
     public String getCredentials() {
         return "";
     }
+
+    public int getType(){
+        return 1;
+    }
 }

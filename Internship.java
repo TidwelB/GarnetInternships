@@ -51,7 +51,8 @@ public class Internship {
     }
 
     public void addToApplicants(Student student) {
-        
+        applicants.add(student);
+        numOfApplicants++;
     }
 
 }
