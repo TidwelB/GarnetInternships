@@ -31,22 +31,22 @@ public class InternshipsUI {
 
     private void displayMainMenu() {
         //NEEDS DATA FOR IF STUDENT, PROFESSOR, COMPANY, AND ADMINISTRATOR
-        if(garnetInternships.getUser().getClass().getName() == "Student") {
+        if(garnetInternships.getUser().getClass().getName().equals("Student")) {
             System.out.println("\nWelcome 'Student'!");
             System.out.println("--------Menu--------");
             System.out.println("1. Edit Profile \n2. Edit Resume \n3. Search Internships\n");
             System.out.println("What would you like to do?\n");
-        } else if(garnetInternships.getUser().getClass().getName() == "Professor") {
+        } else if(garnetInternships.getUser().getClass().getName().equals("Professor")) {
             System.out.println("\nWelcome Professor!");
             System.out.println("--------Menu--------");
             System.out.println("1. Edit Profile \n2. Give a Rating\n");
             System.out.println("What would you like to do?\n");
-        } else if(garnetInternships.getUser().getClass().getName() == "Company") {
+        } else if(garnetInternships.getUser().getClass().getName().equals("Company")) {
             System.out.println("\nWelcome 'Company'!");
             System.out.println("--------Menu--------");
             System.out.println("1. Edit Profile \n2. Post Internship \n3. Give a Rating\n");
             System.out.println("What would you like to do?\n");
-        } else if(garnetInternships.getUser().getClass().getName() == "Admin") {
+        } else if(garnetInternships.getUser().getClass().getName().equals("Admin")) {
             System.out.println("\nWelcome Administrator!");
             System.out.println("--------Menu--------");
             System.out.println("1. Hide Rating \n2. Remove Internship \n3. Delete Account\n");
