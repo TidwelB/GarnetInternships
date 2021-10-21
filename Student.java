@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.UUID;
 
 /**
  * @author We Lit Design Company
@@ -17,8 +18,8 @@ public class Student extends Account{
     private String gradYear;
     private ArrayList<Internship> listOfAppJobs;
 
-    public Student(String name, String username, String password, String email, Resume resume, Rating rating, String gradYear, ArrayList<Internship> listOfAppJobs) {
-        super(name, username, password);
+    public Student(String name, String username, String password, String email, Resume resume, Rating rating, String gradYear, ArrayList<Internship> listOfAppJobs, UUID id) {
+        super(name, username, password, id);
         this.email = email;
         this.resume = resume;
         this.gradYear = gradYear;

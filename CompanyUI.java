@@ -1,12 +1,15 @@
+import java.util.Scanner;
+
 /**
  * @author We Lit Design Company
  */
 public class CompanyUI {
 
+    private static Scanner scanner;
     private static final String QUESTION = "What would you like to do?\n";
 
     public CompanyUI() {
-        
+        scanner = new Scanner(System.in);
     }
     
     public static String CompanyMenu() {
@@ -16,6 +19,21 @@ public class CompanyUI {
         companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n";
         companyMenu += QUESTION;
         return companyMenu;
+    }
+
+    public static void CompanyMenuChoice() {
+        int menuChoice = scanner.nextInt();
+        scanner.nextLine();
+        if(menuChoice == 1) {
+            CompanyProfile();
+        } else if(menuChoice == 2) {
+            PostInternship();
+        } else if(menuChoice == 3) {
+            CompanyRating();
+        } else {
+            System.out.println("Not a valid option");
+            CompanyMenuChoice();
+        }
     }
 
     public static String CompanyProfile() {
