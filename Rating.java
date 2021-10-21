@@ -20,5 +20,9 @@ public class Rating {
     public ArrayList<String> getDescription() {
         return description;
     }
+
+    public String toString() {
+        return "Number Value: "+numValue+"\nDescription: "+description;
+    }
     
 }

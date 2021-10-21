@@ -57,4 +57,8 @@ public class Internship {
         numOfApplicants++;
     }
 
+    public String toString() {
+        return "Position: "+position+"\nDescription: "+description+"\nRequired Skills: "+requiredSkills+"\nRecYear: "+recYear+"\nPayrate: "+payrate+"\nApplicants: "+applicants+"\nNumber of Applicants: "+numOfApplicants;
+    }
+
 }
