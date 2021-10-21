@@ -6,18 +6,24 @@ import java.util.ArrayList;
 public class InternshipList {
 
     //Create instance variables
-    private InternshipList internshipList;
+    private static InternshipList internshipList;
     private ArrayList<Internship> internships;
-    
-    private InternshipList() {
 
+    private InternshipList() {
+        
     }
 
-    public Internship getInstance() {
+    public static InternshipList getInstance() {
         return null;
     }
 
-    public ArrayList<Internship> getInternships(String keyword) {
+    public ArrayList<Internship> getInternships() {
         return internships;
     }
+
+    public Resume getInternship(String username) {
+        return null;
+    }
 }
+
+
