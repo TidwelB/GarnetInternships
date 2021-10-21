@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 /**
  * @author We Lit Design Company
  */
@@ -13,8 +15,8 @@ public class Professor extends Account {
     
     
 
-    public Professor(String name, String username, String password, String email, String credentials) {
-        super(name, username, password);
+    public Professor(String name, String username, String password, String email, String credentials, UUID id) {
+        super(name, username, password, id);
     }
 
     public void giveRating() {
