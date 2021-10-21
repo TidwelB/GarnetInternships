@@ -19,7 +19,8 @@ public class Professor extends Account {
 
     public void giveRating() {
         System.out.println("Enter a rating from 0-5");
-      Student.giveRating(rating);
+        Rating student = Student.getRating();
+
     }
 
     public String getEmail() {
@@ -32,5 +33,9 @@ public class Professor extends Account {
 
     public void searchStudent() {
         student = application.getUser().getClass().getName();
+    }
+
+    public int getType(){
+        return 3;
     }
 }

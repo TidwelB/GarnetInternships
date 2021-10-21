@@ -52,4 +52,9 @@ public class Internship {
         return this.applicants;
     }
 
+    public void addToApplicants(Student student) {
+        applicants.add(student);
+        numOfApplicants++;
+    }
+
 }
