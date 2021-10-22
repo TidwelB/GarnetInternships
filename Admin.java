@@ -19,11 +19,23 @@ public class Admin extends Account {
     }
 
     public String getEmail() {
-        return "";
+        return email;
     }
 
     public String getCredentials() {
-        return "";
+        return credentials;
+    }
+
+    public void removeRating(Rating rating) {
+        rating = null;
+    }
+
+    public void deleteInternship(Internship internship) {
+        internship = null;
+    }
+
+    public void deleteAccount(Account account) {
+        account = null;
     }
 
     public int getType(){

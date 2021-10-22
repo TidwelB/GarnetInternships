@@ -16,17 +16,21 @@ public abstract class Account {
     }
 
     public String getName() {
-        return "";
+        return this.name;
     }
 
     public String getUsername() {
-        return "";
+        return this.username;
     }
 
-    public String setPassword(String password) {
-        return "";
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public abstract int getType();
+
+    public String toString() {
+        return "Account Name: "+name+"\nUsername: "+username;
+    }
 
 }
