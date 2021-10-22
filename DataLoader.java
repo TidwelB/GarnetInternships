@@ -23,6 +23,8 @@ public class DataLoader extends DataConstants{
             JSONParser parser = new JSONParser();
             JSONArray accountsJSON = (JSONArray) new JSONParser().parse(reader);
 
+            ArrayList<Resume> resumes = getResumes();
+
             for (int i = 0; i < accountsJSON.size(); i++) {
                 JSONObject accountJSON = (JSONObject) accountsJSON.get(i);
 
@@ -30,9 +32,16 @@ public class DataLoader extends DataConstants{
                 String username = (String) accountJSON.get(ACCOUNT_USER_NAME);
                 String password = (String) accountJSON.get(ACCOUNT_PASSWORD);
                 UUID id = UUID.fromString((String) accountJSON.get(ACCOUNT_ID));
+                JSONArray privilegeSpecificJSON = (JSONArray) accountJSON.get(ACCOUNT_PRIVILEGE_SPECIFIC);
+                String email = (String) privilegeSpecificJSON.get(0);
+                for (Resume resume : resumes) {
+                    if (privilegeSpecificJSON.get(1) == resume.getId()) {
+                        //Turn this into helper method for students only, called in constuction, returns am account
+                    }
+                }
 
                 if (accountJSON.get(ACCOUNT_PRIVILEGE).equals("Student")) {
-                    // accounts.add(new Student(name, username, password, id));
+                    accounts.add(new Student(name, username, password, email, null, null, password, accountsJSON, id));
                 }
 
             }
@@ -45,7 +54,15 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
-    public static ArrayList<Resume> getResumes() {
+    private ArrayList<Account> setAccountApplications(ArrayList<Account> accounts) {
+        return null;
+    }
+
+    private ArrayList<Internship> setInernshipApplications(ArrayList<Internship> internships) {
+        return null;
+    }
+
+    private static ArrayList<Resume> getResumes() {
         ArrayList<Resume> resumes = new ArrayList<Resume>();
 
         try {
