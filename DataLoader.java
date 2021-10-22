@@ -23,7 +23,7 @@ public class DataLoader extends DataConstants{
             JSONParser parser = new JSONParser();
             JSONArray accountsJSON = (JSONArray) new JSONParser().parse(reader);
 
-            ArrayList<Resume> resumes = getResumes();
+            //ArrayList<Resume> resumes = getResumes();
 
             for (int i = 0; i < accountsJSON.size(); i++) {
                 JSONObject accountJSON = (JSONObject) accountsJSON.get(i);
@@ -33,15 +33,17 @@ public class DataLoader extends DataConstants{
                 String password = (String) accountJSON.get(ACCOUNT_PASSWORD);
                 UUID id = UUID.fromString((String) accountJSON.get(ACCOUNT_ID));
                 JSONArray privilegeSpecificJSON = (JSONArray) accountJSON.get(ACCOUNT_PRIVILEGE_SPECIFIC);
-                String email = (String) privilegeSpecificJSON.get(0);
-                for (Resume resume : resumes) {
-                    if (privilegeSpecificJSON.get(1) == resume.getId()) {
-                        //Turn this into helper method for students only, called in constuction, returns am account
-                    }
-                }
+                
+
 
                 if (accountJSON.get(ACCOUNT_PRIVILEGE).equals("Student")) {
-                    accounts.add(new Student(name, username, password, email, null, null, password, accountsJSON, id));
+                    accounts.add(makeStudent(name, username, password, id, privilegeSpecificJSON));
+                } else if (accountJSON.get(ACCOUNT_PRIVILEGE).equals("Company")) {
+                    accounts.add(makeCompany(name, username, password, id, privilegeSpecificJSON));
+                } else if (accountJSON.get(ACCOUNT_PRIVILEGE).equals("Professor")) {
+                    accounts.add(makeProfessor(name, username, password, id, privilegeSpecificJSON));
+                } else if (accountJSON.get(ACCOUNT_PRIVILEGE).equals("Admin")) {
+                    accounts.add(new Admin(name, username, password, id));
                 }
 
             }
@@ -58,11 +60,48 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
-    private ArrayList<Internship> setInernshipApplications(ArrayList<Internship> internships) {
+    private ArrayList<Internship> setInternshipApplications(ArrayList<Internship> internships) {
         return null;
     }
 
-    private static ArrayList<Resume> getResumes() {
+    private static Account makeProfessor(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
+        String email = (String)privilegeSpecificJSON.get(0);
+        String credentials = (String)privilegeSpecificJSON.get(1);
+        return new Professor(name, username, password, email, credentials, id);
+    }
+
+    private static Account makeCompany(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
+        JSONArray ratingJSON = (JSONArray) privilegeSpecificJSON.get(0);
+        JSONArray descriptionsJSON = (JSONArray) ratingJSON.get(1);
+        ArrayList<String> descriptions = new ArrayList<String>();
+        for (Object description : descriptionsJSON) {
+            descriptions.add((String) description);
+        }
+        Rating rating = new Rating((double) ratingJSON.get(0), descriptions);
+        return new Company(name, username, password, rating, null, id);
+    }
+
+    private static Account makeStudent(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
+        String email = (String)privilegeSpecificJSON.get(0);
+        ArrayList<Resume> resumes = ResumeList.getInstance().getResumes();
+        Resume resume = null;
+        for (int i = 0; i < resumes.size(); i++) {
+            if (privilegeSpecificJSON.get(1) == id) {
+                resume = resumes.get(i);
+            }
+        }
+        JSONArray ratingJSON = (JSONArray)privilegeSpecificJSON.get(2);
+        JSONArray descriptionsJSON = (JSONArray) ratingJSON.get(1);
+        ArrayList<String> descriptions = new ArrayList<String>();
+        for (Object description : descriptionsJSON) {
+            descriptions.add((String)description);
+        }
+        Rating rating = new Rating((double)ratingJSON.get(0), descriptions);
+        String gradYear = (String)privilegeSpecificJSON.get(3);
+        return new Student(name, username, password, email, resume, rating, gradYear, null, id);
+    }
+
+    public static ArrayList<Resume> getResumes() {
         ArrayList<Resume> resumes = new ArrayList<Resume>();
 
         try {

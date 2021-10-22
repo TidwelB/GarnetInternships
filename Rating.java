@@ -9,8 +9,9 @@ public class Rating {
     private double numValue;
     private ArrayList<String> description;
 
-    public Rating(double numValue, String description) {
-        
+    public Rating(double numValue, ArrayList<String> description) {
+        this.numValue = numValue;
+        this.description = description;
     }
 
     public double getNumValue() {

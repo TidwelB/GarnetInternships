@@ -7,8 +7,8 @@ import java.util.UUID;
 public class Admin extends Account {
 
     // Create instance variables
-    private String email;
-    private String credentials;
+    // private String email;
+    // private String credentials;
 
     public Admin(String name, String username, String password, UUID id) {
         super(name, username, password, id);
@@ -18,13 +18,13 @@ public class Admin extends Account {
 
     }
 
-    public String getEmail() {
-        return email;
-    }
+    // public String getEmail() {
+    //     return email;
+    // }
 
-    public String getCredentials() {
-        return credentials;
-    }
+    // public String getCredentials() {
+    //     return credentials;
+    // }
 
     public void removeRating(Rating rating) {
         rating = null;

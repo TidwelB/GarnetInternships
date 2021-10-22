@@ -8,7 +8,7 @@ public class DataConstants {
     protected static final String ACCOUNT_PASSWORD = "passord";
     protected static final String ACCOUNT_PRIVILEGE = "privilege";
     protected static final String ACCOUNT_ID = "id";
-    protected static final String PRIVILEGE_SPECIFIC = "privilegeSpecific";
+    protected static final String ACCOUNT_PRIVILEGE_SPECIFIC = "privilegeSpecific";
     protected static final String RESUME_FILE_NAME = "./Resumes.json";
     protected static final String RESUME_ID = "id";
     protected static final String RESUME_PRIOR_EDUCATION = "priorEd";

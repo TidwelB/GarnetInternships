@@ -12,9 +12,13 @@ public class Company extends Account {
     // Create instance variables
     private Rating rating;
     private ArrayList<Internship> availJobs;
+    private UUID id;
 
     public Company(String name, String username, String password, Rating rating, ArrayList<Internship> availJobs, UUID id) {
         super(name, username, password, id);
+        this.rating = rating;
+        this.availJobs = availJobs;
+        this.id = id;
     }
 
     public Rating getRating() {

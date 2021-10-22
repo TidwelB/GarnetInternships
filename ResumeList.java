@@ -6,12 +6,16 @@ public class ResumeList {
     private static ResumeList resumeList;
     private ArrayList<Resume> resumes;
 
-    private ResumeList() {
-        
+    private ResumeList(ArrayList<Resume> resumes) {
+        this.resumes = resumes;
+        resumeList = this;
     }
 
     public static ResumeList getInstance() {
-        return null;
+        if (resumeList == null) {
+            return new ResumeList(DataLoader.getResumes());
+        }
+        return resumeList;
     }
 
     public ArrayList<Resume> getResumes() {

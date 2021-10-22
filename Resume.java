@@ -53,6 +53,10 @@ public class Resume {
         return this.skills;
     }
 
+    public UUID getId() {
+        return this.id;
+    }
+
     public String toString() {
         return "Your Resume:\n:"+priorEd.toString()+"Awards:\n"+awards.toString()+relatedExp.toString()+commExp.toString()+"Skills:\n"+skills.toString();
     }
