@@ -11,7 +11,41 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants{
     
     public static ArrayList<Internship> getInternships() {
-        
+        ArrayList<Internship> internships = new ArrayList<Internship>();
+
+        try {
+            FileReader reader = new FileReader(INTERNSHIP_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray internshipsJSON = (JSONArray) new JSONParser().parse(reader);
+
+            for (int i = 0; i < internshipsJSON.size(); i++) {
+                JSONObject internshipJSON = (JSONObject) internshipsJSON.get(i);
+
+                UUID id = UUID.fromString((String) internshipJSON.get(INTERNSHIP_ID));
+                String position = (String)internshipJSON.get(INTERNSHIP_POSITION);
+
+                ArrayList<String> requiredSkills = new ArrayList<String>();
+                JSONArray requiredSkillsJSON = (JSONArray) internshipJSON.get(INTERNSHIP_REQUIRED_SKILLS);
+                for (int j = 0; j < requiredSkillsJSON.size(); j++) {
+                    requiredSkills.add((String) requiredSkillsJSON.get(j));
+                }
+
+                String recYear = (String)internshipJSON.get(INTERNSHIP_RECYEAR);
+                Double payrate = (Double)internshipJSON.get(INTERNSHIP_PAYRATE);
+                int numOfApplicants = 0;
+                String description = (String)internshipJSON.get(INTERNSHIP_DESCRIPTION);
+                
+                internships.add(new Internship(position, description, requiredSkills, recYear, payrate, null, numOfApplicants, id));
+
+            }
+
+            reader.close();
+            return internships;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -152,7 +186,7 @@ public class DataLoader extends DataConstants{
                 ArrayList<Experience> commExps = new ArrayList<Experience>();
                 JSONArray commExpsJSON = (JSONArray) resumeJSON.get(RESUME_COMMUNITY_EXPERIENCE);
                 for (int j = 0; j < commExpsJSON.size(); j++) {
-                    JSONArray commExpJSON = (JSONArray) commExpsJSON.get(j);
+                    JSONArray commExpJSON = (JSONArray)commExpsJSON.get(j);
                     JSONArray accomsJSON = (JSONArray) commExpJSON.get(5);
                     ArrayList<String> accoms = new ArrayList<String>();
                     for (Object accomJSON : accomsJSON)

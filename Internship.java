@@ -12,20 +12,21 @@ public class Internship {
     private String description;
     private ArrayList<String> requiredSkills;
     private String recYear;
-    private String payrate;
+    private Double payrate;
     private ArrayList<Student> applicants;
     private int numOfApplicants;
     private UUID id;
 
-    public Internship(String position, String description, ArrayList<String> requiredSkills, String recYear, String payrate, ArrayList<Student> applicants, int numOfApplicants) {
+    public Internship(String position, String description, ArrayList<String> requiredSkills, String recYear, Double payrate, ArrayList<Student> applicants, int numOfApplicants, UUID id) {
         this.position = position;
         this.description = description;
         this.requiredSkills = requiredSkills;
-        requiredSkills = new ArrayList<String>();
+        this.requiredSkills = requiredSkills;
         this.recYear = recYear;
         this.payrate = payrate;
-        applicants = new ArrayList<Student>();
+        this.applicants = applicants;
         this.numOfApplicants = numOfApplicants;
+        this.id = id;
     }
 
     public String getPosition() {
@@ -44,7 +45,7 @@ public class Internship {
         return this.recYear;
     }
 
-    public String getPayrate() {
+    public Double getPayrate() {
         return this.payrate;
     }
 

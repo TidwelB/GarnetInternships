@@ -24,7 +24,7 @@ public class Resume {
         skills = new ArrayList<String>();
     }
 
-    public Resume(ArrayList<Education> educations, ArrayList<String> awards, ArrayList<Experience> relatedExp, ArrayList<Experience> commExp, ArrayList<String> skills, UUID id) {
+    public Resume(ArrayList<Education> priorEd, ArrayList<String> awards, ArrayList<Experience> relatedExp, ArrayList<Experience> commExp, ArrayList<String> skills, UUID id) {
         this.priorEd = priorEd;
         this.awards = awards;
         this.relatedExp = relatedExp;
@@ -58,7 +58,27 @@ public class Resume {
     }
 
     public String toString() {
-        return "Your Resume:\n:"+priorEd.toString()+"Awards:\n"+awards.toString()+relatedExp.toString()+commExp.toString()+"Skills:\n"+skills.toString();
+        String ret = "Your Resume:\nPrior Education:\n";
+        for(Education education : priorEd) {
+            ret += education.toString();
+        }
+        ret += "\nAwards\n";
+        for(String award : awards) {
+            ret += (award + "\n");
+        }
+        ret += "\nRelated Experiences\n";
+        for (Experience exp : relatedExp) {
+            ret += exp.toString();
+        }
+        ret += "\nCommunity Experiences\n";
+        for (Experience exp : commExp) {
+            ret += exp.toString();
+        }
+        for (String skill : skills) {
+            ret += (skill + "\n");
+        }
+        return ret;
+        //return "Your Resume:\n:"+priorEd.toString()+"Awards:\n"+awards.toString()+relatedExp.toString()+commExp.toString()+"Skills:\n"+skills.toString();
     }
 
 
