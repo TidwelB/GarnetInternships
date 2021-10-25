@@ -41,6 +41,8 @@ public class DataWriter extends DataConstants {
     try (FileWriter file = new FileWriter(RESUME_FILE_NAME)) {
         file.write(ResumeJSON.toJSONString());
         file.flush();
+    } catch (Exception e) {
+        e.printStackTrace();
     }
     }
 
@@ -55,7 +57,11 @@ public class DataWriter extends DataConstants {
         try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
             file.write(InternshipJSON.toJSONString());
             file.flush();
+    } catch (Exception e) {
+        e.printStackTrace();
     }
 
-    }
 }
+}
+}
+

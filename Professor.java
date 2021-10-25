@@ -37,9 +37,6 @@ public class Professor extends Account {
     }
 
     public void searchStudent() {
-<<<<<<< HEAD
-        //student = application.getUser().getClass().getName();
-=======
         
         System.out.println("Enter the name of a student");
         String search = scanner.nextLine();
@@ -47,7 +44,6 @@ public class Professor extends Account {
         // for (search = user) instance of user
 
         student = garnetInternships.getUser();
->>>>>>> 225bd31b0e774287da793ff4b431a46eef1004c7
     }
 
     public int getType(){
