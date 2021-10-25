@@ -1,4 +1,5 @@
 import java.util.UUID;
+import java.util.Scanner;
 
 /**
  * @author We Lit Design Company
@@ -12,6 +13,7 @@ public class Professor extends Account {
     private GarnetInternships garnetInternships;
      private Account student;
     private Rating rating;
+    private Scanner scanner;
     
     
 
@@ -35,6 +37,12 @@ public class Professor extends Account {
     }
 
     public void searchStudent() {
+        
+        System.out.println("Enter the name of a student");
+        String search = scanner.nextLine();
+
+        // for (search = user) instance of user
+
         student = garnetInternships.getUser();
     }
 
