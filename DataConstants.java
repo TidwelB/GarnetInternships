@@ -2,7 +2,7 @@
  * @author We Lit Design Company
  */
 public class DataConstants {
-    protected static final String ACCOUNT_FILE_NAME = "/Accounts.json";
+    protected static final String ACCOUNT_FILE_NAME = "./Account.json";
     protected static final String ACCOUNT_NAME = "name";
     protected static final String ACCOUNT_USER_NAME = "username";
     protected static final String ACCOUNT_PASSWORD = "passord";
@@ -16,14 +16,14 @@ public class DataConstants {
     protected static final String RESUME_RELATED_EXPERIENCE = "relatedExp";
     protected static final String RESUME_COMMUNITY_EXPERIENCE = "commExp";
     protected static final String RESUME_SKILLS = "skills";
-    protected static final String INTERNSHIP_FILE_NAME = "/Internships.json";
+    protected static final String INTERNSHIP_FILE_NAME = "./Internship.json";
     protected static final String INTERNSHIP_ID = "id";
     protected static final String INTERNSHIP_POSITION = "position";
     protected static final String INTERNSHIP_REQUIRED_SKILLS = "required skills";
     protected static final String INTERNSHIP_RECYEAR = "recYear";
     protected static final String INTERNSHIP_PAYRATE = "payrate";
     protected static final String INTERNSHIP_DESCRIPTION = "description";
-    protected static final String APPLICATIONS_FILE_NAME = "/Applications.java";
+    protected static final String APPLICATIONS_FILE_NAME = "./Applications.json";
     protected static final String APPLICATIONS_STUDENT_ID = "studentId";
-    protected static final String APPLICATIONS_INTERNSHIP_IDS = "intershipId";
+    protected static final String APPLICATIONS_INTERNSHIP_IDS = "internshipIds";
 }

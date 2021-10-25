@@ -34,7 +34,7 @@ public class Professor extends Account {
     }
 
     public void searchStudent() {
-        student = application.getUser().getClass().getName();
+        //student = application.getUser().getClass().getName();
     }
 
     public int getType(){

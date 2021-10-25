@@ -29,8 +29,8 @@ public class Company extends Account {
         return availJobs;
     }
 
-    public void giveRating() {
-
+    public void giveRating(double numValue, String description) {
+        this.rating.addRating(numValue, description);
     }
 
     public void addJob(Internship internship) {

@@ -49,6 +49,10 @@ public class Internship {
         return this.payrate;
     }
 
+    public UUID getId() {
+        return this.id;
+    }
+
     public ArrayList<Student> getApplicants() {
         return this.applicants;
     }

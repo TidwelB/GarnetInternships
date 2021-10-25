@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -9,12 +10,18 @@ public class InternshipList {
     private static InternshipList internshipList;
     private ArrayList<Internship> internships;
 
-    private InternshipList() {
-        
+    private InternshipList(ArrayList<Internship> internships) {
+        this.internships = internships;
+        internshipList = this;
     }
 
     public static InternshipList getInstance() {
-        return null;
+        if (internshipList == null) {
+            ArrayList<Internship> internships = DataLoader.getInternships();
+            internships = DataLoader.setInternshipApplications(internships);
+            return new InternshipList(internships);
+        }
+        return internshipList;
     }
 
     public ArrayList<Internship> getInternships() {
