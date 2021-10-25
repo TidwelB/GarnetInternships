@@ -16,7 +16,7 @@ public class DataWriter extends DataConstants {
         JSONArray AccountJSON = new JSONArray();
 
     for(int i=0; i< AccountJSON.size(); i++) {
-        AccountJSON.add(getAccountJSON(accounts.get(i)));
+        AccountJSON.add(accounts.add(accounts.get(i)));
     }
 
     try (FileWriter file = new FileWriter(ACCOUNT_FILE_NAME)){
@@ -35,7 +35,7 @@ public class DataWriter extends DataConstants {
         JSONArray ResumeJSON = new JSONArray();
 
     for(int i=0; i< ResumeJSON.size(); i++) {
-        ResumeJSON.add(getResumeJSON(resumes.get(i)));
+        ResumeJSON.add(resumes.add(resumes.get(i)));
     }
 
     try (FileWriter file = new FileWriter(RESUME_FILE_NAME)) {
@@ -50,7 +50,11 @@ public class DataWriter extends DataConstants {
         JSONArray InternshipJSON = new JSONArray();
 
     for(int i = 0; i < InternshipJSON.size(); i++) {
-        InternshipJSON.add(getInternshipJSON(internships.get(i)));
+        InternshipJSON.add(internships.add(internships.get(i)));
+
+        try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
+            file.write(InternshipJSON.toJSONString());
+            file.flush();
     }
 
     }
