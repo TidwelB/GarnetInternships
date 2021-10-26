@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class CompanyUI {
 
     private static Scanner scanner;
-    private static final String QUESTION = "What would you like to do?\n";
 
     public CompanyUI() {
         scanner = new Scanner(System.in);
@@ -16,8 +15,8 @@ public class CompanyUI {
         String companyMenu = "";
         companyMenu+= "\nWelcome 'Company'!";
         companyMenu += "--------Menu--------";
-        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n";
-        companyMenu += QUESTION;
+        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n3. Return to Main Menu\n";
+        companyMenu += SharedUI.QUESTION;
         return companyMenu;
     }
 
@@ -25,38 +24,27 @@ public class CompanyUI {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if(menuChoice == 1) {
-            CompanyProfile();
+            SharedUI.Profile();
         } else if(menuChoice == 2) {
             PostInternship();
         } else if(menuChoice == 3) {
-            CompanyRating();
+            SharedUI.Rating();
+            String ratingInput = scanner.nextLine();
+            if(ratingInput.equalsIgnoreCase("back")) {
+                System.out.println("Returning to main menu...");
+                CompanyMenu();
+            }
+            //Needs Functionality to Input Rating Information
         } else {
-            System.out.println("Not a valid option");
-            CompanyMenuChoice();
+            System.out.println("Returning to main menu...");
+            CompanyMenu();
         }
-    }
-
-    public static String CompanyProfile() {
-        String companyProfile = "";
-        companyProfile = "\n--------Profile--------";
-        companyProfile = "1. Edit Bio \n2. Edit Profile Picture \n3. Edit Interests\n";
-        companyProfile = QUESTION;
-        return companyProfile;
-    }
-    
-    public static String CompanyRating() {
-        String companyRating = "";
-        companyRating += "\n--------Rating--------";
-        companyRating += "Enter the following:\n1. Student/Company Name \n2. Rating Description \n3. Rating 1-10\n";
-        //NEED TO IMPLEMENT FUNCTIONALITY TO CHECK IF ALL REQUIREMENTS HAVE BEEN FILLED
-        companyRating += "Submitting Rating!\n";
-        return companyRating;
     }
 
     public static String PostInternship() {
         String postInternship = "";
         postInternship += "\n--------Post Internship--------";
-        postInternship += "Enter the following:\n1. Position Title \n2. Required Skills \n3. Pay Rate \n4. Job Description\n";
+        postInternship += "Enter the following:\n- Position Title \n- Required Skills \n- Pay Rate \n- Job Description\nType 'back' to Return to Main Menu\n";
         //NEED TO IMPLEMENT FUNCTIONALITY TO CHECK IF ALL REQUIREMENTS HAVE BEEN FILLED
         postInternship += "Posting Internship!\n";
         return postInternship;

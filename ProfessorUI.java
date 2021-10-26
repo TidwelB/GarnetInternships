@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class ProfessorUI {
 
     private static Scanner scanner;
-    private static final String QUESTION = "What would you like to do?\n";
     
     public ProfessorUI() {
         scanner = new Scanner(System.in);
@@ -17,7 +16,7 @@ public class ProfessorUI {
         professorMenu += "\nWelcome Professor!";
         professorMenu += "--------Menu--------";
         professorMenu += "1. Edit Profile \n2. Give a Rating\n3. Return to Main Menu\n";
-        professorMenu += QUESTION;
+        professorMenu += SharedUI.QUESTION;
         return professorMenu;
     }
 
@@ -25,7 +24,7 @@ public class ProfessorUI {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if(menuChoice == 1) {
-            ProfessorProfile();
+            SharedUI.Profile();
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if(profileChoice == 1) {
@@ -39,7 +38,7 @@ public class ProfessorUI {
                 ProfessorMenu();
             }
         } else if(menuChoice == 2) {
-            ProfessorRating();
+            SharedUI.Rating();
             String ratingInput = scanner.nextLine();
             if(ratingInput.equalsIgnoreCase("back")) {
                 System.out.println("Returning to main menu...");
@@ -50,22 +49,5 @@ public class ProfessorUI {
             System.out.println("Returning to main menu...");
             ProfessorMenu();
         }
-    }
-
-    public static String ProfessorProfile() {
-        String professorProfile = "";
-        professorProfile = "\n--------Profile--------";
-        professorProfile = "1. Edit Bio \n2. Edit Profile Picture \n3. Edit Interests\n4. Return to Main Menu\n";
-        professorProfile = QUESTION;
-        return professorProfile;
-    }
-
-    public static String ProfessorRating() {
-        String professorRating = "";
-        professorRating += "\n--------Rating--------";
-        professorRating += "Enter the following:\n- Student/Company Name \n- Rating Description \n- Rating 1-10\nType 'back' to Return to Main Menu\n";
-        //NEED TO IMPLEMENT FUNCTIONALITY TO CHECK IF ALL REQUIREMENTS HAVE BEEN FILLED
-        professorRating += "Submitting Rating!\n";
-        return professorRating;
     }
 }

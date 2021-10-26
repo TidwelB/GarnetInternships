@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class StudentUI {
 
     private static Scanner scanner;
-    private static final String QUESTION = "What would you like to do?\n";
     
     public StudentUI() {
         scanner = new Scanner(System.in);
@@ -17,7 +16,7 @@ public class StudentUI {
         studentMenu += "\nWelcome 'Student'!";
         studentMenu += "--------Menu--------";
         studentMenu += "1. Edit Profile \n2. Edit Resume \n3. Search Internships\n4. Return to Main Menu\n";
-        studentMenu += QUESTION;
+        studentMenu += SharedUI.QUESTION;
         return studentMenu;
     }
 
@@ -25,7 +24,7 @@ public class StudentUI {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if(menuChoice == 1) {
-            StudentProfile();
+            SharedUI.Profile();
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if(profileChoice == 1) {
@@ -63,19 +62,11 @@ public class StudentUI {
         }
     }
 
-    public static String StudentProfile() {
-        String studentProfile = "";
-        studentProfile = "\n--------Profile--------";
-        studentProfile = "1. Edit Bio \n2. Edit Profile Picture \n3. Edit Interests\n4. Return to Main Menu\n";
-        studentProfile = QUESTION;
-        return studentProfile;
-    }
-
     public static String StudentResume() {
         String studentResume = "";
         studentResume += "\n--------Resume--------";
         studentResume += "1. Upload Resume \n2. Edit Skills\n3. Return to Main Menu\n";
-        studentResume = QUESTION;
+        studentResume = SharedUI.QUESTION;
         return studentResume;
     }
 

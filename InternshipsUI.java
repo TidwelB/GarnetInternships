@@ -8,7 +8,7 @@ import java.util.UUID;
 public class InternshipsUI {
     private Scanner scanner;
     private GarnetInternships garnetInternships;
-    private static final String WELCOME = "Welcome to Garnet Internships!";
+    private final String WELCOME = "Welcome to Garnet Internships!";
 
     InternshipsUI() {
         scanner = new Scanner(System.in);
@@ -16,27 +16,10 @@ public class InternshipsUI {
     }
 
     public void run() {
-        createAccount();
+        SharedUI.createAccount();
         System.out.println(WELCOME);
-        login();
+        SharedUI.login();
         displayMainMenu();
-    }
-
-    private void login() {
-        System.out.println("------------Log In------------");
-        System.out.println("Network Username: ");
-        String username = scanner.nextLine();
-        System.out.println("Password: \n");
-        String password = scanner.nextLine();
-    }
-
-    private void createAccount() {
-        System.out.println("------------Create Account------------");
-        System.out.println("Enter Your University Network Username: ");
-        String username = scanner.nextLine();
-        System.out.println("Create Password: \n");
-        String password = scanner.nextLine();
-        System.out.println("Account Creation Success!");
     }
 
     private void displayMainMenu() {
