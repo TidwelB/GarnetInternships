@@ -35,18 +35,19 @@ public class ProfessorUI {
             } else if(profileChoice == 3) {
                 //Call Interest Editor
             } else {
-                System.out.println("Not a valid option...returning to main menu.");
+                System.out.println("Returning to main menu...");
                 ProfessorMenu();
             }
         } else if(menuChoice == 2) {
             ProfessorRating();
             String ratingInput = scanner.nextLine();
             if(ratingInput.equalsIgnoreCase("back")) {
+                System.out.println("Returning to main menu...");
                 ProfessorMenu();
             }
             //Needs Functionality to Input Rating Information
         } else {
-            System.out.println("Not a valid option...returning to main menu.");
+            System.out.println("Returning to main menu...");
             ProfessorMenu();
         }
     }

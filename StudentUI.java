@@ -16,7 +16,7 @@ public class StudentUI {
         String studentMenu = "";
         studentMenu += "\nWelcome 'Student'!";
         studentMenu += "--------Menu--------";
-        studentMenu += "1. Edit Profile \n2. Edit Resume \n3. Search Internships\n";
+        studentMenu += "1. Edit Profile \n2. Edit Resume \n3. Search Internships\n4. Return to Main Menu\n";
         studentMenu += QUESTION;
         return studentMenu;
     }
@@ -26,20 +26,32 @@ public class StudentUI {
         scanner.nextLine();
         if(menuChoice == 1) {
             StudentProfile();
+            int profileChoice = scanner.nextInt();
+            scanner.nextLine();
+            if(profileChoice == 1) {
+                //Call Bio Editor
+            } else if(profileChoice == 2) {
+                //Call Picture Editor
+            } else if(profileChoice == 3) {
+                //Call Interest Editor
+            } else {
+                System.out.println("Returning to main menu...");
+                StudentMenu();
+            }
         } else if(menuChoice == 2) {
             StudentResume();
         } else if(menuChoice == 3) {
             SearchInternship();
         } else {
-            System.out.println("Not a valid option");
-            StudentMenuChoice();
+            System.out.println("Returning to main menu...");
+            StudentMenu();
         }
     }
 
     public static String StudentProfile() {
         String studentProfile = "";
         studentProfile = "\n--------Profile--------";
-        studentProfile = "1. Edit Bio \n2. Edit Profile Picture \n3. Edit Interests\n";
+        studentProfile = "1. Edit Bio \n2. Edit Profile Picture \n3. Edit Interests\n4. Return to Main Menu\n";
         studentProfile = QUESTION;
         return studentProfile;
     }
@@ -47,7 +59,7 @@ public class StudentUI {
     public static String StudentResume() {
         String studentResume = "";
         studentResume += "\n--------Resume--------";
-        studentResume += "1. Upload Resume \n2. Edit Skills\n";
+        studentResume += "1. Upload Resume \n2. Edit Skills\n3. Return to Main Menu\n";
         studentResume = QUESTION;
         return studentResume;
     }
@@ -57,7 +69,7 @@ public class StudentUI {
         searchInternship += "\n--------Search Internship--------";
         searchInternship += "Avaliable Internships:";
         //EXAMPLE INTERNSHIPS FOR TESTING
-        searchInternship += "- Software Engineer \n- Cyber Security Analyst \n- Tech Support \n- Computer Hardware Engineer \n- Information Systems Analyst\n";
+        searchInternship += "- Software Engineer \n- Cyber Security Analyst \n- Tech Support \n- Computer Hardware Engineer \n- Information Systems Analyst\nType 'back' to Return to Main Menu\n";
         return searchInternship;
     }
 }
