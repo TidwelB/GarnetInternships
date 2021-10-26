@@ -40,8 +40,23 @@ public class StudentUI {
             }
         } else if(menuChoice == 2) {
             StudentResume();
+            int resumeChoice = scanner.nextInt();
+            scanner.nextLine();
+            if(resumeChoice == 1) {
+                //Call Upload Resume
+            } else if(resumeChoice == 2) {
+                //Call Edit Skills
+            } else {
+                System.out.println("Returning to main menu...");
+                StudentMenu();
+            }
         } else if(menuChoice == 3) {
             SearchInternship();
+            String internshipInput = scanner.nextLine();
+            if(internshipInput.equalsIgnoreCase("back")) {
+                System.out.println("Returning to main menu...");
+                StudentMenu();
+            }
         } else {
             System.out.println("Returning to main menu...");
             StudentMenu();
