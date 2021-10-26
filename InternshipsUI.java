@@ -42,15 +42,15 @@ public class InternshipsUI {
         if(garnetInternships.getUser().getType() == 0) {
             StudentUI.StudentMenu();
             StudentUI.StudentMenuChoice();
-        } else if(garnetInternships.getUser().getType() == 3) {
-            ProfessorUI.ProfessorMenu();
-            ProfessorUI.ProfessorMenuChoice();
-        } else if(garnetInternships.getUser().getType() == 2) {
-            CompanyUI.CompanyMenu();
-            CompanyUI.CompanyMenuChoice();
         } else if(garnetInternships.getUser().getType() == 1) {
             AdminUI.AdminMenu();
             AdminUI.AdminMenuChoice();
+        } else if(garnetInternships.getUser().getType() == 2) {
+            CompanyUI.CompanyMenu();
+            CompanyUI.CompanyMenuChoice();
+        } else if(garnetInternships.getUser().getType() == 3) {
+            ProfessorUI.ProfessorMenu();
+            ProfessorUI.ProfessorMenuChoice();
         }
     }
 
