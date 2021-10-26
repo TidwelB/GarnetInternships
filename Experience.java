@@ -16,7 +16,7 @@ public class Experience {
     private ArrayList<String> accomplishments;
 
     public Experience(String organization, String location, String position, String startDate, String endDate, ArrayList<String> accomplishments) {
-        accomplishments = new ArrayList<String>();
+        this.accomplishments = accomplishments;
         this.organization = organization;
         this.location = location;
         this.position = position;

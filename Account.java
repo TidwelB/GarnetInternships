@@ -12,21 +12,32 @@ public abstract class Account {
     private UUID id;
 
     public Account(String name, String username, String password, UUID id) {
-
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.id = id;
     }
 
     public String getName() {
-        return "";
+        return this.name;
     }
 
     public String getUsername() {
-        return "";
+        return this.username;
     }
 
-    public String setPassword(String password) {
-        return "";
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public UUID getId() {
+        return this.id;
     }
 
     public abstract int getType();
+
+    public String toString() {
+        return "Account Name: "+name+"\nUsername: "+username;
+    }
 
 }

@@ -6,9 +6,6 @@ import java.util.UUID;
 
 public class Admin extends Account {
 
-    // Create instance variables
-    private String email;
-    private String credentials;
 
     public Admin(String name, String username, String password, UUID id) {
         super(name, username, password, id);
@@ -18,12 +15,16 @@ public class Admin extends Account {
 
     }
 
-    public String getEmail() {
-        return "";
+    public void removeRating(Rating rating) {
+        rating = null;
     }
 
-    public String getCredentials() {
-        return "";
+    public void deleteInternship(Internship internship) {
+        internship = null;
+    }
+
+    public void deleteAccount(Account account) {
+        account = null;
     }
 
     public int getType(){

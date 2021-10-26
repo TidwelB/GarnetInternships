@@ -11,7 +11,42 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants{
     
     public static ArrayList<Internship> getInternships() {
-        
+        ArrayList<Internship> internships = new ArrayList<Internship>();
+
+        try {
+            FileReader reader = new FileReader(INTERNSHIP_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray internshipsJSON = (JSONArray) new JSONParser().parse(reader);
+
+            for (int i = 0; i < internshipsJSON.size(); i++) {
+                JSONObject internshipJSON = (JSONObject) internshipsJSON.get(i);
+
+                UUID id = UUID.fromString((String) internshipJSON.get(INTERNSHIP_ID));
+                String position = (String)internshipJSON.get(INTERNSHIP_POSITION);
+
+                ArrayList<String> requiredSkills = new ArrayList<String>();
+                JSONArray requiredSkillsJSON = (JSONArray) internshipJSON.get(INTERNSHIP_REQUIRED_SKILLS);
+                for (int j = 0; j < requiredSkillsJSON.size(); j++) {
+                    requiredSkills.add((String) requiredSkillsJSON.get(j));
+                }
+
+                String recYear = (String)internshipJSON.get(INTERNSHIP_RECYEAR);
+                Double payrate = Double.parseDouble((String)internshipJSON.get(INTERNSHIP_PAYRATE));
+                ArrayList<Student> applicants = new ArrayList<Student>();
+                int numOfApplicants = 0;
+                String description = (String)internshipJSON.get(INTERNSHIP_DESCRIPTION);
+                
+                internships.add(new Internship(position, description, requiredSkills, recYear, payrate, applicants, numOfApplicants, id));
+
+            }
+
+            reader.close();
+            return internships;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return null;
     }
 
@@ -23,6 +58,8 @@ public class DataLoader extends DataConstants{
             JSONParser parser = new JSONParser();
             JSONArray accountsJSON = (JSONArray) new JSONParser().parse(reader);
 
+            //ArrayList<Resume> resumes = getResumes();
+
             for (int i = 0; i < accountsJSON.size(); i++) {
                 JSONObject accountJSON = (JSONObject) accountsJSON.get(i);
 
@@ -30,9 +67,16 @@ public class DataLoader extends DataConstants{
                 String username = (String) accountJSON.get(ACCOUNT_USER_NAME);
                 String password = (String) accountJSON.get(ACCOUNT_PASSWORD);
                 UUID id = UUID.fromString((String) accountJSON.get(ACCOUNT_ID));
-
-                if (accountJSON.get(ACCOUNT_PRIVILEGE).equals("Student")) {
-                    // accounts.add(new Student(name, username, password, id));
+                JSONArray privilegeSpecificJSON = (JSONArray) accountJSON.get(ACCOUNT_PRIVILEGE_SPECIFIC);
+                
+                if (((String)accountJSON.get(ACCOUNT_PRIVILEGE)).equals("Student")) {
+                    accounts.add(makeStudent(name, username, password, id, privilegeSpecificJSON));
+                } else if (((String)accountJSON.get(ACCOUNT_PRIVILEGE)).equals("Company")) {
+                    accounts.add(makeCompany(name, username, password, id, privilegeSpecificJSON));
+                } else if (((String)accountJSON.get(ACCOUNT_PRIVILEGE)).equals("Professor")) {
+                    accounts.add(makeProfessor(name, username, password, id, privilegeSpecificJSON));
+                } else if (((String)accountJSON.get(ACCOUNT_PRIVILEGE)).equals("Admin")) {
+                    accounts.add(new Admin(name, username, password, id));
                 }
 
             }
@@ -43,6 +87,134 @@ public class DataLoader extends DataConstants{
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static ArrayList<Internship> setInternshipApplications(ArrayList<Internship> internships) {
+
+        try {
+            FileReader reader = new FileReader(APPLICATIONS_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray applicationsJSON = (JSONArray) new JSONParser().parse(reader);
+            ArrayList<Account> accounts = getAccounts();
+            for (int i = 0 ; i < accounts.size(); i++) {
+                if (accounts.get(i).getType() == 0) {
+                    Student student = (Student) accounts.get(i);
+                    for (int j = 0; j < applicationsJSON.size(); j++) {
+                        JSONObject applicationJSON = (JSONObject)applicationsJSON.get(j);
+                        if (UUID.fromString((String)applicationJSON.get(APPLICATIONS_STUDENT_ID)).equals(student.getId())) {
+                            JSONArray internshipIdsJSON = (JSONArray) applicationJSON.get(APPLICATIONS_INTERNSHIP_IDS);
+                            for (Object internshipIdJSON : internshipIdsJSON) {
+                                for (Internship internship : internships) {
+                                    if (internship.getId().equals(UUID.fromString((String) internshipIdJSON))) {
+                                        student.apply(internship);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+            
+            reader.close();
+            return internships;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public static ArrayList<Account> setAccountApplications(ArrayList<Account> accounts) {
+
+        try {
+            FileReader reader = new FileReader(APPLICATIONS_FILE_NAME);
+            JSONParser parser = new JSONParser();
+            JSONArray applicationsJSON = (JSONArray) new JSONParser().parse(reader);
+            ArrayList<Internship> internships = getInternships();
+            for (int i = 0; i < accounts.size(); i++) {
+                if (accounts.get(i).getType() == 0) {
+                    Student student = (Student) accounts.get(i);
+                    for (int j = 0; j < applicationsJSON.size(); j++) {
+                        JSONObject applicationJSON = (JSONObject) applicationsJSON.get(j);
+                        if (UUID.fromString((String) applicationJSON.get(APPLICATIONS_STUDENT_ID))
+                                .equals(student.getId())) {
+                            JSONArray internshipIdsJSON = (JSONArray) applicationJSON.get(APPLICATIONS_INTERNSHIP_IDS);
+                            for (Object internshipIdJSON : internshipIdsJSON) {
+                                for (Internship internship : internships) {
+                                    if (internship.getId().equals(UUID.fromString((String) internshipIdJSON))) {
+                                        student.apply(internship);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            reader.close();
+            return accounts;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private static Account makeProfessor(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
+        String email = (String)privilegeSpecificJSON.get(0);
+        String credentials = (String)privilegeSpecificJSON.get(1);
+        return new Professor(name, username, password, email, credentials, id);
+    }
+
+    private static Account makeCompany(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
+        JSONArray ratingJSON = (JSONArray) privilegeSpecificJSON.get(0);
+        JSONArray descriptionsJSON = (JSONArray) ratingJSON.get(1);
+        ArrayList<String> descriptions = new ArrayList<String>();
+        for (Object description : descriptionsJSON) {
+            descriptions.add((String) description);
+        }
+        JSONArray availJobsJSON = (JSONArray)privilegeSpecificJSON.get(1);
+        ArrayList<Internship> availJobs = new ArrayList<Internship>();
+        ArrayList<Internship> internships = InternshipList.getInstance().getInternships();
+        for (Object availJobIdJSON : availJobsJSON) {
+            UUID availJobId = UUID.fromString((String)availJobIdJSON);
+            for (Internship internship : internships) {
+                if (internship.getId() == availJobId) {
+                    availJobs.add(internship);
+                    break;
+                }
+            }
+        }
+        Rating rating = new Rating((double) ratingJSON.get(0), descriptions);
+        return new Company(name, username, password, rating, availJobs, id);
+    }
+
+    private static Account makeStudent(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
+        String email = (String)privilegeSpecificJSON.get(0);
+        ArrayList<Resume> resumes = ResumeList.getInstance().getResumes();
+        Resume resume = null;
+        for (int i = 0; i < resumes.size(); i++) {
+            if (privilegeSpecificJSON.get(1) == resumes.get(i).getId()) {
+                resume = resumes.get(i);
+                break;
+            }
+        }
+        JSONArray ratingJSON = (JSONArray)privilegeSpecificJSON.get(2);
+        JSONArray descriptionsJSON = (JSONArray) ratingJSON.get(1);
+        ArrayList<String> descriptions = new ArrayList<String>();
+        for (Object description : descriptionsJSON) {
+            descriptions.add((String)description);
+        }
+        Rating rating = new Rating((double)ratingJSON.get(0), descriptions);
+        String gradYear = (String)privilegeSpecificJSON.get(3);
+        ArrayList<Internship> listOfAppJobs = new ArrayList<Internship>();
+        return new Student(name, username, password, email, resume, rating, gradYear, listOfAppJobs, id);
     }
 
     public static ArrayList<Resume> getResumes() {
@@ -96,7 +268,7 @@ public class DataLoader extends DataConstants{
                 ArrayList<Experience> commExps = new ArrayList<Experience>();
                 JSONArray commExpsJSON = (JSONArray) resumeJSON.get(RESUME_COMMUNITY_EXPERIENCE);
                 for (int j = 0; j < commExpsJSON.size(); j++) {
-                    JSONArray commExpJSON = (JSONArray) commExpsJSON.get(j);
+                    JSONArray commExpJSON = (JSONArray)commExpsJSON.get(j);
                     JSONArray accomsJSON = (JSONArray) commExpJSON.get(5);
                     ArrayList<String> accoms = new ArrayList<String>();
                     for (Object accomJSON : accomsJSON)

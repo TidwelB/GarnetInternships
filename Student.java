@@ -44,14 +44,19 @@ public class Student extends Account{
 
     public void apply(Internship internship) {
         listOfAppJobs.add(internship);
+        internship.addToApplicants(this);
     }
     
     public ArrayList<Internship> getListOfAppJobs() {
         return this.listOfAppJobs;
     }
 
-    public void giveRating(Rating rating) {
+    public void giveRating(double numValue, String description) {
+        this.rating.addRating(numValue, description);
+    }
 
+    public void setResume(Resume resume) {
+        this.resume = resume;
     }
 
     public int getType() {

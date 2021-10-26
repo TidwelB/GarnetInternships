@@ -3,7 +3,7 @@
         "name": "Luke Howe",
         "username": "LaHowe",
         "password": "12345",
-        "priviledge": "Student",
+        "privilege": "Student",
         "id": "661c297b-7ef5-4d7d-bb29-e952c09625a1",
         "privilegeSpecific": [
             "lhowe@email.sc.edu",
@@ -22,7 +22,7 @@
         "name": "Thomas Lloyd",
         "username": "Talloyd",
         "password": "12345",
-        "priviledge": "Student",
+        "privilege": "Student",
         "id": "40198ece-832d-4bf3-aaf1-69b36ce3e0cb",
         "privilegeSpecific": [
             "talloyd@email.sc.edu",
@@ -38,7 +38,7 @@
         "name": "Nathan Russell",
         "username": "Nrr1",
         "password": "12345",
-        "priviledge": "Student",
+        "privilege": "Student",
         "id": "10e9c60e-8d84-4b69-b27b-44260db41a17",
         "privilegeSpecific": [
             "nrr1@email.sc.edu",
@@ -54,7 +54,7 @@
         "name": "Ben Tidwell",
         "username": "Tidwelb",
         "password": "12345",
-        "priviledge": "Student",
+        "privilege": "Student",
         "id": "41af19ff-921d-43a0-87ed-56979dd554cf",
         "privilegeSpecific": [
             "tidwelb@email.sc.edu",
@@ -70,7 +70,7 @@
         "name": "Portia Plante",
         "username": "portiaportia",
         "password": "<3CompSci",
-        "priviledge": "Admin",
+        "privilege": "Admin",
         "id": "440f46e2-67f9-4039-b4b8-52ed91e33fe0",
         "privilegeSpecific": []
     }
