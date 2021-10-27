@@ -63,6 +63,18 @@ public class Resume {
         return true;
     }
 
+    public boolean addEducation(Education education) {
+        if (priorEd.contains(education)) return false;
+        priorEd.add(education);
+        return true;
+    }
+
+    public boolean addExperience(Experience experience) {
+        if(relatedExp.contains(experience)) return false;
+        relatedExp.add(experience);
+        return true;
+    }
+
     public String toString() {
         String ret = "Your Resume:\nPrior Education:\n";
         for(Education education : priorEd) {

@@ -74,6 +74,14 @@ public class Student extends Account{
         return resume.addSkill(skill);
     }
 
+    public boolean addEducation(Education education) {
+        return resume.addEducation(education);
+    }
+
+    public boolean addExperience(Experience experience) {
+        return resume.addExperience(experience);
+    }
+
     public void editResume() {
         boolean quitEdit = false;
         while(!quitEdit)

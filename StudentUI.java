@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author We Lit Design Company
@@ -77,5 +79,58 @@ public class StudentUI {
         //EXAMPLE INTERNSHIPS FOR TESTING
         searchInternship += "- Software Engineer \n- Cyber Security Analyst \n- Tech Support \n- Computer Hardware Engineer \n- Information Systems Analyst\nType 'back' to Return to Main Menu\n";
         return searchInternship;
+    }
+
+    public static void uploadResumeMenu() {
+        System.out.println("\n--------Upload Your Resume--------\nPlease enter your school name.\n");
+        String schoolName = scanner.nextLine();
+        System.out.println("\nPlease enter your graduation date.\n");
+        String gradDate = scanner.nextLine();
+        System.out.println("Please enter the location of your school.\n");
+        String location = scanner.nextLine();
+        System.out.println("Please enter the name of your degree.\n");
+        String degree = scanner.nextLine();
+
+        Education newEd = new Education(schoolName, gradDate, location, degree);
+        System.out.println("Printing your input.");
+        newEd.toString();
+        if(!GarnetInternships.getInstance().addEducation(newEd)) {
+            System.out.println("Input failed.");
+        }
+        else {
+            System.out.println("Input successful.");
+        }
+
+        // SPRINT 2, ADD FUNCTIONALITY TO ADD AWARDS
+
+        System.out.println("Enter an organization where you previously worked.\n");
+        String organization = scanner.nextLine();
+        System.out.println("Enter the location of that organization.\n");
+        String locationOrg = scanner.nextLine();
+        System.out.println("Enter the position you were in.\n");
+        String positionIn = scanner.nextLine();
+        System.out.println("Enter your starding date.\n");
+        String startDate = scanner.nextLine();
+        System.out.println("Enter your finishing date.\n");
+        String finishDate = scanner.nextLine();
+        System.out.println("Enter your accomplishments while in this position, comma separated.\n");
+        String accomplishUnsep = scanner.nextLine();
+        String[] accomplishSep = accomplishUnsep.split(",");
+        ArrayList<String> accomplishmentIn = new ArrayList<String>(Arrays.asList(accomplishSep));
+
+        Experience relatedExperience = new Experience(organization,locationOrg,positionIn,startDate,finishDate,accomplishmentIn);
+        System.out.println("Printing your input.");
+        relatedExperience.toString();
+        if(!GarnetInternships.getInstance().addExperience(relatedExperience)) {
+            System.out.println("Input failed.");
+        }
+        else {
+            System.out.println("Input successful.");
+        }
+        System.out.println("Added your resume. Please return if you would like to add more.");
+
+
+        
+
     }
 }

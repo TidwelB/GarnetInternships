@@ -49,6 +49,18 @@ public class GarnetInternships {
         return ((Student)user).addSkill(skill);
     }
 
+    public boolean addEducation(Education education) {
+        if(!isLoggedIn()) return false;
+        if (user.getType() != 0) return false;
+        return ((Student)user).addEducation(education);
+    }
+
+    public boolean addExperience(Experience experience) {
+        if(!isLoggedIn()) return false;
+        if (user.getType() != 0) return false;
+        return ((Student)user).addExperience(experience);
+    }
+
     public boolean logout() {
         if (user == null) return false;
         //write data
