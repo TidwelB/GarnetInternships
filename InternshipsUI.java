@@ -12,7 +12,7 @@ public class InternshipsUI {
 
     InternshipsUI() {
         scanner = new Scanner(System.in);
-        garnetInternships = new GarnetInternships();
+        garnetInternships = GarnetInternships.getInstance();
     }
 
     public void run() {

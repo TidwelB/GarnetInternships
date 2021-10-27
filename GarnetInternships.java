@@ -10,9 +10,17 @@ public class GarnetInternships {
     private InternshipList internshipList;
     private AccountList accountList;
     private Account user;
+    private static GarnetInternships garnetInternships;
 
-    public GarnetInternships() {
+    private GarnetInternships() {
+        
+    }
 
+    public static GarnetInternships getInstance() {
+        if (garnetInternships == null) {
+            return new GarnetInternships();
+        }
+        return garnetInternships;
     }
 
     public Account getUser() {
@@ -35,10 +43,20 @@ public class GarnetInternships {
         return null;
     }
 
+    public boolean addSkill(String skill) {
+        if (!isLoggedIn()) return false;
+        if (user.getType() != 0) return false;
+        return ((Student)user).addSkill(skill);
+    }
+
     public boolean logout() {
         if (user == null) return false;
         //write data
         user = null;
         return true;
+    }
+
+    public boolean isLoggedIn() {
+        return user != null;
     }
 }

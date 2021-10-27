@@ -70,6 +70,10 @@ public class Student extends Account{
         return 0;
     }
 
+    public boolean addSkill(String skill) {
+        return resume.addSkill(skill);
+    }
+
     public void editResume() {
         boolean quitEdit = false;
         while(!quitEdit)
