@@ -1,5 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * @author We Lit Design Company
@@ -28,7 +29,12 @@ public class InternshipList {
         return internships;
     }
 
-    public Resume getInternship(String username) {
+    public Internship getInternshipById(UUID id) {
+        for (int i = 0; i < internships.size(); i++) {
+            if (internships.get(i).getId().equals(id)) {
+                return internships.get(i);
+            }
+        }
         return null;
     }
 }

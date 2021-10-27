@@ -20,7 +20,7 @@ public class GarnetInternships {
     }
 
     public ArrayList<Internship> viewInternships() {
-        return null;
+        return InternshipList.getInstance().getInternships();
     }
 
     public ArrayList<Internship> searchInternships(String keyword) {
@@ -36,6 +36,9 @@ public class GarnetInternships {
     }
 
     public boolean logout() {
-        return false;
+        if (user == null) return false;
+        //write data
+        user = null;
+        return true;
     }
 }

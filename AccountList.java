@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * @author We Lit Design Company
@@ -28,6 +29,30 @@ public class AccountList {
     }
 
     public Account getAccount(String username) {
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getUsername().equalsIgnoreCase(username)) {
+                return accounts.get(i);
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Account> getAccountByName(String name) {
+        ArrayList<Account> matches = new ArrayList<Account>();
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getName().equalsIgnoreCase(name)) {
+                matches.add(accounts.get(i));
+            }
+        }
+        return matches;
+    }
+
+    public Account getAccountById(UUID id) {
+        for (int i = 0; i < accounts.size(); i++) {
+            if (accounts.get(i).getId().equals(id)) {
+                return accounts.get(i);
+            }
+        }
         return null;
     }
 }

@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.UUID;
@@ -20,14 +19,18 @@ public class Student extends Account{
 
     public Student(String name, String username, String password, String email, Resume resume, Rating rating, String gradYear, ArrayList<Internship> listOfAppJobs, UUID id) {
         super(name, username, password, id);
-        this.email = email;
+        setEmail(email);
         this.resume = resume;
-        this.gradYear = gradYear;
+        setGradYear(gradYear);
         this.listOfAppJobs = listOfAppJobs;
     }
 
     public String getEmail() {
         return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Resume getResume() {
@@ -40,6 +43,10 @@ public class Student extends Account{
 
     public String getGradYear() {
         return this.gradYear;
+    }
+
+    public void setGradYear(String gradYear) {
+        this.gradYear = gradYear;
     }
 
     public void apply(Internship internship) {
