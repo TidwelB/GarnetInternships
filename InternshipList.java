@@ -37,6 +37,18 @@ public class InternshipList {
         }
         return null;
     }
+
+    public ArrayList<Internship> getInternshipBySkills(String skill) {
+        ArrayList<Internship> retList = new ArrayList<Internship>();
+        for(int i = 0; i < internships.size(); i++) {
+            for(int j = 0; j < internships.get(j).getReqSkills().size();) {
+                if(internships.get(i).getReqSkills().get(j).equalsIgnoreCase(skill)) {
+                    retList.add(internships.get(i));
+                }
+            }
+        }
+        return retList;
+    }
 }
 
 
