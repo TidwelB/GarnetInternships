@@ -25,6 +25,18 @@ public class CompanyUI {
         scanner.nextLine();
         if(menuChoice == 1) {
             SharedUI.Profile();
+            int profileChoice = scanner.nextInt();
+            scanner.nextLine();
+            if(profileChoice == 1) {
+                //Call Bio Editor
+            } else if(profileChoice == 2) {
+                //Call Picture Editor
+            } else if(profileChoice == 3) {
+                //Call Interest Editor
+            } else {
+                System.out.println("Returning to main menu...");
+                CompanyMenu();
+            }
         } else if(menuChoice == 2) {
             PostInternship();
         } else if(menuChoice == 3) {
@@ -41,12 +53,16 @@ public class CompanyUI {
         }
     }
 
-    public static String PostInternship() {
-        String postInternship = "";
-        postInternship += "\n--------Post Internship--------";
-        postInternship += "Enter the following:\n- Position Title \n- Required Skills \n- Pay Rate \n- Job Description\nType 'back' to Return to Main Menu\n";
-        //NEED TO IMPLEMENT FUNCTIONALITY TO CHECK IF ALL REQUIREMENTS HAVE BEEN FILLED
-        postInternship += "Posting Internship!\n";
-        return postInternship;
+    public static void PostInternship() {
+        System.out.println("\n--------Post Internship--------\nEnter the following:\n");
+        System.out.println("\nPlease enter the position title:");
+        String positionTitle = scanner.nextLine();
+        System.out.println("\nPlease enter the required skills:\n");
+        String requiredSkills = scanner.nextLine();
+        System.out.println("Please enter the pay rate:\n");
+        String payRate = scanner.nextLine();
+        System.out.println("Please enter the job description:\n");
+        String description = scanner.nextLine();
+        System.out.println("Posting Internship!\n");
     }
 }

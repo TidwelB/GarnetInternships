@@ -44,7 +44,7 @@ public class StudentUI {
             int resumeChoice = scanner.nextInt();
             scanner.nextLine();
             if(resumeChoice == 1) {
-                //Call Upload Resume
+                uploadResumeMenu();
             } else if(resumeChoice == 2) {
                 GarnetInternships.getInstance().addSkill("a skill");
             } else {

@@ -15,7 +15,7 @@ public class Admin extends Account {
 
     }
 
-    public void removeRating(Rating rating) {
+    public static void removeRating(Rating rating) {
         rating = null;
     }
 
