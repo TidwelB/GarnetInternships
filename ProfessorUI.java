@@ -30,7 +30,8 @@ public class ProfessorUI {
             if(profileChoice == 1) {
                 SharedUI.bio();
             } else if(profileChoice == 2) {
-                //Call Picture Editor
+                // Profile Picture Extra Challenge for Later
+                System.out.println("Coming soon...");
             } else if(profileChoice == 3) {
                 //Call Interest Editor
             } else {
