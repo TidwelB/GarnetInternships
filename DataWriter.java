@@ -16,7 +16,7 @@ public class DataWriter extends DataConstants {
         ArrayList<Account> accounts = accountList.getAccounts();
         JSONArray AccountJSON = new JSONArray();
 
-        for (int i = 0; i < AccountJSON.size(); i++) {
+        for (int i = 0; i < accounts.size(); i++) {
             AccountJSON.add(getAccountJSON(accounts.get(i)));
         }
 
@@ -34,7 +34,7 @@ public class DataWriter extends DataConstants {
         ArrayList<Resume> resumes = resumeList.getResumes();
         JSONArray ResumeJSON = new JSONArray();
 
-        for (int i = 0; i < ResumeJSON.size(); i++) {
+        for (int i = 0; i < resumes.size(); i++) {
             ResumeJSON.add(resumes.add(resumes.get(i)));
         }
 
@@ -51,7 +51,7 @@ public class DataWriter extends DataConstants {
         ArrayList<Internship> internships = internshipList.getInternships();
         JSONArray InternshipJSON = new JSONArray();
 
-        for (int i = 0; i < InternshipJSON.size(); i++) {
+        for (int i = 0; i < internships.size(); i++) {
             InternshipJSON.add(internships.add(internships.get(i)));
 
             try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
@@ -66,21 +66,41 @@ public class DataWriter extends DataConstants {
 
     //DO LATER
     public void saveApplications() {
+        AccountList accountList = AccountList.getInstance();
+        ArrayList<Account> accounts = accountList.getAccounts();
         InternshipList internshipList = InternshipList.getInstance();
         ArrayList<Internship> internships = internshipList.getInternships();
         JSONArray InternshipJSON = new JSONArray();
+        ArrayList<Student> students = new ArrayList<Student>();
+        JSONArray ApplicationsJSON = new JSONArray();
+        for (Account account : accounts) {
+            if (account.getType() == 0) {
+                students.add((Student)account);
+            }
+        }
 
-        for (int i = 0; i < InternshipJSON.size(); i++) {
-            InternshipJSON.add(internships.add(internships.get(i)));
+        for (int i = 0; i < students.size(); i++) {
+            ApplicationsJSON.add(getApplicationJSON(students.get(i)));
 
-            try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
-                file.write(InternshipJSON.toJSONString());
+            try (FileWriter file = new FileWriter(APPLICATIONS_FILE_NAME)) {
+                file.write(ApplicationsJSON.toJSONString());
                 file.flush();
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
         }
+    }
+
+    public static JSONObject getApplicationJSON(Student student) {
+        JSONObject applicationDetails = new JSONObject();
+        applicationDetails.put(APPLICATIONS_STUDENT_ID, student.getId());
+        JSONArray applicationIds = new JSONArray();
+        for (Internship internship : student.getListOfAppJobs()) {
+            applicationIds.add(internship.getId());
+        }
+        applicationDetails.put(APPLICATIONS_INTERNSHIP_IDS, applicationIds);
+        return applicationDetails;
     }
 
     public static JSONObject getAccountJSON(Account account) {
@@ -121,12 +141,27 @@ public class DataWriter extends DataConstants {
     }
 
     private static JSONArray getCompanyPrivilege(Company company) {
-        
-
+        JSONArray companyPrivilegeSpecific = new JSONArray();
+        JSONArray ratingJSON = new JSONArray();
+        ratingJSON.add(company.getRating().getNumValue());
+        JSONArray ratingDescriptionJSON = new JSONArray();
+        for (String description : company.getRating().getDescription()) {
+            ratingDescriptionJSON.add(description);
+        }
+        ratingJSON.add(ratingDescriptionJSON);
+        companyPrivilegeSpecific.add(ratingJSON);
+        JSONArray availJobsJSON = new JSONArray();
+        for (Internship internship : company.getAvailJobs()) {
+            availJobsJSON.add(internship.getId());
+        }
+        companyPrivilegeSpecific.add(availJobsJSON);
+        return companyPrivilegeSpecific;
     }
 
     private static JSONArray getProfessorPrivilege(Professor professor) {
-
+        JSONArray professorPrivilegeSpecific = new JSONArray();
+        professorPrivilegeSpecific.add(professor.getEmail());
+        professorPrivilegeSpecific.add(professor.getCredentials());
+        return professorPrivilegeSpecific;
     }
-    
 }
