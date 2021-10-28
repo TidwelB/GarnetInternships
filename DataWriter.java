@@ -66,10 +66,15 @@ public class DataWriter extends DataConstants {
 
     //DO LATER
     public void saveApplications() {
+<<<<<<< HEAD
         AccountList accountList = AccountList.getInstance();
         ArrayList<Account> accounts = accountList.getAccounts();
         InternshipList internshipList = InternshipList.getInstance();
         ArrayList<Internship> internships = internshipList.getInternships();
+=======
+        InternshipList applicationList = InternshipList.getInstance();
+        ArrayList<Internship> applications = applicationList.getInternships();
+>>>>>>> f573edc94d484eccc94ea56fa2de9068a90fa776
         JSONArray InternshipJSON = new JSONArray();
         ArrayList<Student> students = new ArrayList<Student>();
         JSONArray ApplicationsJSON = new JSONArray();
@@ -79,16 +84,24 @@ public class DataWriter extends DataConstants {
             }
         }
 
+<<<<<<< HEAD
         for (int i = 0; i < students.size(); i++) {
             ApplicationsJSON.add(getApplicationJSON(students.get(i)));
 
             try (FileWriter file = new FileWriter(APPLICATIONS_FILE_NAME)) {
                 file.write(ApplicationsJSON.toJSONString());
+=======
+        for (int i = 0; i < InternshipJSON.size(); i++) {
+            InternshipJSON.add(applications.add(applications.get(i)));
+
+            //unchanged so far
+            try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
+                file.write(InternshipJSON.toJSONString());
+>>>>>>> f573edc94d484eccc94ea56fa2de9068a90fa776
                 file.flush();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -142,6 +155,7 @@ public class DataWriter extends DataConstants {
 
     private static JSONArray getCompanyPrivilege(Company company) {
         JSONArray companyPrivilegeSpecific = new JSONArray();
+<<<<<<< HEAD
         JSONArray ratingJSON = new JSONArray();
         ratingJSON.add(company.getRating().getNumValue());
         JSONArray ratingDescriptionJSON = new JSONArray();
@@ -155,13 +169,24 @@ public class DataWriter extends DataConstants {
             availJobsJSON.add(internship.getId());
         }
         companyPrivilegeSpecific.add(availJobsJSON);
+=======
+        companyPrivilegeSpecific.add()
+
+
+>>>>>>> f573edc94d484eccc94ea56fa2de9068a90fa776
         return companyPrivilegeSpecific;
     }
 
     private static JSONArray getProfessorPrivilege(Professor professor) {
         JSONArray professorPrivilegeSpecific = new JSONArray();
+<<<<<<< HEAD
         professorPrivilegeSpecific.add(professor.getEmail());
         professorPrivilegeSpecific.add(professor.getCredentials());
+=======
+        professorPrivilegeSpecific.add()
+
+
+>>>>>>> f573edc94d484eccc94ea56fa2de9068a90fa776
         return professorPrivilegeSpecific;
     }
 }

@@ -72,6 +72,31 @@
         "password": "<3CompSci",
         "privilege": "Admin",
         "id": "440f46e2-67f9-4039-b4b8-52ed91e33fe0",
-        "privilegeSpecific": []
+        "privilegeSpecific": [
+
+        ]
+    },
+    {
+        "name": "Shepherd Jeremiah",
+        "username": "shephejj",
+        "password": "<3CompSci",
+        "privilege": "Professor",
+        "id" : "",
+        "privilegeSpecific": [
+            "SHEPHEJJ@cse.sc.edu",
+            "Instructor, Computer Science & Engineering"
+        ]
+        
+    },
+    {
+        "name": "IBM",
+        "useername": "IBM",
+        "password": "12345",
+        "privilege": "Business",
+        "id" : "",
+        "privilegeSpecific": [
+            
+        ]
+
     }
 ]
