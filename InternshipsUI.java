@@ -1,17 +1,13 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.UUID;
 
 /**
  * @author We Lit Design Company
  */
 public class InternshipsUI {
-    private Scanner scanner;
     private GarnetInternships garnetInternships;
     private final String WELCOME = "Welcome to Garnet Internships!";
 
     InternshipsUI() {
-        scanner = new Scanner(System.in);
         garnetInternships = new GarnetInternships();
     }
 

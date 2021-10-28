@@ -4,14 +4,14 @@ import java.util.Scanner;
  */
 public class SharedUI {
 
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
     public static final String QUESTION = "What would you like to do?\n";
 
     public static void login() {
         System.out.println("------------Log In------------");
         System.out.println("Network Username: ");
         String username = scanner.nextLine();
-        System.out.println("Password: \n");
+        System.out.println("Password: ");
         String password = scanner.nextLine();
     }
 
@@ -19,9 +19,9 @@ public class SharedUI {
         System.out.println("------------Create Account------------");
         System.out.println("Enter Your University Network Username: ");
         String username = scanner.nextLine();
-        System.out.println("Create Password: \n");
+        System.out.println("Create Password: ");
         String password = scanner.nextLine();
-        System.out.println("Account Creation Success!");
+        System.out.println("Account Creation Success!\n");
     }
 
     public static String Profile() {
