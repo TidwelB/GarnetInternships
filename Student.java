@@ -88,7 +88,7 @@ public class Student extends Account{
 
     }
 
-    public void WritetoFile() {
+    public void writeToFile() {
         try {
             FileWriter fileWriter = new FileWriter("NewResume.txt");
             fileWriter.write(resume.toString());
