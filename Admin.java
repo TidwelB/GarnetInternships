@@ -19,12 +19,12 @@ public class Admin extends Account {
         rating = null;
     }
 
-    public void deleteInternship(Internship internship) {
+    public static void deleteInternship(Internship internship) {
         InternshipList.getInstance().getInternships().remove(internship);
         internship = null;
     }
 
-    public void deleteAccount(Account account) {
+    public static void deleteAccount(Account account) {
         AccountList.getInstance().getAccounts().remove(account);
         account = null;
     }

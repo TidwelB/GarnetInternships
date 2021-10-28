@@ -7,7 +7,7 @@ public class InternshipsUI {
     private GarnetInternships garnetInternships;
     private final String WELCOME = "Welcome to Garnet Internships!";
 
-    InternshipsUI() {
+    public InternshipsUI() {
         garnetInternships = new GarnetInternships();
     }
 

@@ -12,7 +12,7 @@ public class GarnetInternships {
     private Account user;
     private static GarnetInternships garnetInternships;
 
-    private GarnetInternships() {
+    public GarnetInternships() {
         
     }
 
