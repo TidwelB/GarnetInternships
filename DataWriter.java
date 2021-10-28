@@ -66,12 +66,12 @@ public class DataWriter extends DataConstants {
 
     //DO LATER
     public void saveApplications() {
-        InternshipList internshipList = InternshipList.getInstance();
-        ArrayList<Internship> internships = internshipList.getInternships();
+        InternshipList applicationList = InternshipList.getInstance();
+        ArrayList<Internship> applications = applicationList.getInternships();
         JSONArray InternshipJSON = new JSONArray();
 
         for (int i = 0; i < InternshipJSON.size(); i++) {
-            InternshipJSON.add(internships.add(internships.get(i)));
+            InternshipJSON.add(applications.add(applications.get(i)));
 
             try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
                 file.write(InternshipJSON.toJSONString());
@@ -79,7 +79,6 @@ public class DataWriter extends DataConstants {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 
