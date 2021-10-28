@@ -64,6 +64,25 @@ public class DataWriter extends DataConstants {
         }
     }
 
+    //DO LATER
+    public void saveApplications() {
+        InternshipList internshipList = InternshipList.getInstance();
+        ArrayList<Internship> internships = internshipList.getInternships();
+        JSONArray InternshipJSON = new JSONArray();
+
+        for (int i = 0; i < InternshipJSON.size(); i++) {
+            InternshipJSON.add(internships.add(internships.get(i)));
+
+            try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
+                file.write(InternshipJSON.toJSONString());
+                file.flush();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
     public static JSONObject getAccountJSON(Account account) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(ACCOUNT_NAME, account.getName());
@@ -72,15 +91,42 @@ public class DataWriter extends DataConstants {
         userDetails.put(ACCOUNT_ID, account.getId().toString());
         if (account.getType() == 0) {
             //student
+            userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, getStudentPrivilege((Student)account));
         } else if (account.getType() == 1) {
             //company
+            userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, getCompanyPrivilege((Company) account));
         } else if (account.getType() == 2) {
             //professor
+            userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, getProfessorPrivilege((Professor) account));
         } else if (account.getType() == 3) {
-            //admin
+            userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, "");
         }
         return userDetails;
     }
 
+    private static JSONArray getStudentPrivilege(Student student) {
+        JSONArray studentPrivilegeSpecific = new JSONArray();
+        studentPrivilegeSpecific.add(student.getEmail());
+        studentPrivilegeSpecific.add(student.getResume().getId().toString());
+        JSONArray ratingJSON = new JSONArray();
+        ratingJSON.add(student.getRating().getNumValue());
+        JSONArray ratingDescriptionJSON = new JSONArray();
+        for (String description : student.getRating().getDescription()) {
+            ratingDescriptionJSON.add(description);
+        }
+        ratingJSON.add(ratingDescriptionJSON);
+        studentPrivilegeSpecific.add(ratingJSON);
+        studentPrivilegeSpecific.add(student.getGradYear());
+        return studentPrivilegeSpecific;
+    }
+
+    private static JSONArray getCompanyPrivilege(Company company) {
+        
+
+    }
+
+    private static JSONArray getProfessorPrivilege(Professor professor) {
+
+    }
     
 }
