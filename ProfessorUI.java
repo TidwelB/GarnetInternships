@@ -28,7 +28,7 @@ public class ProfessorUI {
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if(profileChoice == 1) {
-                //Call Bio Editor
+                SharedUI.bio();
             } else if(profileChoice == 2) {
                 //Call Picture Editor
             } else if(profileChoice == 3) {
