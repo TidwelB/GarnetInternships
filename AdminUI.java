@@ -24,11 +24,23 @@ public class AdminUI {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if(menuChoice == 1) {
-            //HIDE RATING
+            Admin.removeRating();
         } else if(menuChoice == 2) {
-            //REMOVE INTERNSHIP
+            System.out.println("Enter the position for the internship you would like to delete");
+            System.out.println("Position:");
+            String position = scanner.nextLine();
+            if() {
+                Admin.deleteInternship();
+            }
         } else if(menuChoice == 3) {
-            //DELETE ACCOUNT
+            System.out.println("Enter the name and username for the account you would like to delete");
+            System.out.println("Name:");
+            String name = scanner.nextLine();
+            System.out.println("Username:");
+            String username = scanner.nextLine();
+            if() {
+                Admin.deleteAccount();
+            }
         } else {
             System.out.println("Returning to main menu...");
             AdminMenu();
