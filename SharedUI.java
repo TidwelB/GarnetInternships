@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  * @author We Lit Design Company
@@ -6,6 +7,7 @@ public class SharedUI {
 
     private static Scanner scanner = new Scanner(System.in);
     public static final String QUESTION = "What would you like to do?\n";
+    private static ArrayList<String> bio;
 
     public static void login() {
         System.out.println("------------Log In------------");
@@ -39,6 +41,28 @@ public class SharedUI {
         //NEED TO IMPLEMENT FUNCTIONALITY TO CHECK IF ALL REQUIREMENTS HAVE BEEN FILLED
         rating += "Submitting Rating!\n";
         return rating;
+    }
+
+    public static void bio() {
+        System.out.println("Profile Bio:"+bio);
+        System.out.println("Would you like to 'add' or 'remove' information from your bio?");
+        String choice = scanner.nextLine();
+        if(choice.equalsIgnoreCase("add")) {
+            System.out.println("What would you like to add?");
+            String addBio = scanner.nextLine();
+            bio.add(addBio);
+        } else if(choice.equalsIgnoreCase("remove")) {
+            System.out.println("What would you like to remove?");
+            String removeBio = scanner.nextLine();
+            for(int i=0;i<bio.size();i++) {
+                if(bio.get(i).equalsIgnoreCase(removeBio)) {
+                    bio.remove(removeBio);
+                }
+            }
+        } else {
+            System.out.println("Invlaid input...returning to profile");
+            Profile();
+        }
     }
     
 }

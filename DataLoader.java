@@ -128,13 +128,18 @@ public class DataLoader extends DataConstants{
                 UUID studentId = UUID.fromString((String) applicationJSON.get(APPLICATIONS_STUDENT_ID));
                 Student student = null;
                 for (int j = 0; j < accounts.size(); j++) {
-                    if (accounts.get(j).getId().equals(studentId));
-                    student = (Student)accounts.get(j);
+                    if (accounts.get(j).getId().equals(studentId)) {
+                        student = (Student)accounts.get(j);
+                    }
                 }
                 JSONArray internshipIdsJSON = (JSONArray) applicationJSON.get(APPLICATIONS_INTERNSHIP_IDS);
                 for (int j = 0; j < (internshipIdsJSON.size()); j++) {
                     UUID internshipId = UUID.fromString((String) internshipIdsJSON.get(j));
-                    student.apply(InternshipList.getInstance().getInternshipById(internshipId));
+                    for (Internship internship : getInternships()) {
+                        if (internshipId.equals(internship.getId())) {
+                            student.apply(internship);
+                        }
+                    }
                 }
             }
             reader.close();

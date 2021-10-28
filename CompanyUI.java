@@ -28,9 +28,10 @@ public class CompanyUI {
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if(profileChoice == 1) {
-                //Call Bio Editor
+                SharedUI.bio();
             } else if(profileChoice == 2) {
-                //Call Picture Editor
+                // Profile Picture Extra Challenge for Later
+                System.out.println("Coming soon...");
             } else if(profileChoice == 3) {
                 //Call Interest Editor
             } else {
@@ -53,7 +54,7 @@ public class CompanyUI {
         }
     }
 
-    public static void PostInternship() {
+    public void PostInternship() {
         System.out.println("\n--------Post Internship--------\nEnter the following:\n");
         System.out.println("\nPlease enter the position title:");
         String positionTitle = scanner.nextLine();

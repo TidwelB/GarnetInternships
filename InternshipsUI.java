@@ -7,8 +7,8 @@ public class InternshipsUI {
     private GarnetInternships garnetInternships;
     private final String WELCOME = "Welcome to Garnet Internships!";
 
-    public InternshipsUI() {
-        garnetInternships = new GarnetInternships();
+    InternshipsUI() {
+        garnetInternships = GarnetInternships.getInstance();
     }
 
     public void run() {
@@ -36,8 +36,7 @@ public class InternshipsUI {
 
     public static void main(String[] args) {
         System.out.println(UUID.randomUUID());
-        System.out.println(InternshipList.getInstance().getInternships().get(3));
-        //InternshipsUI driver = new InternshipsUI();
-        //driver.run();
+        InternshipsUI driver = new InternshipsUI();
+        driver.run();
     }
 }
