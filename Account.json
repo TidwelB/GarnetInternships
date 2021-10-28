@@ -90,12 +90,17 @@
     },
     {
         "name": "IBM",
-        "useername": "IBM",
+        "username": "IBM",
         "password": "12345",
-        "privilege": "Business",
+        "privilege": "Company",
         "id" : "",
         "privilegeSpecific": [
-            
+            "IBM@ibm.com",
+            "Tech company",
+            [
+                5.0,
+                ["great"]
+            ]
         ]
 
     }
