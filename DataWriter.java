@@ -17,7 +17,7 @@ public class DataWriter extends DataConstants {
         JSONArray AccountJSON = new JSONArray();
 
         for (int i = 0; i < AccountJSON.size(); i++) {
-            AccountJSON.add(accounts.add(accounts.get(i)));
+            AccountJSON.add(getAccountJSON(accounts.get(i)));
         }
 
         try (FileWriter file = new FileWriter(ACCOUNT_FILE_NAME)) {
@@ -63,4 +63,24 @@ public class DataWriter extends DataConstants {
 
         }
     }
+
+    public static JSONObject getAccountJSON(Account account) {
+        JSONObject userDetails = new JSONObject();
+        userDetails.put(ACCOUNT_NAME, account.getName());
+        userDetails.put(ACCOUNT_USER_NAME, account.getUsername());
+        userDetails.put(ACCOUNT_PASSWORD, account.getPassord());
+        userDetails.put(ACCOUNT_ID, account.getId().toString());
+        if (account.getType() == 0) {
+            //student
+        } else if (account.getType() == 1) {
+            //company
+        } else if (account.getType() == 2) {
+            //professor
+        } else if (account.getType() == 3) {
+            //admin
+        }
+        return userDetails;
+    }
+
+    
 }

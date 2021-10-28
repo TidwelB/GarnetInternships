@@ -34,6 +34,10 @@ public abstract class Account {
         return this.id;
     }
 
+    public String getPassord() {
+        return this.password;
+    }
+
     public abstract int getType();
 
     public String toString() {
