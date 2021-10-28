@@ -8,6 +8,7 @@ public class SharedUI {
     private static Scanner scanner = new Scanner(System.in);
     public static final String QUESTION = "What would you like to do?\n";
     private static ArrayList<String> bio;
+    private static ArrayList<String> interests;
 
     public static void login() {
         System.out.println("------------Log In------------");
@@ -57,6 +58,28 @@ public class SharedUI {
             for(int i=0;i<bio.size();i++) {
                 if(bio.get(i).equalsIgnoreCase(removeBio)) {
                     bio.remove(removeBio);
+                }
+            }
+        } else {
+            System.out.println("Invlaid input...returning to profile");
+            Profile();
+        }
+    }
+
+    public static void interests() {
+        System.out.println("Profile Interests:"+interests);
+        System.out.println("Would you like to 'add' or 'remove' interests from your bio?");
+        String choice = scanner.nextLine();
+        if(choice.equalsIgnoreCase("add")) {
+            System.out.println("What would you like to add?");
+            String addInterest = scanner.nextLine();
+            interests.add(addInterest);
+        } else if(choice.equalsIgnoreCase("remove")) {
+            System.out.println("What would you like to remove?");
+            String removeInterests = scanner.nextLine();
+            for(int i=0;i<interests.size();i++) {
+                if(interests.get(i).equalsIgnoreCase(removeInterests)) {
+                    interests.remove(removeInterests);
                 }
             }
         } else {
