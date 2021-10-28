@@ -36,7 +36,8 @@ public class InternshipsUI {
 
     public static void main(String[] args) {
         System.out.println(UUID.randomUUID());
-        InternshipsUI driver = new InternshipsUI();
-        driver.run();
+        System.out.println(InternshipList.getInstance().getInternships().get(3));
+        //InternshipsUI driver = new InternshipsUI();
+        //driver.run();
     }
 }

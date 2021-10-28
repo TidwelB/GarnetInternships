@@ -95,74 +95,53 @@ public class DataLoader extends DataConstants{
             FileReader reader = new FileReader(APPLICATIONS_FILE_NAME);
             JSONParser parser = new JSONParser();
             JSONArray applicationsJSON = (JSONArray) new JSONParser().parse(reader);
-            ArrayList<Account> accounts = getAccounts();
-            for (int i = 0 ; i < accounts.size(); i++) {
-                if (accounts.get(i).getType() == 0) {
-                    Student student = (Student) accounts.get(i);
-                    for (int j = 0; j < applicationsJSON.size(); j++) {
-                        JSONObject applicationJSON = (JSONObject)applicationsJSON.get(j);
-                        if (UUID.fromString((String)applicationJSON.get(APPLICATIONS_STUDENT_ID)).equals(student.getId())) {
-                            JSONArray internshipIdsJSON = (JSONArray) applicationJSON.get(APPLICATIONS_INTERNSHIP_IDS);
-                            for (Object internshipIdJSON : internshipIdsJSON) {
-                                for (Internship internship : internships) {
-                                    if (internship.getId().equals(UUID.fromString((String) internshipIdJSON))) {
-                                        student.apply(internship);
-                                        break;
-                                    }
-                                }
-                            }
+            for (int i = 0; i < applicationsJSON.size(); i++) {
+                JSONObject applicationJSON = (JSONObject) applicationsJSON.get(i);
+                UUID studentId = UUID.fromString((String)applicationJSON.get(APPLICATIONS_STUDENT_ID));
+                Student student = (Student)AccountList.getInstance().getAccountById(studentId);
+                JSONArray internshipIdsJSON = (JSONArray) applicationJSON.get(APPLICATIONS_INTERNSHIP_IDS);
+                for (int j = 0; j < (internshipIdsJSON.size()); j++) {
+                    UUID internshipId = UUID.fromString((String)internshipIdsJSON.get(j));
+                    for (Internship internship : internships) {
+                        if (internship.getId().equals(internshipId)) {
+                            student.apply(internship);
+                            break;
                         }
                     }
                 }
-
             }
-            
             reader.close();
             return internships;
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
     public static ArrayList<Account> setAccountApplications(ArrayList<Account> accounts) {
-
         try {
             FileReader reader = new FileReader(APPLICATIONS_FILE_NAME);
             JSONParser parser = new JSONParser();
             JSONArray applicationsJSON = (JSONArray) new JSONParser().parse(reader);
-            ArrayList<Internship> internships = getInternships();
-            for (int i = 0; i < accounts.size(); i++) {
-                if (accounts.get(i).getType() == 0) {
-                    Student student = (Student) accounts.get(i);
-                    for (int j = 0; j < applicationsJSON.size(); j++) {
-                        JSONObject applicationJSON = (JSONObject) applicationsJSON.get(j);
-                        if (UUID.fromString((String) applicationJSON.get(APPLICATIONS_STUDENT_ID))
-                                .equals(student.getId())) {
-                            JSONArray internshipIdsJSON = (JSONArray) applicationJSON.get(APPLICATIONS_INTERNSHIP_IDS);
-                            for (Object internshipIdJSON : internshipIdsJSON) {
-                                for (Internship internship : internships) {
-                                    if (internship.getId().equals(UUID.fromString((String) internshipIdJSON))) {
-                                        student.apply(internship);
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
+            for (int i = 0; i < applicationsJSON.size(); i++) {
+                JSONObject applicationJSON = (JSONObject) applicationsJSON.get(i);
+                UUID studentId = UUID.fromString((String) applicationJSON.get(APPLICATIONS_STUDENT_ID));
+                Student student = null;
+                for (int j = 0; j < accounts.size(); j++) {
+                    if (accounts.get(j).getId().equals(studentId));
+                    student = (Student)accounts.get(j);
                 }
-
+                JSONArray internshipIdsJSON = (JSONArray) applicationJSON.get(APPLICATIONS_INTERNSHIP_IDS);
+                for (int j = 0; j < (internshipIdsJSON.size()); j++) {
+                    UUID internshipId = UUID.fromString((String) internshipIdsJSON.get(j));
+                    student.apply(InternshipList.getInstance().getInternshipById(internshipId));
+                }
             }
-
             reader.close();
             return accounts;
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -181,15 +160,9 @@ public class DataLoader extends DataConstants{
         }
         JSONArray availJobsJSON = (JSONArray)privilegeSpecificJSON.get(1);
         ArrayList<Internship> availJobs = new ArrayList<Internship>();
-        ArrayList<Internship> internships = InternshipList.getInstance().getInternships();
         for (Object availJobIdJSON : availJobsJSON) {
             UUID availJobId = UUID.fromString((String)availJobIdJSON);
-            for (Internship internship : internships) {
-                if (internship.getId() == availJobId) {
-                    availJobs.add(internship);
-                    break;
-                }
-            }
+            availJobs.add(InternshipList.getInstance().getInternshipById(availJobId));
         }
         Rating rating = new Rating((double) ratingJSON.get(0), descriptions);
         return new Company(name, username, password, rating, availJobs, id);
@@ -197,14 +170,7 @@ public class DataLoader extends DataConstants{
 
     private static Account makeStudent(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
         String email = (String)privilegeSpecificJSON.get(0);
-        ArrayList<Resume> resumes = ResumeList.getInstance().getResumes();
-        Resume resume = null;
-        for (int i = 0; i < resumes.size(); i++) {
-            if (privilegeSpecificJSON.get(1) == resumes.get(i).getId()) {
-                resume = resumes.get(i);
-                break;
-            }
-        }
+        Resume resume = ResumeList.getInstance().getResumeById(UUID.fromString((String)privilegeSpecificJSON.get(1)));
         JSONArray ratingJSON = (JSONArray)privilegeSpecificJSON.get(2);
         JSONArray descriptionsJSON = (JSONArray) ratingJSON.get(1);
         ArrayList<String> descriptions = new ArrayList<String>();

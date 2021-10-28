@@ -14,7 +14,7 @@ public abstract class Account {
     public Account(String name, String username, String password, UUID id) {
         this.name = name;
         this.username = username;
-        this.password = password;
+        setPassword(password);
         this.id = id;
     }
 
