@@ -73,6 +73,7 @@ public class DataWriter extends DataConstants {
         for (int i = 0; i < InternshipJSON.size(); i++) {
             InternshipJSON.add(applications.add(applications.get(i)));
 
+            //unchanged so far
             try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
                 file.write(InternshipJSON.toJSONString());
                 file.flush();
@@ -120,12 +121,19 @@ public class DataWriter extends DataConstants {
     }
 
     private static JSONArray getCompanyPrivilege(Company company) {
-        
+        JSONArray companyPrivilegeSpecific = new JSONArray();
+        companyPrivilegeSpecific.add()
 
+
+        return companyPrivilegeSpecific;
     }
 
     private static JSONArray getProfessorPrivilege(Professor professor) {
+        JSONArray professorPrivilegeSpecific = new JSONArray();
+        professorPrivilegeSpecific.add()
 
+
+        return professorPrivilegeSpecific;
     }
     
 }

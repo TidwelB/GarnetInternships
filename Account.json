@@ -72,6 +72,12 @@
         "password": "<3CompSci",
         "privilege": "Admin",
         "id": "440f46e2-67f9-4039-b4b8-52ed91e33fe0",
-        "privilegeSpecific": []
+        "privilegeSpecific": [
+
+        ]
+    },
+    {
+        "name": "JJ Shepherd",
+        "username": ""
     }
 ]
