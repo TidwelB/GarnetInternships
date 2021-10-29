@@ -33,7 +33,7 @@ public class CompanyUI {
                 // Profile Picture Extra Challenge for Later
                 System.out.println("Coming soon...");
             } else if(profileChoice == 3) {
-                //Call Interest Editor
+                SharedUI.interests();
             } else {
                 System.out.println("Returning to main menu...");
                 CompanyMenu();
