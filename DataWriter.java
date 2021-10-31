@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
 
-    public void saveAccounts() {
+    public static void saveAccounts() {
         AccountList accountList = AccountList.getInstance();
         ArrayList<Account> accounts = accountList.getAccounts();
         JSONArray AccountJSON = new JSONArray();
@@ -29,7 +29,7 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    public void saveResumes() {
+    public static void saveResumes() {
         ResumeList resumeList = ResumeList.getInstance();
         ArrayList<Resume> resumes = resumeList.getResumes();
         JSONArray ResumeJSON = new JSONArray();
@@ -104,7 +104,7 @@ public class DataWriter extends DataConstants {
         return resumeDetails;
     }
 
-    public void saveInternships() {
+    public static void saveInternships() {
         InternshipList internshipList = InternshipList.getInstance();
         ArrayList<Internship> internships = internshipList.getInternships();
         JSONArray InternshipJSON = new JSONArray();
@@ -137,7 +137,7 @@ public class DataWriter extends DataConstants {
         return internshipDetails;
     }
 
-    public void saveApplications() {
+    public static void saveApplications() {
         AccountList accountList = AccountList.getInstance();
         ArrayList<Account> accounts = accountList.getAccounts();
         InternshipList internshipList = InternshipList.getInstance();
@@ -178,7 +178,7 @@ public class DataWriter extends DataConstants {
         JSONObject userDetails = new JSONObject();
         userDetails.put(ACCOUNT_NAME, account.getName());
         userDetails.put(ACCOUNT_USER_NAME, account.getUsername());
-        userDetails.put(ACCOUNT_PASSWORD, account.getPassord());
+        userDetails.put(ACCOUNT_PASSWORD, account.getPassword());
         userDetails.put(ACCOUNT_ID, account.getId().toString());
         if (account.getType() == 0) {
             userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, getStudentPrivilege((Student)account));

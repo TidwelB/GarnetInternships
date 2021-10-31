@@ -92,13 +92,15 @@
         "name": "IBM",
         "username": "IBM",
         "password": "12345",
-        "privilege": "Professor",
+        "privilege": "Company",
         "id" : "eca95ce3-53ec-4e40-90e1-856ce34e8ebc",
         "privilegeSpecific": [
             [
                 4.5,
-                "pretty nice company",
-                "paid well"
+                [
+                    "pretty nice company",
+                    "paid well"
+                ]
             ],
             [
                 "a54d9fa5-1136-4525-b268-026fd1cd7bfc",

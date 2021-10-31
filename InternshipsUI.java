@@ -12,11 +12,16 @@ public class InternshipsUI {
     }
 
     public void run() {
+
         SharedUI.createAccount();
         System.out.println(WELCOME);
         SharedUI.login();
         displayMainMenu();
     }
+
+    //private int loginOrCreateAccount() {
+        
+    //}
 
     private void displayMainMenu() {
         if(garnetInternships.getUser().getType() == 0) {
@@ -35,7 +40,6 @@ public class InternshipsUI {
     }
 
     public static void main(String[] args) {
-        System.out.println(UUID.randomUUID());
         InternshipsUI driver = new InternshipsUI();
         driver.run();
     }
