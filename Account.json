@@ -81,7 +81,7 @@
         "username": "shephejj",
         "password": "<3CompSci",
         "privilege": "Professor",
-        "id" : "",
+        "id" : "bbb4fc95-7ce5-4c0e-95a3-f52c9d52d650",
         "privilegeSpecific": [
             "SHEPHEJJ@cse.sc.edu",
             "Instructor, Computer Science & Engineering"
@@ -90,12 +90,22 @@
     },
     {
         "name": "IBM",
-        "useername": "IBM",
+        "username": "IBM",
         "password": "12345",
-        "privilege": "Business",
-        "id" : "",
+        "privilege": "Professor",
+        "id" : "eca95ce3-53ec-4e40-90e1-856ce34e8ebc",
         "privilegeSpecific": [
-            
+            [
+                4.5,
+                "pretty nice company",
+                "paid well"
+            ],
+            [
+                "a54d9fa5-1136-4525-b268-026fd1cd7bfc",
+                "ec52eae4-8c19-41c1-b618-a325571b6856",
+                "43fe4cbb-37aa-4269-8f9b-86cd6a16a603",
+                "81efb768-f3fd-41d7-bf21-c1b23e548fa1"
+            ]
         ]
 
     }
