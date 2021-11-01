@@ -12,7 +12,6 @@ public class InternshipsUI {
     }
 
     public void run() {
-
         SharedUI.createAccount();
         System.out.println(WELCOME);
         SharedUI.login();
