@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 /**
@@ -13,7 +14,7 @@ public class GarnetInternships {
     private static GarnetInternships garnetInternships;
 
     public GarnetInternships() {
-        
+        garnetInternships = this;
     }
 
     public static GarnetInternships getInstance() {
@@ -40,7 +41,15 @@ public class GarnetInternships {
     }
 
     public Account login(String username, String password) {
+        if (checkPassword(username, password)) {
+            return accountList.getAccount(username);
+        }
         return null;
+    }
+
+    private boolean checkPassword(String username, String password) {
+        Account account = accountList.getAccount(username);
+        return account.getPassword().equals(password);
     }
 
     public boolean addSkill(String skill) {
@@ -63,12 +72,19 @@ public class GarnetInternships {
 
     public boolean logout() {
         if (user == null) return false;
-        //write data
+        DataWriter.saveResumes();
+        DataWriter.saveInternships();
+        DataWriter.saveAccounts();
+        DataWriter.saveApplications();
         user = null;
         return true;
     }
 
     public boolean isLoggedIn() {
         return user != null;
+    }
+
+    public UUID createNewId() {
+        return UUID.randomUUID();
     }
 }

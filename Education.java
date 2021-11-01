@@ -18,6 +18,22 @@ public class Education {
         this.degree = degree;
     }
 
+    public String getSchool() {
+        return this.school;
+    }
+
+    public String getGraduationDate() {
+        return this.graduationDate;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public String getDegree() {
+        return this.degree;
+    }
+
     public String toString() {
         String education = "----Education----";
         education += "\nSchool: "+school;

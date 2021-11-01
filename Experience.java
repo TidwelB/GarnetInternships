@@ -24,6 +24,30 @@ public class Experience {
         this.endDate = endDate;
     }
 
+    public String getOrganization() {
+        return this.organization;
+    }
+
+    public String getLocation() {
+        return this.location;
+    }
+
+    public String getPosition() {
+        return this.position;
+    }
+
+    public String getStartDate() {
+        return this.startDate;
+    }
+
+    public String getEndDate() {
+        return this.endDate;
+    }
+
+    public ArrayList<String> getAccomplishments() {
+        return this.accomplishments;
+    }
+
     public String toString() {
         String experience = "----Experience----";
         experience += "\nOrganization: "+organization;

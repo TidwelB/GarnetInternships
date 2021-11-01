@@ -34,7 +34,7 @@ public abstract class Account {
         return this.id;
     }
 
-    public String getPassord() {
+    public String getPassword() {
         return this.password;
     }
 

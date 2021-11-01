@@ -11,7 +11,7 @@ import org.json.simple.JSONObject;
 
 public class DataWriter extends DataConstants {
 
-    public void saveAccounts() {
+    public static void saveAccounts() {
         AccountList accountList = AccountList.getInstance();
         ArrayList<Account> accounts = accountList.getAccounts();
         JSONArray AccountJSON = new JSONArray();
@@ -29,13 +29,13 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    public void saveResumes() {
+    public static void saveResumes() {
         ResumeList resumeList = ResumeList.getInstance();
         ArrayList<Resume> resumes = resumeList.getResumes();
         JSONArray ResumeJSON = new JSONArray();
 
         for (int i = 0; i < resumes.size(); i++) {
-            ResumeJSON.add(resumes.add(resumes.get(i)));
+            ResumeJSON.add(getResumeJSON(resumes.get(i)));
         }
 
         try (FileWriter file = new FileWriter(RESUME_FILE_NAME)) {
@@ -46,13 +46,71 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    public void saveInternships() {
+    private static JSONObject getResumeJSON(Resume resume) {
+        JSONObject resumeDetails = new JSONObject();
+        resumeDetails.put(INTERNSHIP_ID, resume.getId());
+        JSONArray priorEds = new JSONArray();
+        for (Education education : resume.getPriorEd()) {
+            JSONArray priorEd = new JSONArray();
+            priorEd.add(education.getSchool());
+            priorEd.add(education.getGraduationDate());
+            priorEd.add(education.getLocation());
+            priorEd.add(education.getDegree());
+            priorEds.add(priorEd);
+        }
+        resumeDetails.put(RESUME_PRIOR_EDUCATION, priorEds);
+        JSONArray awards = new JSONArray();
+        for (String award : resume.getAwards()) {
+            awards.add(award);
+        }
+        resumeDetails.put(RESUME_AWARDS, awards);
+        JSONArray relatedExps = new JSONArray();
+        for (Experience experience : resume.getRelatedExp()) {
+            JSONArray relatedExp = new JSONArray();
+            relatedExp.add(experience.getOrganization());
+            relatedExp.add(experience.getLocation());
+            relatedExp.add(experience.getPosition());
+            relatedExp.add(experience.getStartDate());
+            relatedExp.add(experience.getEndDate());
+            JSONArray accomplishments = new JSONArray();
+            for (String accomplishment : experience.getAccomplishments()) {
+                accomplishments.add(accomplishment);
+            }
+            relatedExp.add(accomplishments);
+            
+        }
+        resumeDetails.put(RESUME_RELATED_EXPERIENCE, relatedExps);
+        JSONArray communityExps = new JSONArray();
+        for (Experience experience : resume.getCommExp()) {
+            JSONArray commExp = new JSONArray();
+            commExp.add(experience.getOrganization());
+            commExp.add(experience.getLocation());
+            commExp.add(experience.getPosition());
+            commExp.add(experience.getStartDate());
+            commExp.add(experience.getEndDate());
+            JSONArray accomplishments = new JSONArray();
+            for (String accomplishment : experience.getAccomplishments()) {
+                accomplishments.add(accomplishment);
+            }
+            commExp.add(accomplishments);
+
+        }
+        resumeDetails.put(RESUME_COMMUNITY_EXPERIENCE, communityExps);
+        JSONArray skills = new JSONArray();
+        for (String skill : resume.getSkills()) {
+            skills.add(skill);
+        }
+        resumeDetails.put(RESUME_SKILLS, skills);
+        return resumeDetails;
+    }
+
+    public static void saveInternships() {
         InternshipList internshipList = InternshipList.getInstance();
         ArrayList<Internship> internships = internshipList.getInternships();
         JSONArray InternshipJSON = new JSONArray();
 
         for (int i = 0; i < internships.size(); i++) {
-            InternshipJSON.add(internships.add(internships.get(i)));
+            InternshipJSON.add(getInternshipJSON(internships.get(i)));
 
             try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
                 file.write(InternshipJSON.toJSONString());
@@ -64,8 +122,22 @@ public class DataWriter extends DataConstants {
         }
     }
 
-    //DO LATER
-    public void saveApplications() {
+    private static JSONObject getInternshipJSON(Internship internship) {
+        JSONObject internshipDetails = new JSONObject();
+        internshipDetails.put(INTERNSHIP_ID, internship.getId());
+        internshipDetails.put(INTERNSHIP_POSITION, internship.getPosition());
+        JSONArray requiredSkills = new JSONArray();
+        for (String skill : internship.getReqSkills()) {
+            requiredSkills.add(internship.getId());
+        }
+        internshipDetails.put(APPLICATIONS_INTERNSHIP_IDS, requiredSkills);
+        internshipDetails.put(INTERNSHIP_RECYEAR, internship.getRecYear());
+        internshipDetails.put(INTERNSHIP_PAYRATE, internship.getPayrate().toString());
+        internshipDetails.put(INTERNSHIP_DESCRIPTION, internship.getDescription());
+        return internshipDetails;
+    }
+
+    public static void saveApplications() {
         AccountList accountList = AccountList.getInstance();
         ArrayList<Account> accounts = accountList.getAccounts();
         InternshipList internshipList = InternshipList.getInstance();
@@ -106,10 +178,9 @@ public class DataWriter extends DataConstants {
         JSONObject userDetails = new JSONObject();
         userDetails.put(ACCOUNT_NAME, account.getName());
         userDetails.put(ACCOUNT_USER_NAME, account.getUsername());
-        userDetails.put(ACCOUNT_PASSWORD, account.getPassord());
+        userDetails.put(ACCOUNT_PASSWORD, account.getPassword());
         userDetails.put(ACCOUNT_ID, account.getId().toString());
         if (account.getType() == 0) {
-            //student
             userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, getStudentPrivilege((Student)account));
         } else if (account.getType() == 1) {
             //company
