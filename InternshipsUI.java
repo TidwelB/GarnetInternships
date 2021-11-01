@@ -12,6 +12,7 @@ public class InternshipsUI {
     }
 
     public void run() {
+<<<<<<< HEAD
         AccountList.getInstance().getAccounts().add(new Professor("Jonny", "Jboy", "12345", "jboy@email.com", "cred", UUID.randomUUID()));
         garnetInternships.login("Jboy", "12345");
         garnetInternships.logout();
@@ -19,6 +20,12 @@ public class InternshipsUI {
         //System.out.println(WELCOME);
         //SharedUI.login();
         //displayMainMenu();
+=======
+        SharedUI.createAccount();
+        System.out.println(WELCOME);
+        SharedUI.login();
+        displayMainMenu();
+>>>>>>> 80efb8b4f47639641938b70822daf3f2076324a8
     }
 
     //private int loginOrCreateAccount() {

@@ -17,7 +17,7 @@ public class StudentUI {
         String studentMenu = "";
         studentMenu += "\nWelcome 'Student'!";
         studentMenu += "--------Menu--------";
-        studentMenu += "1. Edit Profile \n2. Edit Resume \n3. Search Internships\n4. Return to Main Menu\n";
+        studentMenu += "1. Edit Profile \n2. Edit Resume \n3. Search Internships\n";
         studentMenu += SharedUI.QUESTION;
         return studentMenu;
     }
@@ -31,11 +31,17 @@ public class StudentUI {
             scanner.nextLine();
             if(profileChoice == 1) {
                 SharedUI.bio();
+                System.out.println("Success: returning to profile...");
+                SharedUI.Profile();
             } else if(profileChoice == 2) {
                 // Profile Picture Extra Challenge for Later
                 System.out.println("Coming soon...");
+                System.out.println("Returning to profile...");
+                SharedUI.Profile();
             } else if(profileChoice == 3) {
                 SharedUI.interests();
+                System.out.println("Success: returning to profile...");
+                SharedUI.Profile();
             } else {
                 System.out.println("Returning to main menu...");
                 StudentMenu();
@@ -46,8 +52,12 @@ public class StudentUI {
             scanner.nextLine();
             if(resumeChoice == 1) {
                 uploadResumeMenu();
+                System.out.println("Success: returning to resume menu...");
+                StudentResume();
             } else if(resumeChoice == 2) {
                 GarnetInternships.getInstance().addSkill("a skill");
+                System.out.println("Success: returning to resume menu...");
+                StudentResume();
             } else {
                 System.out.println("Returning to main menu...");
                 StudentMenu();
@@ -60,7 +70,7 @@ public class StudentUI {
                 StudentMenu();
             }
         } else {
-            System.out.println("Returning to main menu...");
+            System.out.println("Invalid input: returning to main menu...");
             StudentMenu();
         }
     }
