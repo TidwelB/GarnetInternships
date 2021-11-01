@@ -23,6 +23,7 @@ public class Student extends Account{
         super(name, username, password, id);
         setEmail(email);
         this.resume = resume;
+        this.rating = rating;
         setGradYear(gradYear);
         this.listOfAppJobs = listOfAppJobs;
     }
@@ -52,8 +53,10 @@ public class Student extends Account{
     }
 
     public void apply(Internship internship) {
-        listOfAppJobs.add(internship);
-        internship.addToApplicants(this);
+        if (!this.listOfAppJobs.contains(internship)) {
+            listOfAppJobs.add(internship);
+            internship.addToApplicants(this);
+        }   
     }
     
     public ArrayList<Internship> getListOfAppJobs() {

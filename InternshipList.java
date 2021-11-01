@@ -19,7 +19,6 @@ public class InternshipList {
     public static InternshipList getInstance() {
         if (internshipList == null) {
             ArrayList<Internship> internships = DataLoader.getInternships();
-            internships = DataLoader.setInternshipApplications(internships);
             return new InternshipList(internships);
         }
         return internshipList;

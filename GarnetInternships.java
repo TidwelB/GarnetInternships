@@ -15,6 +15,10 @@ public class GarnetInternships {
 
     public GarnetInternships() {
         garnetInternships = this;
+        internshipList = InternshipList.getInstance();
+        accountList = AccountList.getInstance();
+        DataLoader.setAccountApplications(accountList.getAccounts());
+        DataLoader.setInternshipApplications(internshipList.getInternships());
     }
 
     public static GarnetInternships getInstance() {
@@ -42,7 +46,8 @@ public class GarnetInternships {
 
     public Account login(String username, String password) {
         if (checkPassword(username, password)) {
-            return accountList.getAccount(username);
+            user = accountList.getAccount(username);
+            return user;
         }
         return null;
     }

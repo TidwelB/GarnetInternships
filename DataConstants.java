@@ -5,7 +5,7 @@ public class DataConstants {
     protected static final String ACCOUNT_FILE_NAME = "./Account.json";
     protected static final String ACCOUNT_NAME = "name";
     protected static final String ACCOUNT_USER_NAME = "username";
-    protected static final String ACCOUNT_PASSWORD = "passord";
+    protected static final String ACCOUNT_PASSWORD = "password";
     protected static final String ACCOUNT_PRIVILEGE = "privilege";
     protected static final String ACCOUNT_ID = "id";
     protected static final String ACCOUNT_PRIVILEGE_SPECIFIC = "privilegeSpecific";

@@ -18,7 +18,6 @@ public class AccountList {
     public static AccountList getInstance() {
         if (accountList == null) {
             ArrayList<Account> accounts = DataLoader.getAccounts();
-            DataLoader.setAccountApplications(accounts);
             return new AccountList(accounts);
         }
         return accountList;
