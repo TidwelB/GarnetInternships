@@ -6,25 +6,45 @@ import java.util.Scanner;
 public class SharedUI {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static final String WELCOME = "Welcome to Garnet Internships!";
     public static final String QUESTION = "What would you like to do?\n";
     private static ArrayList<String> bio;
     private static ArrayList<String> interests;
 
-    public static void login() {
+    public static boolean login() {
         System.out.println("------------Log In------------");
         System.out.println("Network Username: ");
         String username = scanner.nextLine();
         System.out.println("Password: ");
         String password = scanner.nextLine();
+        boolean login = GarnetInternships.getInstance().login(username, password);
+        if (!login) {
+            System.out.println("Invalid Login Information");
+            return false;
+        }
+        System.out.println("Login Success!");
+        return true;
     }
 
-    public static void createAccount() {
+    public static boolean createAccount() {
         System.out.println("------------Create Account------------");
         System.out.println("Enter Your University Network Username: ");
         String username = scanner.nextLine();
         System.out.println("Create Password: ");
         String password = scanner.nextLine();
-        System.out.println("Account Creation Success!\n");
+        System.out.println("Enter you first and last name: ");
+        String name = scanner.nextLine();
+        System.out.println("How will you be using this application?\n1. Student\n2. Admin\n3. Company\n4. Professor");
+        int privilege = scanner.nextInt();
+        scanner.nextLine();
+        if (AccountList.getInstance().getAccount(username) == null) {
+            GarnetInternships.getInstance().createAccount(name, username, password, privilege);
+            return true;
+        }
+        else {
+            System.out.println("Username already exists!");
+            return false;
+        }
     }
 
     public static String Profile() {
@@ -33,6 +53,14 @@ public class SharedUI {
         profile = "1. Edit Bio \n2. Edit Profile Picture \n3. Edit Interests\n4. Return to Main Menu\n";
         profile = QUESTION;
         return profile;
+    }
+
+    public static int loginOrCreateAccount() {
+        System.out.println(WELCOME);
+        System.out.println("1. Log In\n2. Create Account");
+        int input = scanner.nextInt();
+        scanner.nextLine();
+        return input;
     }
 
     public static String Rating() {

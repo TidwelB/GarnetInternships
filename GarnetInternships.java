@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.UUID;
 
+import javax.swing.text.PlainView;
+
 
 /**
  * @author We Lit Design Company
@@ -15,6 +17,10 @@ public class GarnetInternships {
 
     public GarnetInternships() {
         garnetInternships = this;
+        internshipList = InternshipList.getInstance();
+        accountList = AccountList.getInstance();
+        DataLoader.setAccountApplications(accountList.getAccounts());
+        DataLoader.setInternshipApplications(internshipList.getInternships());
     }
 
     public static GarnetInternships getInstance() {
@@ -36,15 +42,24 @@ public class GarnetInternships {
         return null;
     }
 
-    public Account createAccount(String firstName, String lastName, String username) {
-        return user;
+    public void createAccount(String name, String username, String password, int privilege) {
+        if (privilege == 0) {
+            StudentUI.createStudent(name, username, password);
+        } else if (privilege == 1) {
+            AdminUI.createAdmin(name, username, password);
+        } else if (privilege == 2) {
+            CompanyUI.createCompany(name, username, password);
+        } else if (privilege == 3) {
+            ProfessorUI.createProfessor(name, username, password);
+        }
     }
 
-    public Account login(String username, String password) {
+    public boolean login(String username, String password) {
         if (checkPassword(username, password)) {
-            return accountList.getAccount(username);
+            user = accountList.getAccount(username);
+            return true;
         }
-        return null;
+        return false;
     }
 
     private boolean checkPassword(String username, String password) {

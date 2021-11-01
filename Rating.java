@@ -12,6 +12,7 @@ public class Rating {
     public Rating() {
         this.numValue = -1.0;
         this.description = new ArrayList<String>();
+        this.description.add("No ratings");
     }
 
     public Rating(double numValue, ArrayList<String> description) {
@@ -20,6 +21,9 @@ public class Rating {
     }
 
     public void addRating(double numValue, String description) {
+        if (this.numValue == -1.0) {
+            this.description = new ArrayList<String>();
+        }
         this.description.add(description);
         this.numValue = (this.numValue + numValue)/this.description.size();
     }

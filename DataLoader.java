@@ -68,7 +68,6 @@ public class DataLoader extends DataConstants{
                 String password = (String) accountJSON.get(ACCOUNT_PASSWORD);
                 UUID id = UUID.fromString((String) accountJSON.get(ACCOUNT_ID));
                 JSONArray privilegeSpecificJSON = (JSONArray) accountJSON.get(ACCOUNT_PRIVILEGE_SPECIFIC);
-                
                 if (((String)accountJSON.get(ACCOUNT_PRIVILEGE)).equals("Student")) {
                     accounts.add(makeStudent(name, username, password, id, privilegeSpecificJSON));
                 } else if (((String)accountJSON.get(ACCOUNT_PRIVILEGE)).equals("Company")) {
@@ -135,7 +134,7 @@ public class DataLoader extends DataConstants{
                 JSONArray internshipIdsJSON = (JSONArray) applicationJSON.get(APPLICATIONS_INTERNSHIP_IDS);
                 for (int j = 0; j < (internshipIdsJSON.size()); j++) {
                     UUID internshipId = UUID.fromString((String) internshipIdsJSON.get(j));
-                    for (Internship internship : getInternships()) {
+                    for (Internship internship : InternshipList.getInstance().getInternships()) {
                         if (internshipId.equals(internship.getId())) {
                             student.apply(internship);
                         }

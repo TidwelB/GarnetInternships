@@ -11,13 +11,17 @@ public class ProfessorUI {
         scanner = new Scanner(System.in);
     }
     
-    public static String ProfessorMenu() {
+    public static void ProfessorMenu() {
         String professorMenu = "";
         professorMenu += "\nWelcome Professor!";
         professorMenu += "--------Menu--------";
-        professorMenu += "1. Edit Profile \n2. Give a Rating\n3. Return to Main Menu\n";
+        professorMenu += "1. Edit Profile \n2. Give a Rating\n";
         professorMenu += SharedUI.QUESTION;
-        return professorMenu;
+        System.out.println(professorMenu);
+    }
+
+    public static void createProfessor(String name, String username, String password) {
+
     }
 
     public static void ProfessorMenuChoice() {
@@ -29,11 +33,17 @@ public class ProfessorUI {
             scanner.nextLine();
             if(profileChoice == 1) {
                 SharedUI.bio();
+                System.out.println("Success: returning to profile...");
+                SharedUI.Profile();
             } else if(profileChoice == 2) {
                 // Profile Picture Extra Challenge for Later
                 System.out.println("Coming soon...");
+                System.out.println("Returning to profile...");
+                SharedUI.Profile();
             } else if(profileChoice == 3) {
                 SharedUI.interests();
+                System.out.println("Success: returning to profile...");
+                SharedUI.Profile();
             } else {
                 System.out.println("Returning to main menu...");
                 ProfessorMenu();
@@ -47,7 +57,7 @@ public class ProfessorUI {
             }
             //Needs Functionality to Input Rating Information
         } else {
-            System.out.println("Returning to main menu...");
+            System.out.println("Invalid input: returning to main menu...");
             ProfessorMenu();
         }
     }

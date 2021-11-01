@@ -48,7 +48,7 @@ public class DataWriter extends DataConstants {
 
     private static JSONObject getResumeJSON(Resume resume) {
         JSONObject resumeDetails = new JSONObject();
-        resumeDetails.put(INTERNSHIP_ID, resume.getId());
+        resumeDetails.put(INTERNSHIP_ID, resume.getId().toString());
         JSONArray priorEds = new JSONArray();
         for (Education education : resume.getPriorEd()) {
             JSONArray priorEd = new JSONArray();
@@ -77,6 +77,7 @@ public class DataWriter extends DataConstants {
                 accomplishments.add(accomplishment);
             }
             relatedExp.add(accomplishments);
+            relatedExps.add(relatedExp);
             
         }
         resumeDetails.put(RESUME_RELATED_EXPERIENCE, relatedExps);
@@ -93,6 +94,7 @@ public class DataWriter extends DataConstants {
                 accomplishments.add(accomplishment);
             }
             commExp.add(accomplishments);
+            communityExps.add(commExp);
 
         }
         resumeDetails.put(RESUME_COMMUNITY_EXPERIENCE, communityExps);
@@ -124,13 +126,13 @@ public class DataWriter extends DataConstants {
 
     private static JSONObject getInternshipJSON(Internship internship) {
         JSONObject internshipDetails = new JSONObject();
-        internshipDetails.put(INTERNSHIP_ID, internship.getId());
+        internshipDetails.put(INTERNSHIP_ID, internship.getId().toString());
         internshipDetails.put(INTERNSHIP_POSITION, internship.getPosition());
         JSONArray requiredSkills = new JSONArray();
         for (String skill : internship.getReqSkills()) {
-            requiredSkills.add(internship.getId());
+            requiredSkills.add(skill);
         }
-        internshipDetails.put(APPLICATIONS_INTERNSHIP_IDS, requiredSkills);
+        internshipDetails.put(INTERNSHIP_REQUIRED_SKILLS, requiredSkills);
         internshipDetails.put(INTERNSHIP_RECYEAR, internship.getRecYear());
         internshipDetails.put(INTERNSHIP_PAYRATE, internship.getPayrate().toString());
         internshipDetails.put(INTERNSHIP_DESCRIPTION, internship.getDescription());
@@ -165,10 +167,10 @@ public class DataWriter extends DataConstants {
 
     public static JSONObject getApplicationJSON(Student student) {
         JSONObject applicationDetails = new JSONObject();
-        applicationDetails.put(APPLICATIONS_STUDENT_ID, student.getId());
+        applicationDetails.put(APPLICATIONS_STUDENT_ID, student.getId().toString());
         JSONArray applicationIds = new JSONArray();
         for (Internship internship : student.getListOfAppJobs()) {
-            applicationIds.add(internship.getId());
+            applicationIds.add(internship.getId().toString());
         }
         applicationDetails.put(APPLICATIONS_INTERNSHIP_IDS, applicationIds);
         return applicationDetails;
@@ -182,14 +184,19 @@ public class DataWriter extends DataConstants {
         userDetails.put(ACCOUNT_ID, account.getId().toString());
         if (account.getType() == 0) {
             userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, getStudentPrivilege((Student)account));
-        } else if (account.getType() == 1) {
+            userDetails.put(ACCOUNT_PRIVILEGE, "Student");
+        } else if (account.getType() == 2) {
             //company
             userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, getCompanyPrivilege((Company) account));
-        } else if (account.getType() == 2) {
+            userDetails.put(ACCOUNT_PRIVILEGE, "Company");
+        } else if (account.getType() == 3) {
             //professor
             userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, getProfessorPrivilege((Professor) account));
-        } else if (account.getType() == 3) {
-            userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, "");
+            userDetails.put(ACCOUNT_PRIVILEGE, "Professor");
+        } else if (account.getType() == 1) {
+            JSONArray adminPrivilegeSpecific = new JSONArray();
+            userDetails.put(ACCOUNT_PRIVILEGE_SPECIFIC, adminPrivilegeSpecific);
+            userDetails.put(ACCOUNT_PRIVILEGE, "Admin");
         }
         return userDetails;
     }
@@ -222,7 +229,7 @@ public class DataWriter extends DataConstants {
         companyPrivilegeSpecific.add(ratingJSON);
         JSONArray availJobsJSON = new JSONArray();
         for (Internship internship : company.getAvailJobs()) {
-            availJobsJSON.add(internship.getId());
+            availJobsJSON.add(internship.getId().toString());
         }
         companyPrivilegeSpecific.add(availJobsJSON);
         return companyPrivilegeSpecific;

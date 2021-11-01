@@ -16,7 +16,7 @@ public class Resume {
     private UUID id;
 
     // Create constructor
-    public Resume(ArrayList<Education> ed, ArrayList<String> awards, ArrayList<Experience> relatedExp, ArrayList<Experience> commExp, ArrayList<String> skills) {
+    public Resume() {
         priorEd = new ArrayList<Education>();
         awards = new ArrayList<String>();
         relatedExp = new ArrayList<Experience>();
