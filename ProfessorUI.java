@@ -11,13 +11,17 @@ public class ProfessorUI {
         scanner = new Scanner(System.in);
     }
     
-    public static String ProfessorMenu() {
+    public static void ProfessorMenu() {
         String professorMenu = "";
         professorMenu += "\nWelcome Professor!";
         professorMenu += "--------Menu--------";
         professorMenu += "1. Edit Profile \n2. Give a Rating\n";
         professorMenu += SharedUI.QUESTION;
-        return professorMenu;
+        System.out.println(professorMenu);
+    }
+
+    public static void createProfessor(String name, String username, String password) {
+
     }
 
     public static void ProfessorMenuChoice() {

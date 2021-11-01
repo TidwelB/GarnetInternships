@@ -11,13 +11,17 @@ public class CompanyUI {
         scanner = new Scanner(System.in);
     }
     
-    public static String CompanyMenu() {
+    public static void CompanyMenu() {
         String companyMenu = "";
         companyMenu+= "\nWelcome 'Company'!";
         companyMenu += "--------Menu--------";
         companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n";
         companyMenu += SharedUI.QUESTION;
-        return companyMenu;
+        System.out.println(companyMenu);
+    }
+
+    public static void createCompany(String name, String username, String password) {
+
     }
 
     public static void CompanyMenuChoice() {
@@ -73,5 +77,6 @@ public class CompanyUI {
         System.out.println("Please enter the job description:\n");
         String description = scanner.nextLine();
         System.out.println("Posting Internship!\n");
+
     }
 }

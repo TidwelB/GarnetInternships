@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.UUID;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,19 +8,27 @@ import java.util.Arrays;
  */
 public class StudentUI {
 
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
     
     public StudentUI() {
-        scanner = new Scanner(System.in);
     }
     
-    public static String StudentMenu() {
+    public static void StudentMenu() {
         String studentMenu = "";
         studentMenu += "\nWelcome 'Student'!";
-        studentMenu += "--------Menu--------";
-        studentMenu += "1. Edit Profile \n2. Edit Resume \n3. Search Internships\n";
+        studentMenu += "\n--------Menu--------";
+        studentMenu += "\n1. Edit Profile \n2. Edit Resume \n3. Search Internships\n";
         studentMenu += SharedUI.QUESTION;
-        return studentMenu;
+        System.out.println(studentMenu);
+    }
+
+    public static void createStudent(String name, String username, String password) {
+        System.out.println("Please enter your email: ");
+        String email = scanner.nextLine();
+        System.out.println("Please enter your graduation year");
+        String gradYear = scanner.nextLine();
+        AccountList.getInstance().getAccounts().add(new Student(name, username, password, email, new Resume(), new Rating(), gradYear, new ArrayList<Internship>(), UUID.randomUUID()));
+        GarnetInternships.getInstance().login(username, password);
     }
 
     public static void StudentMenuChoice() {

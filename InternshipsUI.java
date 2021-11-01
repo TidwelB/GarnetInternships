@@ -5,32 +5,23 @@ import java.util.UUID;
  */
 public class InternshipsUI {
     private GarnetInternships garnetInternships;
-    private final String WELCOME = "Welcome to Garnet Internships!";
 
     InternshipsUI() {
         garnetInternships = GarnetInternships.getInstance();
     }
 
     public void run() {
-<<<<<<< HEAD
-        AccountList.getInstance().getAccounts().add(new Professor("Jonny", "Jboy", "12345", "jboy@email.com", "cred", UUID.randomUUID()));
-        garnetInternships.login("Jboy", "12345");
-        garnetInternships.logout();
-        //SharedUI.createAccount();
-        //System.out.println(WELCOME);
-        //SharedUI.login();
-        //displayMainMenu();
-=======
-        SharedUI.createAccount();
-        System.out.println(WELCOME);
-        SharedUI.login();
+        if (SharedUI.loginOrCreateAccount() == 1) {
+            boolean login = SharedUI.login();
+            if (!login) {
+                this.run();
+            }
+        }
+        else {
+            SharedUI.createAccount();
+        }
         displayMainMenu();
->>>>>>> 80efb8b4f47639641938b70822daf3f2076324a8
     }
-
-    //private int loginOrCreateAccount() {
-        
-    //}
 
     private void displayMainMenu() {
         if(garnetInternships.getUser().getType() == 0) {

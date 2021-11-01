@@ -11,13 +11,17 @@ public class AdminUI {
         scanner = new Scanner(System.in);
     }
     
-    public static String AdminMenu() {
+    public static void AdminMenu() {
         String adminMenu = "";
         adminMenu += "\nWelcome Administrator!";
         adminMenu += "--------Menu--------";
         adminMenu += "1. Hide Rating \n2. Remove Internship \n3. Delete Account\n";
         adminMenu += SharedUI.QUESTION;
-        return adminMenu;
+        System.out.println(adminMenu);
+    }
+
+    public static void createAdmin(String name, String username, String password) {
+
     }
 
     public static void AdminMenuChoice() {
