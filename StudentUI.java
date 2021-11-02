@@ -59,6 +59,7 @@ public class StudentUI {
             int profileChoice = scanner.nextInt();
            scanner.nextLine();
             if(profileChoice == 1) {
+                // Bio Extra Challenge for Later
                 SharedUI.bio();
                 System.out.println("Success: returning to profile...");
                 System.out.println(SharedUI.Profile());
@@ -68,6 +69,7 @@ public class StudentUI {
                 System.out.println("Returning to profile...");
                 System.out.println(SharedUI.Profile());
             } else if(profileChoice == 3) {
+                // Interests Extra Challenge for Later
                 SharedUI.interests();
                 System.out.println("Success: returning to profile...");
                 System.out.println(SharedUI.Profile());
