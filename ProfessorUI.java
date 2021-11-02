@@ -14,7 +14,7 @@ public class ProfessorUI {
     
     public static void ProfessorMenu() {
         String professorMenu = "";
-        professorMenu += "\nWelcome Professor!";
+        professorMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
         professorMenu += "--------Menu--------";
         professorMenu += "1. Edit Profile \n2. Give a Rating\n";
         professorMenu += SharedUI.QUESTION;

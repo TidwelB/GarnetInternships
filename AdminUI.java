@@ -14,7 +14,7 @@ public class AdminUI {
     
     public static void AdminMenu() {
         String adminMenu = "";
-        adminMenu += "\nWelcome Administrator!";
+        adminMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
         adminMenu += "--------Menu--------";
         adminMenu += "1. Hide Rating \n2. Remove Internship \n3. Delete Account\n";
         adminMenu += SharedUI.QUESTION;

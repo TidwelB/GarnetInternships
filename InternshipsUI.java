@@ -11,14 +11,22 @@ public class InternshipsUI {
     }
 
     public void run() {
-        if (SharedUI.loginOrCreateAccount() == 1) {
+        int loginOrCreate = SharedUI.loginOrCreateAccount();
+        if (loginOrCreate == 1) {
             boolean login = SharedUI.login();
             if (!login) {
                 this.run();
             }
         }
+        else if (loginOrCreate == 2){
+            boolean created = SharedUI.createAccount();
+            if (!created) {
+                this.run();
+            }
+        }
         else {
-            SharedUI.createAccount();
+            System.out.println("Invalid entry!");
+            this.run();
         }
         displayMainMenu();
     }
@@ -26,7 +34,6 @@ public class InternshipsUI {
     private void displayMainMenu() {
         if(garnetInternships.getUser().getType() == 0) {
             StudentUI.StudentMenu();
-            StudentUI.StudentMenuChoice();
         } else if(garnetInternships.getUser().getType() == 1) {
             AdminUI.AdminMenu();
             AdminUI.AdminMenuChoice();

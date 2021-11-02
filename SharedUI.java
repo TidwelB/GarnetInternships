@@ -7,7 +7,7 @@ public class SharedUI {
 
     private static Scanner scanner = new Scanner(System.in);
     private static final String WELCOME = "Welcome to Garnet Internships!";
-    public static final String QUESTION = "What would you like to do?\n";
+    public static final String QUESTION = "What would you like to do?";
     private static ArrayList<String> bio;
     private static ArrayList<String> interests;
 
@@ -30,21 +30,23 @@ public class SharedUI {
         System.out.println("------------Create Account------------");
         System.out.println("Enter Your University Network Username: ");
         String username = scanner.nextLine();
+        if (AccountList.getInstance().getAccount(username) != null) {
+            System.out.println("Username already exists!");
+            return false;
+        }
         System.out.println("Create Password: ");
         String password = scanner.nextLine();
         System.out.println("Enter you first and last name: ");
         String name = scanner.nextLine();
+        if (AccountList.getInstance().getAccountByName(name) != null) {
+            System.out.println("Name already exists!");
+            return false;
+        }
         System.out.println("How will you be using this application?\n1. Student\n2. Admin\n3. Company\n4. Professor");
         int privilege = scanner.nextInt();
         scanner.nextLine();
-        if (AccountList.getInstance().getAccount(username) == null) {
-            GarnetInternships.getInstance().createAccount(name, username, password, privilege);
-            return true;
-        }
-        else {
-            System.out.println("Username already exists!");
-            return false;
-        }
+        GarnetInternships.getInstance().createAccount(name, username, password, privilege);
+        return true;
     }
 
     public static String Profile() {

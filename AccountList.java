@@ -59,16 +59,15 @@ public class AccountList {
     /**
      * This is the getter for the account by name
      * @param name This is the value that holds the name being got
-     * @return Returns the matches found
+     * @return Returns the matche found
      */
-    public ArrayList<Account> getAccountByName(String name) {
-        ArrayList<Account> matches = new ArrayList<Account>();
+    public Account getAccountByName(String name) {
         for (int i = 0; i < accounts.size(); i++) {
             if (accounts.get(i).getName().equalsIgnoreCase(name)) {
-                matches.add(accounts.get(i));
+                return accounts.get(i);
             }
         }
-        return matches;
+        return null;
     }
 
     /**
