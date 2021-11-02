@@ -95,8 +95,13 @@ public class CompanyUI {
                 CompanyMenu();
             }
         } else if (menuChoice == 4) {
-            System.out.println("");
-            System.out.println("Pulling applicants.");
+            System.out.println(company.getListingsString());
+            System.out.println("Which listing would you like to view the applicants for?");
+            int choice = scanner.nextInt();
+            scanner.nextLine();
+            Internship listing = company.getAvailJobs().get(choice - 1);
+            System.out.println("--------Applicants--------");
+            System.out.println(listing.getApplicantsString());
 
         } else if (menuChoice == 5) {
             System.out.println("Goodbye!");

@@ -85,6 +85,16 @@ public class Company extends Account {
         return 2;
     }
 
+    public String getListingsString() {
+        String ret = "";
+        for (int i = 0; i < availJobs.size(); i++) {
+            ret += i + ".\n";
+            ret += availJobs.get(i).toString();
+            ret += "\n";
+        }
+        return ret;
+    }
+
     public void giveApplicants() {
         
     }

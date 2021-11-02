@@ -66,6 +66,16 @@ public class Internship {
         return this.applicants;
     }
 
+    public String getApplicantsString() {
+        String ret = "";
+        for (int i = 0; i < numOfApplicants; i++) {
+            ret += i + ". \n";
+            ret += applicants.get(i);
+            ret += "\n";
+        }
+        return ret;
+    }
+
     public void addToApplicants(Student student) {
         applicants.add(student);
         numOfApplicants++;
