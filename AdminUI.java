@@ -6,10 +6,10 @@ import java.util.UUID;
  */
 public class AdminUI {
 
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
     
     public AdminUI() {
-        scanner = new Scanner(System.in);
+        //scanner = new Scanner(System.in);
     }
     
     /**
@@ -17,8 +17,8 @@ public class AdminUI {
      */
     public static void AdminMenu() {
         String adminMenu = "";
-        adminMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
-        adminMenu += "--------Menu--------";
+        adminMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
+        adminMenu += "--------Menu--------\n";
         adminMenu += "1. Hide Rating \n2. Remove Internship \n3. Delete Account\n";
         adminMenu += SharedUI.QUESTION;
         System.out.println(adminMenu);

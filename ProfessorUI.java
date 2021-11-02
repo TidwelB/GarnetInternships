@@ -6,16 +6,16 @@ import java.util.UUID;
  */
 public class ProfessorUI {
 
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
     
     public ProfessorUI() {
-        scanner = new Scanner(System.in);
+        //scanner = new Scanner(System.in);
     }
     
     public static void ProfessorMenu() {
         String professorMenu = "";
-        professorMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
-        professorMenu += "--------Menu--------";
+        professorMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
+        professorMenu += "--------Menu--------\n";
         professorMenu += "1. Edit Profile \n2. Give a Rating\n";
         professorMenu += SharedUI.QUESTION;
         System.out.println(professorMenu);
@@ -34,7 +34,7 @@ public class ProfessorUI {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if(menuChoice == 1) {
-            SharedUI.Profile();
+            System.out.print(SharedUI.Profile());
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if(profileChoice == 1) {

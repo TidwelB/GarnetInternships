@@ -6,11 +6,11 @@ import java.util.UUID;
  * @author We Lit Design Company
  */
 public class CompanyUI {
-
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
+   // private static Scanner scanner;
 
     public CompanyUI() {
-        scanner = new Scanner(System.in);
+        //scanner = new Scanner(System.in);
     }
     
     /**
@@ -18,11 +18,12 @@ public class CompanyUI {
      */
     public static void CompanyMenu() {
         String companyMenu = "";
-        companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
-        companyMenu += "--------Menu--------";
+        companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
+        companyMenu += "--------Menu--------\n";
         companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n";
         companyMenu += SharedUI.QUESTION;
         System.out.println(companyMenu);
+        CompanyMenuChoice();
     }
 
     /**
@@ -40,10 +41,10 @@ public class CompanyUI {
      * Choices for company to change profile or post internships or ratings
      */
     public static void CompanyMenuChoice() {
-        int menuChoice = scanner.nextInt();
+        int menu = scanner.nextInt();
         scanner.nextLine();
-        if(menuChoice == 1) {
-            SharedUI.Profile();
+        if(menu == 1) {
+            System.out.print(SharedUI.Profile());
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if(profileChoice == 1) {
@@ -63,12 +64,12 @@ public class CompanyUI {
                 System.out.println("Returning to main menu...");
                 CompanyMenu();
             }
-        } else if(menuChoice == 2) {
+        } else if(menu == 2) {
             PostInternship();
-            System.out.println("Success: returning to main menu...");
+            System.out.println("Success: returning to profile...");
             CompanyMenu();
-        } else if(menuChoice == 3) {
-            SharedUI.Rating();
+        } else if(menu == 3) {
+            System.out.print(SharedUI.Rating());
             String ratingInput = scanner.nextLine();
             if(ratingInput.equalsIgnoreCase("back")) {
                 System.out.println("Returning to main menu...");
