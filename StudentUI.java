@@ -30,7 +30,7 @@ public class StudentUI {
     public static void createStudent(String name, String username, String password) {
         System.out.println("Please enter your email: ");
         String email = scanner.nextLine();
-        System.out.println("Please enter your graduation year");
+        System.out.println("Please enter your graduation year: ");
         String gradYear = scanner.nextLine();
         AccountList.getInstance().getAccounts().add(new Student(name, username, password, email, new Resume(), new Rating(), gradYear, new ArrayList<Internship>(), UUID.randomUUID()));
         GarnetInternships.getInstance().login(username, password);
@@ -78,8 +78,12 @@ public class StudentUI {
                 StudentMenu();
             }
         } else if(menuChoice == 3) {
+<<<<<<< HEAD
             System.out.println(SearchInternship());
             ArrayList<Internship> internships = null;
+=======
+            GarnetInternships.getInstance().viewInternships();
+>>>>>>> a7ba066939b4bb8bdcb7fbb1a60de1139285b864
             String internshipInput = scanner.nextLine();
             if(internshipInput.equalsIgnoreCase("back")) {
                 System.out.println("Returning to main menu...");
@@ -162,6 +166,7 @@ public class StudentUI {
         return studentResume;
     }
 
+<<<<<<< HEAD
     public static String SearchInternship() {
         String searchInternship = "";
         searchInternship += "--------Search Internship--------\n";
@@ -169,6 +174,16 @@ public class StudentUI {
         searchInternship += "Type 'back' to Return to Main Menu";
         return searchInternship;
     }
+=======
+    // public static String SearchInternship() {
+    //     String searchInternship = "";
+    //     searchInternship += "\n--------Search Internship--------";
+    //     searchInternship += "Avaliable Internships:";
+    //     //EXAMPLE INTERNSHIPS FOR TESTING
+    //     searchInternship += "- Software Engineer \n- Cyber Security Analyst \n- Tech Support \n- Computer Hardware Engineer \n- Information Systems Analyst\nType 'back' to Return to Main Menu\n";
+    //     return searchInternship;
+    // }
+>>>>>>> a7ba066939b4bb8bdcb7fbb1a60de1139285b864
 
     // public static Internship viewFromAllInternships() {
     //     String allInternships = "Avaliable Internships:";
