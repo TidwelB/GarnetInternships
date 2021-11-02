@@ -42,9 +42,8 @@ public class Admin extends Account {
      * Delete allows admin to remove a full account from site listings
      * @param account user access to the site
      */
-    public static void deleteAccount(Account account) {
-        AccountList.getInstance().getAccounts().remove(account);
-        account = null;
+    public static void deleteAccount(String username) {
+        AccountList.getInstance().getAccounts().remove(username);
     }
 
     /**

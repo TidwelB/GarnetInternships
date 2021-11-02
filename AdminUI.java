@@ -51,11 +51,9 @@ public class AdminUI {
                 Admin.deleteInternship(null);
         } else if(menuChoice == 3) {
             System.out.println("Enter the name and username for the account you would like to delete");
-            System.out.println("Name:");
-            String name = scanner.nextLine();
             System.out.println("Username:");
             String username = scanner.nextLine();
-                Admin.deleteAccount(null);
+            Admin.deleteAccount(username);
         } else if(menuChoice == 4) {
             System.out.println("Goodbye!");
             GarnetInternships.getInstance().logout();
