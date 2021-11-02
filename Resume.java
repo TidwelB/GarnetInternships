@@ -169,7 +169,7 @@ public class Resume {
                 ret += education.toString() + "\n";
             }
         }
-        if (skills.size() > 0) {
+        if (awards.size() > 0) {
             ret += "\nAwards:\n";
             for (String award : awards) {
                 ret += (award + "\n");

@@ -1,0 +1,23 @@
+bob baker
+bob@gmail.com
+
+Prior Education:
+----Education----
+School: uofsc
+Graduation Date: 2024
+Location: columbai
+Degree: bscs
+
+Awards:
+
+Related Experiences:
+----Experience----
+Organization: bank
+Location: ny
+Position: banker
+Date: 2019 - 2020
+Accomplishments:
+banked
+
+Skills:
+java

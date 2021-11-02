@@ -38,6 +38,7 @@ public class CompanyUI {
         AccountList.getInstance().getAccounts().add(
                 new Company(name, username, password, new Rating(), new ArrayList<Internship>(), UUID.randomUUID()));
         GarnetInternships.getInstance().login(username, password);
+        company = (Company) GarnetInternships.getInstance().getUser();
     }
 
     /**
