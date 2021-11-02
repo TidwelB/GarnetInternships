@@ -1,9 +1,5 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 import java.util.UUID;
-import java.io.FileWriter;
-import java.io.IOException;
 
 /**
  * @author We Lit Design Company
@@ -113,7 +109,8 @@ public class Student extends Account{
     }
 
     /**
-     * Numerical representation of the type of account. 0 is set for a student account. 
+     * Numerical representation of the type of account. 0 is set for a student account.
+     * @return the int corresponding to a student 
      */
     public int getType() {
         return 0;
@@ -122,7 +119,7 @@ public class Student extends Account{
     /**
      * 
      * @param skill paramater within resume. Holds students abilities for work implementation
-     * @return returns the student skills from within resume
+     * @return true if it was added, false if it was not
      */
     public boolean addSkill(String skill) {
         return resume.addSkill(skill);
@@ -130,8 +127,17 @@ public class Student extends Account{
 
     /**
      * 
+     * @param award an award that a student recieved
+     * @return true if it was added, false if it was not
+     */
+    public boolean addAward(String award) {
+        return resume.addAward(award);
+    }
+
+    /**
+     * 
      * @param education paramater within resume. Holds students formal education
-     * @return returns the formal education held by the student
+     * @return true if it was added, false if it was not
      */
     public boolean addEducation(Education education) {
         return resume.addEducation(education);
@@ -140,32 +146,23 @@ public class Student extends Account{
     /**
      * 
      * @param experience paramater within resume. Holds students experience in the work field
-     * @return returns students prior work experience
+     * @return true if it was added, false if it was not
      */
-    public boolean addExperience(Experience experience) {
-        return resume.addExperience(experience);
-    }
-
-
-    public void editResume() {
-
+    public boolean addRelatedExperience(Experience experience) {
+        return resume.addRelatedExperience(experience);
     }
 
     /**
-     * Prints student resume to a file. If the file has an exception error the user is informed that the file was not created properly.
+     * 
+     * @param experience paramater within resume. Holds students experience in the
+     *                   work field
+     * @return true if it was added, false if it was not
      */
-    public void writeToFile() {
-        try {
-            FileWriter fileWriter = new FileWriter("NewResume.txt");
-            fileWriter.write(resume.toString());
-            fileWriter.close();
-            System.out.println("Sucessfully created Resume text file.");
-        }
-        catch(IOException e) {
-            System.out.println("An error occured.");
-            e.printStackTrace();
-        }
+    public boolean addCommunityExperience(Experience experience) {
+        return resume.addCommunityExperience(experience);
     }
+
+    
         
     
 

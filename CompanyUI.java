@@ -20,7 +20,7 @@ public class CompanyUI {
         String companyMenu = "";
         companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
         companyMenu += "--------Menu--------\n";
-        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n";
+        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. Logout";
         companyMenu += SharedUI.QUESTION;
         System.out.println(companyMenu);
         CompanyMenuChoice();
@@ -41,9 +41,9 @@ public class CompanyUI {
      * Choices for company to change profile or post internships or ratings
      */
     public static void CompanyMenuChoice() {
-        int menu = scanner.nextInt();
+        int menuChoice = scanner.nextInt();
         scanner.nextLine();
-        if(menu == 1) {
+        if(menuChoice == 1) {
             System.out.print(SharedUI.Profile());
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
@@ -64,18 +64,35 @@ public class CompanyUI {
                 System.out.println("Returning to main menu...");
                 CompanyMenu();
             }
-        } else if(menu == 2) {
+        } else if(menuChoice == 2) {
             PostInternship();
             System.out.println("Success: returning to profile...");
             CompanyMenu();
-        } else if(menu == 3) {
-            System.out.print(SharedUI.Rating());
-            String ratingInput = scanner.nextLine();
-            if(ratingInput.equalsIgnoreCase("back")) {
-                System.out.println("Returning to main menu...");
+        } else if(menuChoice == 3) {
+            System.out.println("Enter the name of the student that you would like to rate: ");
+            String studentName = scanner.nextLine();
+            Account match = AccountList.getInstance().getAccountByName(studentName);
+            if (match == null) {
+                System.out.println("That student does not exist");
+                CompanyMenu();
+            } else {
+                if (match.getType() != 0) {
+                    System.out.println("That student does not exist");
+                    CompanyMenu();
+                }
+                System.out.println("Please enter a rating from 1.0 to 5.0: ");
+                double numValue = scanner.nextDouble();
+                scanner.nextLine();
+                System.out.println("Please enter a description for this rating: ");
+                String description = scanner.nextLine();
+                Student student = (Student)match;
+                student.giveRating(numValue, description);
                 CompanyMenu();
             }
-            //Needs Functionality to Input Rating Information
+        } else if(menuChoice == 4) {
+            System.out.println("Goodbye!");
+            GarnetInternships.getInstance().logout();
+            System.exit(1);
         } else {
             System.out.println("Invalid input: Returning to main menu...");
             CompanyMenu();

@@ -36,13 +36,10 @@ public class InternshipsUI {
             StudentUI.StudentMenu();
         } else if(garnetInternships.getUser().getType() == 1) {
             AdminUI.AdminMenu();
-            AdminUI.AdminMenuChoice();
         } else if(garnetInternships.getUser().getType() == 2) {
             CompanyUI.CompanyMenu();
-            CompanyUI.CompanyMenuChoice();
         } else if(garnetInternships.getUser().getType() == 3) {
             ProfessorUI.ProfessorMenu();
-            ProfessorUI.ProfessorMenuChoice();
         }
     }
 

@@ -19,9 +19,10 @@ public class AdminUI {
         String adminMenu = "";
         adminMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
         adminMenu += "--------Menu--------\n";
-        adminMenu += "1. Hide Rating \n2. Remove Internship \n3. Delete Account\n";
+        adminMenu += "1. Hide Rating \n2. Remove Internship \n3. Delete Account\n4. Logout";
         adminMenu += SharedUI.QUESTION;
         System.out.println(adminMenu);
+        AdminMenuChoice();
     }
 
     /**
@@ -55,6 +56,10 @@ public class AdminUI {
             System.out.println("Username:");
             String username = scanner.nextLine();
                 Admin.deleteAccount(null);
+        } else if(menuChoice == 4) {
+            System.out.println("Goodbye!");
+            GarnetInternships.getInstance().logout();
+            System.exit(1);
         } else {
             System.out.println("Returning to main menu...");
             AdminMenu();
