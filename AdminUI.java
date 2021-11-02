@@ -12,6 +12,9 @@ public class AdminUI {
         scanner = new Scanner(System.in);
     }
     
+    /**
+     * UI display for Admin login
+     */
     public static void AdminMenu() {
         String adminMenu = "";
         adminMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
@@ -21,11 +24,20 @@ public class AdminUI {
         System.out.println(adminMenu);
     }
 
+    /**
+     * 
+     * @param name name of administrator linked to new account
+     * @param username username for new admin account
+     * @param password password for new admin account
+     */
     public static void createAdmin(String name, String username, String password) {
         AccountList.getInstance().getAccounts().add(new Admin(name, username, password, UUID.randomUUID()));
         GarnetInternships.getInstance().login(username, password);
     }
 
+    /**
+     * Allows Admin to search for a rating, internship, or account to delete
+     */
     public static void AdminMenuChoice() {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();

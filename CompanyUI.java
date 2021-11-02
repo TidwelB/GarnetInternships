@@ -13,6 +13,9 @@ public class CompanyUI {
         scanner = new Scanner(System.in);
     }
     
+    /**
+     * UI for company menu options
+     */
     public static void CompanyMenu() {
         String companyMenu = "";
         companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
@@ -22,11 +25,20 @@ public class CompanyUI {
         System.out.println(companyMenu);
     }
 
+    /**
+     * Creates name, username, password for a new company account
+     * @param name company name linked to new account
+     * @param username company username linked to new account
+     * @param password company password linked to new account
+     */
     public static void createCompany(String name, String username, String password) {
         AccountList.getInstance().getAccounts().add(new Company(name, username, password, new Rating(), new ArrayList<Internship>(), UUID.randomUUID()));
         GarnetInternships.getInstance().login(username, password);
     }
 
+    /**
+     * Choices for company to change profile or post internships or ratings
+     */
     public static void CompanyMenuChoice() {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
@@ -69,6 +81,9 @@ public class CompanyUI {
         }
     }
 
+    /**
+     * UI for posting internships
+     */
     public static void PostInternship() {
         System.out.println("\n--------Post Internship--------\nEnter the following:\n");
         System.out.println("\nPlease enter the position title:");

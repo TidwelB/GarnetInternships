@@ -9,14 +9,21 @@ import java.util.Arrays;
 /**
  * @author We Lit Design Company
  */
-public class StudentUI {
 
+ /**
+  * Scanner initialized
+  * new instance of student user
+  */
+public class StudentUI {
     private static Scanner scanner = new Scanner(System.in);
     private static Student student=(Student)GarnetInternships.getInstance().getUser();
     
     public StudentUI() {
     }
     
+    /**
+     * UI for student Menu options
+     */
     public static void StudentMenu() {
         String studentMenu = "";
         studentMenu += "\nWelcome "+GarnetInternships.getInstance().getUser().getName()+"!";
@@ -27,6 +34,12 @@ public class StudentUI {
         StudentMenuChoice();
     }
 
+    /**
+     * Create student with parameters of name username and password
+     * @param name name linked to new student account
+     * @param username username linked to new student account
+     * @param password password linked to new student account
+     */
     public static void createStudent(String name, String username, String password) {
         System.out.println("Please enter your email: ");
         String email = scanner.nextLine();
@@ -37,6 +50,9 @@ public class StudentUI {
         uploadResumeMenu();
     }
 
+    /**
+     * Choices for student menu regarding Bio, Internships and Resumes.
+     */
     public static void StudentMenuChoice() {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
