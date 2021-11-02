@@ -169,6 +169,7 @@ public class StudentUI {
             }
         } else if (menuChoice == 5) {
             writeToFile();
+            StudentMenu();
         } else if(menuChoice == 6) {
             System.out.println("Goodbye!");
             GarnetInternships.getInstance().logout();
