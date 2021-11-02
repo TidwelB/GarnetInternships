@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.UUID;
 
 /**
  * @author We Lit Design Company
@@ -13,7 +14,7 @@ public class ProfessorUI {
     
     public static void ProfessorMenu() {
         String professorMenu = "";
-        professorMenu += "\nWelcome Professor!";
+        professorMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
         professorMenu += "--------Menu--------";
         professorMenu += "1. Edit Profile \n2. Give a Rating\n";
         professorMenu += SharedUI.QUESTION;
@@ -21,7 +22,12 @@ public class ProfessorUI {
     }
 
     public static void createProfessor(String name, String username, String password) {
-
+        System.out.println("Please enter your email: ");
+        String email = scanner.nextLine();
+        System.out.println("Please enter your credentials");
+        String credentials = scanner.nextLine();
+        AccountList.getInstance().getAccounts().add(new Professor(name, username, password, email, credentials, UUID.randomUUID()));
+        GarnetInternships.getInstance().login(username, password);
     }
 
     public static void ProfessorMenuChoice() {

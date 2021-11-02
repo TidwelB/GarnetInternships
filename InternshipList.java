@@ -37,10 +37,30 @@ public class InternshipList {
         return null;
     }
 
-    public ArrayList<Internship> getInternshipBySkills(String skill) {
+    public ArrayList<Internship> getInternshipsByPosition(String position) {
+        ArrayList<Internship> retList = new ArrayList<Internship>();
+        for (int i = 0; i < internships.size(); i++) {
+            if (internships.get(i).getPosition().equalsIgnoreCase(position)) {
+                retList.add(internships.get(i));
+            }
+        }
+        return retList;
+    }
+
+    public ArrayList<Internship> getInternshipsByPayrate(double payrate) {
+        ArrayList<Internship> retList = new ArrayList<Internship>();
+        for (int i = 0; i < internships.size(); i++) {
+            if (internships.get(i).getPayrate() >= payrate) {
+                retList.add(internships.get(i));
+            }
+        }
+        return retList;
+    }
+
+    public ArrayList<Internship> getInternshipsBySkills(String skill) {
         ArrayList<Internship> retList = new ArrayList<Internship>();
         for(int i = 0; i < internships.size(); i++) {
-            for(int j = 0; j < internships.get(j).getReqSkills().size();) {
+            for(int j = 0; j < internships.get(j).getReqSkills().size(); j++) {
                 if(internships.get(i).getReqSkills().get(j).equalsIgnoreCase(skill)) {
                     retList.add(internships.get(i));
                 }

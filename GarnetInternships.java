@@ -64,6 +64,7 @@ public class GarnetInternships {
 
     private boolean checkPassword(String username, String password) {
         Account account = accountList.getAccount(username);
+        if (account == null) return false;
         return account.getPassword().equals(password);
     }
 

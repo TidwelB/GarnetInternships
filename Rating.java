@@ -25,7 +25,7 @@ public class Rating {
             this.description = new ArrayList<String>();
         }
         this.description.add(description);
-        this.numValue = (this.numValue + numValue)/this.description.size();
+        this.numValue = (this.numValue*(this.description.size()-1) + numValue)/this.description.size();
     }
 
     public double getNumValue() {

@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 /**
  * @author We Lit Design Company
@@ -13,7 +15,7 @@ public class CompanyUI {
     
     public static void CompanyMenu() {
         String companyMenu = "";
-        companyMenu+= "\nWelcome 'Company'!";
+        companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
         companyMenu += "--------Menu--------";
         companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n";
         companyMenu += SharedUI.QUESTION;
@@ -21,7 +23,8 @@ public class CompanyUI {
     }
 
     public static void createCompany(String name, String username, String password) {
-
+        AccountList.getInstance().getAccounts().add(new Company(name, username, password, new Rating(), new ArrayList<Internship>(), UUID.randomUUID()));
+        GarnetInternships.getInstance().login(username, password);
     }
 
     public static void CompanyMenuChoice() {

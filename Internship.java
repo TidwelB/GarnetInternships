@@ -37,6 +37,15 @@ public class Internship {
         return this.description;
     }
 
+    public Company getCompany() {
+        for (Account account : AccountList.getInstance().getAccounts()) {
+            if (account.getType() == 2 && ((Company)account).getAvailJobs().contains(this)) {
+                return (Company)account;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<String> getReqSkills() {
         return this.requiredSkills;
     }
@@ -63,7 +72,13 @@ public class Internship {
     }
 
     public String toString() {
-        return "Position: "+position+"\nDescription: "+description+"\nRequired Skills: "+requiredSkills+"\nRecYear: "+recYear+"\nPayrate: "+payrate+"\nApplicants: "+applicants+"\nNumber of Applicants: "+numOfApplicants;
+        String ret = "Company: "+getCompany().getName() + "Position: "+position+"\nDescription: "+description+"\n";
+        ret += "Required Skills:\n";
+        for (String skill : requiredSkills) {
+            ret += skill + "\n";
+        }
+        ret += "\nRecYear: "+recYear+"\nPayrate: "+payrate;
+        return ret;
     }
 
 }

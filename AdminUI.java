@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.UUID;
 
 /**
  * @author We Lit Design Company
@@ -13,7 +14,7 @@ public class AdminUI {
     
     public static void AdminMenu() {
         String adminMenu = "";
-        adminMenu += "\nWelcome Administrator!";
+        adminMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
         adminMenu += "--------Menu--------";
         adminMenu += "1. Hide Rating \n2. Remove Internship \n3. Delete Account\n";
         adminMenu += SharedUI.QUESTION;
@@ -21,7 +22,8 @@ public class AdminUI {
     }
 
     public static void createAdmin(String name, String username, String password) {
-
+        AccountList.getInstance().getAccounts().add(new Admin(name, username, password, UUID.randomUUID()));
+        GarnetInternships.getInstance().login(username, password);
     }
 
     public static void AdminMenuChoice() {

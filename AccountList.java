@@ -36,14 +36,13 @@ public class AccountList {
         return null;
     }
 
-    public ArrayList<Account> getAccountByName(String name) {
-        ArrayList<Account> matches = new ArrayList<Account>();
+    public Account getAccountByName(String name) {
         for (int i = 0; i < accounts.size(); i++) {
             if (accounts.get(i).getName().equalsIgnoreCase(name)) {
-                matches.add(accounts.get(i));
+                return accounts.get(i);
             }
         }
-        return matches;
+        return null;
     }
 
     public Account getAccountById(UUID id) {
