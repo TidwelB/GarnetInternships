@@ -44,18 +44,22 @@ public class AdminUI {
         scanner.nextLine();
         if(menuChoice == 1) {
             Admin.removeRating(null);
+            System.out.println("Success: returning to admin menu...");
+            AdminMenu();
         } else if(menuChoice == 2) {
             System.out.println("Enter the position for the internship you would like to delete");
             System.out.println("Position:");
-            String position = scanner.nextLine();
-                Admin.deleteInternship(null);
+            String internship = scanner.nextLine();
+            Admin.deleteInternship(internship);
+            System.out.println("Success: returning to admin menu...");
+            AdminMenu();
         } else if(menuChoice == 3) {
             System.out.println("Enter the name and username for the account you would like to delete");
-            System.out.println("Name:");
-            String name = scanner.nextLine();
             System.out.println("Username:");
             String username = scanner.nextLine();
-                Admin.deleteAccount(null);
+            Admin.deleteAccount(username);
+            System.out.println("Success: returning to admin menu...");
+            AdminMenu();
         } else if(menuChoice == 4) {
             System.out.println("Goodbye!");
             GarnetInternships.getInstance().logout();

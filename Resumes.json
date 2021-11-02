@@ -76,8 +76,12 @@
         "skills": [
             "Java",
             "Python",
+<<<<<<< HEAD
             "Git",
             "C Sharp"
+=======
+            "Git"
+>>>>>>> 2a700d363fae294e830f0479276cd3025c3fe622
         ],
         "commExp": [
             [

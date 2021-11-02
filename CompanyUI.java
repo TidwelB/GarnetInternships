@@ -48,6 +48,7 @@ public class CompanyUI {
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if(profileChoice == 1) {
+                // Bio Extra Challenge for Later
                 SharedUI.bio();
                 System.out.println("Success: returning to profile...");
                 SharedUI.Profile();
@@ -57,6 +58,7 @@ public class CompanyUI {
                 System.out.println("Returning to profile...");
                 SharedUI.Profile();
             } else if(profileChoice == 3) {
+                // Interests Extra Challenge for Later
                 SharedUI.interests();
                 System.out.println("Success: returning to profile...");
                 SharedUI.Profile();

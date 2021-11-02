@@ -293,7 +293,7 @@ public class StudentUI {
             String locationOrg = scanner.nextLine();
             System.out.println("Enter the position you were in:");
             String positionIn = scanner.nextLine();
-            System.out.println("Enter your starding date:");
+            System.out.println("Enter your starting date:");
             String startDate = scanner.nextLine();
             System.out.println("Enter your finishing date:");
             String finishDate = scanner.nextLine();
