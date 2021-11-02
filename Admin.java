@@ -7,6 +7,13 @@ import java.util.UUID;
 public class Admin extends Account {
 
 
+    /**
+     * 
+     * @param name
+     * @param username
+     * @param password
+     * @param id
+     */
     public Admin(String name, String username, String password, UUID id) {
         super(name, username, password, id);
     }

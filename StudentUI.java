@@ -62,21 +62,29 @@ public class StudentUI {
                 StudentMenu();
             }
         } else if(menuChoice == 2) {
+            boolean rescont = true;
             System.out.println(StudentResume());
+              while(rescont == true) {
             int resumeChoice = scanner.nextInt();
             scanner.nextLine();
+            
             if(resumeChoice == 1) {
                 uploadResumeMenu();
                 System.out.println("Success: returning to resume menu...");
-                StudentResume();
+                System.out.print(StudentResume());
+
+
             } else if(resumeChoice == 2) {
                 GarnetInternships.getInstance().addSkill("a skill");
                 System.out.println("Success: returning to resume menu...");
-                StudentResume();
-            } else {
+                System.out.print(StudentResume());
+
+            }else {
                 System.out.println("Returning to main menu...");
+                rescont = false;
                 StudentMenu();
             }
+            } 
         } else if(menuChoice == 3) {
             System.out.println(SearchInternship());
             GarnetInternships.getInstance().viewInternships();
