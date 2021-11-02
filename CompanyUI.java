@@ -20,7 +20,7 @@ public class CompanyUI {
         String companyMenu = "";
         companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
         companyMenu += "--------Menu--------\n";
-        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. Logout";
+        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. Logout\n";
         companyMenu += SharedUI.QUESTION;
         System.out.println(companyMenu);
         CompanyMenuChoice();
