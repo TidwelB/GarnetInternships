@@ -85,7 +85,12 @@ public class Company extends Account {
         return 2;
     }
 
+<<<<<<< HEAD
     public void removeRating() {
         rating = null;
+=======
+    public void giveApplicants() {
+        
+>>>>>>> 95d502adac729e1fb4b0fa3d87f9665a9fbc5cd9
     }
 }
