@@ -110,7 +110,7 @@ public class Internship {
     }
 
     /**
-     * 
+     * Adds student name to list of applicants of a position
      * @param student student user who has applied to the position
      */
     public void addToApplicants(Student student) {

@@ -34,7 +34,7 @@ public class Experience {
     }
 
     /**
-     * 
+     * getter for org
      * @return returns the organization name
      */
     public String getOrganization() {
@@ -42,7 +42,7 @@ public class Experience {
     }
 
     /**
-     * 
+     * getter for org location
      * @return returns the location of the organization
      */
     public String getLocation() {
@@ -50,7 +50,7 @@ public class Experience {
     }
 
     /**
-     * 
+     * getter for position held in org
      * @return returns the position held
      */
     public String getPosition() {
@@ -58,7 +58,7 @@ public class Experience {
     }
 
     /**
-     * 
+     * getter for start date
      * @return returns starting date at org
      */
     public String getStartDate() {
@@ -66,7 +66,7 @@ public class Experience {
     }
 
     /**
-     * 
+     * getter for end date
      * @return returns end date at org
      */
     public String getEndDate() {
@@ -74,7 +74,7 @@ public class Experience {
     }
 
     /**
-     * 
+     * getter for accomplishments through org
      * @return returns accomplishments through org
      */
     public ArrayList<String> getAccomplishments() {

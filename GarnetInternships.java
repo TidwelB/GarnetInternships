@@ -39,7 +39,7 @@ public class GarnetInternships {
     }
     
     /**
-     * 
+     * getter for user
      * @return returns user
      */
     public static Account getUser() {
@@ -48,14 +48,14 @@ public class GarnetInternships {
 
     /**
      * 
-     * @return returns an internship from thearray list of internships
+     * @return returns an internship from the array list of internships
      */
     public ArrayList<Internship> viewInternships() {
         return InternshipList.getInstance().getInternships();
     }
 
     /**
-     * 
+     * Search through keyword for an internship
      * @param keyword keyword is user input criteria to search through internships
      * @return returns nothing without a valid keyword
      */
