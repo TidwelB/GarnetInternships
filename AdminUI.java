@@ -25,7 +25,7 @@ public class AdminUI {
     }
 
     /**
-     * 
+     * Creates Admin with parameters name, username, and password
      * @param name name of administrator linked to new account
      * @param username username for new admin account
      * @param password password for new admin account
