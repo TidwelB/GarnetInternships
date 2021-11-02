@@ -37,7 +37,7 @@ public class StudentUI {
         if(menuChoice == 1) {
             SharedUI.Profile();
             int profileChoice = scanner.nextInt();
-            scanner.nextLine();
+           scanner.nextLine();
             if(profileChoice == 1) {
                 SharedUI.bio();
                 System.out.println("Success: returning to profile...");
