@@ -67,7 +67,7 @@ public class SharedUI {
 
     public static String Rating() {
         String rating = "";
-        rating += "\n--------Rating--------";
+        rating += "\n--------Rating--------\n";
         rating += "Enter the following:\n- Student/Company Name \n- Rating Description \n- Rating 1-10\nType 'back' to Return to Main Menu\n";
         //NEED TO IMPLEMENT FUNCTIONALITY TO CHECK IF ALL REQUIREMENTS HAVE BEEN FILLED
         rating += "Submitting Rating!\n";

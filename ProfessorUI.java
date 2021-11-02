@@ -55,7 +55,7 @@ public class ProfessorUI {
                 ProfessorMenu();
             }
         } else if(menuChoice == 2) {
-            SharedUI.Rating();
+            System.out.print(SharedUI.Rating());
             String ratingInput = scanner.nextLine();
             if(ratingInput.equalsIgnoreCase("back")) {
                 System.out.println("Returning to main menu...");

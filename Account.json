@@ -98,11 +98,12 @@
         "privilege": "Company",
         "privilegeSpecific": [
             [
-                3.3333333333333335,
+                3.625,
                 [
                     "pretty nice company",
                     "paid well",
-                    "bad"
+                    "bad",
+                    "cool"
                 ]
             ],
             [
