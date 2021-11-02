@@ -20,7 +20,7 @@ public class CompanyUI {
         String companyMenu = "";
         companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
         companyMenu += "--------Menu--------\n";
-        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. Logout";
+        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. View Listings\n5. Logout\n";
         companyMenu += SharedUI.QUESTION;
         System.out.println(companyMenu);
         CompanyMenuChoice();
@@ -92,6 +92,9 @@ public class CompanyUI {
                 CompanyMenu();
             }
         } else if(menuChoice == 4) {
+            System.out.println("");
+    
+        } else if(menuChoice == 5) {
             System.out.println("Goodbye!");
             GarnetInternships.getInstance().logout();
             System.exit(1);
