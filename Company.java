@@ -84,4 +84,8 @@ public class Company extends Account {
     public int getType(){
         return 2;
     }
+
+    public void giveApplicants() {
+        
+    }
 }

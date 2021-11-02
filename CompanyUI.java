@@ -7,6 +7,7 @@ import java.util.UUID;
  */
 public class CompanyUI {
     private static Scanner scanner = new Scanner(System.in);
+    private static Company company=(Company)GarnetInternships.getInstance().getUser();
    // private static Scanner scanner;
 
     public CompanyUI() {
@@ -20,11 +21,9 @@ public class CompanyUI {
         String companyMenu = "";
         companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
         companyMenu += "--------Menu--------\n";
-<<<<<<< HEAD
         companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. View Listings\n5. Logout\n";
-=======
         companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. Logout\n";
->>>>>>> dfe7fcd91f26839624cfe0a097287d19f63982f3
+        companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. View Listings\n5. Logout\n";
         companyMenu += SharedUI.QUESTION;
         System.out.println(companyMenu);
         CompanyMenuChoice();
@@ -97,7 +96,10 @@ public class CompanyUI {
             }
         } else if(menuChoice == 4) {
             System.out.println("");
-    
+            System.out.println("Pulling applicants.");  
+            
+            
+            
         } else if(menuChoice == 5) {
             System.out.println("Goodbye!");
             GarnetInternships.getInstance().logout();
