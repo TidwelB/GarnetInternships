@@ -11,7 +11,7 @@ public class AccountList {
     
     //Create instance variables
     private static AccountList accountList;
-    private static ArrayList<Account> accounts;
+    private ArrayList<Account> accounts;
 
     /**
      * This is the constructor for the AccountList object.
@@ -84,7 +84,11 @@ public class AccountList {
         return null;
     }
 
+<<<<<<< HEAD
     public static void removeUser(String name) {
+=======
+    public void remove(String username) {
+>>>>>>> Luke2
         for(int i=0;i<accounts.size();i++) {
             if(accounts.get(i).getName().equalsIgnoreCase(name)) {
                 accounts.remove(i);
