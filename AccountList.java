@@ -83,4 +83,12 @@ public class AccountList {
         }
         return null;
     }
+
+    public static void removeUser(String name) {
+        for(int i=0;i<getInstance().getAccounts().size();i++) {
+            if(getInstance().getAccounts().get(i).getName().equalsIgnoreCase(name)) {
+                getInstance().getAccounts().remove(i);
+            }
+        }
+    }
 }

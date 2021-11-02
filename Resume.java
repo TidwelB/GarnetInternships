@@ -22,6 +22,7 @@ public class Resume {
         relatedExp = new ArrayList<Experience>();
         commExp = new ArrayList<Experience>();
         skills = new ArrayList<String>();
+        this.id = UUID.randomUUID();
     }
 
     public Resume(ArrayList<Education> priorEd, ArrayList<String> awards, ArrayList<Experience> relatedExp, ArrayList<Experience> commExp, ArrayList<String> skills, UUID id) {
