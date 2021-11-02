@@ -12,6 +12,9 @@ public class ProfessorUI {
         //scanner = new Scanner(System.in);
     }
     
+    /**
+     * UI for professor, sets UI string and prompts user input request
+     */
     public static void ProfessorMenu() {
         String professorMenu = "";
         professorMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
@@ -22,6 +25,12 @@ public class ProfessorUI {
         ProfessorMenuChoice();
     }
 
+    /**
+     * Professor account creation with parameters
+     * @param name name of professor new account
+     * @param username username for new professor account
+     * @param password password for new professor account
+     */
     public static void createProfessor(String name, String username, String password) {
         System.out.println("Please enter your email: ");
         String email = scanner.nextLine();
@@ -31,6 +40,9 @@ public class ProfessorUI {
         GarnetInternships.getInstance().login(username, password);
     }
 
+    /**
+     * UI for professor options post login
+     */
     public static void ProfessorMenuChoice() {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();

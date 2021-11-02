@@ -25,6 +25,15 @@ public class Resume {
         this.id = UUID.randomUUID();
     }
 
+    /**
+     * Resume with parameters
+     * @param priorEd prior education held by the student within resume
+     * @param awards awards held by the student
+     * @param relatedExp related experience and work held by the student
+     * @param commExp community experience held by the student
+     * @param skills skills held by the student for occupation
+     * @param id unique UUID associated to student
+     */
     public Resume(ArrayList<Education> priorEd, ArrayList<String> awards, ArrayList<Experience> relatedExp, ArrayList<Experience> commExp, ArrayList<String> skills, UUID id) {
         this.priorEd = priorEd;
         this.awards = awards;
@@ -34,36 +43,70 @@ public class Resume {
         this.id = id;
     }
 
+    /**
+     * getter for students' prior ed
+     * @return returns prior education
+     */
     public ArrayList<Education> getPriorEd() {
         return this.priorEd;
     }
 
+    /**
+     * getter for students' awards
+     * @return returns awards
+     */
     public ArrayList<String> getAwards() {
         return this.awards;
     }
 
+    /**
+     * getter for students' related experience
+     * @return returns related experience
+     */
     public ArrayList<Experience> getRelatedExp() {
         return this.relatedExp;
     }
 
+    /**
+     * getter for students' community experience
+     * @return returns community experience
+     */
     public ArrayList<Experience> getCommExp() {
         return this.commExp;
     }
 
+    /**
+     * getter for students' skills
+     * @return returns skills
+     */
     public ArrayList<String> getSkills() {
         return this.skills;
     }
 
+    /**
+     * getter for resume UUID
+     * @return returns uuid for resume
+     */
     public UUID getId() {
         return this.id;
     }
 
+    /**
+     * 
+     * @param skill skills/knowledge held by the student
+     * @return true if skill is not present and can be added, false otherwise
+     */
     public boolean addSkill(String skill) {
         if (skills.contains(skill)) return false;
         skills.add(skill);
         return true;
     }
 
+    /**
+     * 
+     * @param award awards held by the student
+     * @return true if award is not present and can be added, false otherwise
+     */
     public boolean addAward(String award) {
         if (awards.contains(award))
             return false;
@@ -71,18 +114,33 @@ public class Resume {
         return true;
     }
 
+    /**
+     * 
+     * @param education education held by the student
+     * @return true if prior ed is not present and can be added, false otherwise
+     */
     public boolean addEducation(Education education) {
         if (priorEd.contains(education)) return false;
         priorEd.add(education);
         return true;
     }
 
+    /**
+     * 
+     * @param experience related experience to the field held by the student
+     * @return true if experience is not present and can be added, false otherwise
+     */
     public boolean addRelatedExperience(Experience experience) {
         if(relatedExp.contains(experience)) return false;
         relatedExp.add(experience);
         return true;
     }
 
+    /**
+     * 
+     * @param experience community experience held by the student
+     * @return true if the comm experience is not present and can be added ,false otherwise
+     */
     public boolean addCommunityExperience(Experience experience) {
         if (commExp.contains(experience))
             return false;
@@ -90,6 +148,9 @@ public class Resume {
         return true;
     }
 
+    /**
+     * To String that returns all parameters of Resume
+     */
     public String toString() {
         String ret = "Your Resume:\nPrior Education:\n";
         for(Education education : priorEd) {

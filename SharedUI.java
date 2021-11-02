@@ -5,12 +5,19 @@ import java.util.Scanner;
  */
 public class SharedUI {
 
+    /**
+     * New Scanner, String declarations, initialize ArrayList String
+     */
     private static Scanner scanner = new Scanner(System.in);
     private static final String WELCOME = "Welcome to Garnet Internships!";
     public static final String QUESTION = "What would you like to do?";
     private static ArrayList<String> bio;
     private static ArrayList<String> interests;
 
+    /**
+     * UI for login among all users. Checks for false login
+     * @return true if successful login, false if unsuccessful
+     */
     public static boolean login() {
         System.out.println("------------Log In------------");
         System.out.println("Network Username: ");
@@ -26,6 +33,10 @@ public class SharedUI {
         return true;
     }
 
+    /**
+     * Create account UI. Requests information from user to set account
+     * @return true if account is created. False if there is already an account that matches user input
+     */
     public static boolean createAccount() {
         System.out.println("------------Create Account------------");
         System.out.println("Enter Your University Network Username: ");
@@ -49,6 +60,10 @@ public class SharedUI {
         return true;
     }
 
+    /**
+     * General profile UI
+     * @return returns Profile UI string with request for user input
+     */
     public static String Profile() {
         String profile = "";
         profile += "\n--------Profile--------\n";
@@ -57,6 +72,10 @@ public class SharedUI {
         return profile;
     }
 
+    /**
+     * Login or Create account UI options
+     * @return returns user input for login or account creation
+     */
     public static int loginOrCreateAccount() {
         System.out.println(WELCOME);
         System.out.println("1. Log In\n2. Create Account");
@@ -65,6 +84,10 @@ public class SharedUI {
         return input;
     }
 
+    /**
+     * Rating UI
+     * @return returns Rating UI string and user input request
+     */
     public static String Rating() {
         String rating = "";
         rating += "\n--------Rating--------\n";
@@ -74,6 +97,9 @@ public class SharedUI {
         return rating;
     }
 
+    /**
+     * Bio editor UI. Prompts user alterations of their bio
+     */
     public static void bio() {
         System.out.println("Profile Bio:"+bio);
         System.out.println("Would you like to 'add' or 'remove' information from your bio?");
@@ -96,6 +122,9 @@ public class SharedUI {
         }
     }
 
+    /**
+     * Interests editor UI. Prompts user alterations of their interests
+     */
     public static void interests() {
         System.out.println("Profile Interests:"+interests);
         System.out.println("Would you like to 'add' or 'remove' interests from your bio?");
