@@ -45,7 +45,7 @@ public class SharedUI {
         System.out.println("How will you be using this application?\n1. Student\n2. Admin\n3. Company\n4. Professor");
         int privilege = scanner.nextInt();
         scanner.nextLine();
-        GarnetInternships.getInstance().createAccount(name, username, password, privilege);
+        GarnetInternships.getInstance().createAccount(name, username, password, privilege - 1);
         return true;
     }
 
