@@ -55,14 +55,27 @@ public class ProfessorUI {
                 System.out.println("Returning to main menu...");
                 ProfessorMenu();
             }
-        } else if(menuChoice == 2) {
-            SharedUI.Rating();
-            String ratingInput = scanner.nextLine();
-            if(ratingInput.equalsIgnoreCase("back")) {
-                System.out.println("Returning to main menu...");
+        } else if(menuChoice == 3) {
+            System.out.println("Enter the name of the student that you would like to rate: ");
+            String studentName = scanner.nextLine();
+            Account match = AccountList.getInstance().getAccountByName(studentName);
+            if (match == null) {
+                System.out.println("That student does not exist");
+                ProfessorMenu();
+            } else {
+                if (match.getType() != 0) {
+                    System.out.println("That student does not exist");
+                    ProfessorMenu();
+                }
+                System.out.println("Please enter a rating from 1.0 to 5.0: ");
+                double numValue = scanner.nextDouble();
+                scanner.nextLine();
+                System.out.println("Please enter a description for this rating: ");
+                String description = scanner.nextLine();
+                Student student = (Student)match;
+                student.giveRating(numValue, description);
                 ProfessorMenu();
             }
-            //Needs Functionality to Input Rating Information
         } else if(menuChoice == 3) {
             System.out.println("Goodbye!");
             GarnetInternships.getInstance().logout();
