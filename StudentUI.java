@@ -8,14 +8,21 @@ import java.util.ArrayList;
 /**
  * @author We Lit Design Company
  */
-public class StudentUI {
 
+ /**
+  * Scanner initialized
+  * new instance of student user
+  */
+public class StudentUI {
     private static Scanner scanner = new Scanner(System.in);
     private static Student student=(Student)GarnetInternships.getInstance().getUser();
     
     public StudentUI() {
     }
     
+    /**
+     * UI for student Menu options
+     */
     public static void StudentMenu() {
         String studentMenu = "";
         studentMenu += "\nWelcome "+GarnetInternships.getInstance().getUser().getName()+"!";
@@ -26,6 +33,12 @@ public class StudentUI {
         StudentMenuChoice();
     }
 
+    /**
+     * Create student with parameters of name username and password
+     * @param name name linked to new student account
+     * @param username username linked to new student account
+     * @param password password linked to new student account
+     */
     public static void createStudent(String name, String username, String password) {
         System.out.println("Please enter your email: ");
         String email = scanner.nextLine();
@@ -35,13 +48,16 @@ public class StudentUI {
         GarnetInternships.getInstance().login(username, password);
     }
 
+    /**
+     * Choices for student menu regarding Bio, Internships and Resumes.
+     */
     public static void StudentMenuChoice() {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if(menuChoice == 1) {
             System.out.println(SharedUI.Profile());
             int profileChoice = scanner.nextInt();
-            scanner.nextLine();
+           scanner.nextLine();
             if(profileChoice == 1) {
                 SharedUI.bio();
                 System.out.println("Success: returning to profile...");
@@ -60,23 +76,31 @@ public class StudentUI {
                 StudentMenu();
             }
         } else if(menuChoice == 2) {
+            boolean rescont = true;
             System.out.println(StudentResume());
+              while(rescont == true) {
             int resumeChoice = scanner.nextInt();
             scanner.nextLine();
+            
             if(resumeChoice == 1) {
                 uploadResumeMenu();
                 System.out.println("Success: returning to resume menu...");
-                StudentResume();
+                System.out.print(StudentResume());
+
+
             } else if(resumeChoice == 2) {
                 System.out.println("Enter the skill that you would like to add: ");
                 String skill = scanner.nextLine();
                 GarnetInternships.getInstance().addSkill(skill);
                 System.out.println("Success: returning to resume menu...");
-                StudentResume();
-            } else {
+                System.out.print(StudentResume());
+
+            }else {
                 System.out.println("Returning to main menu...");
+                rescont = false;
                 StudentMenu();
             }
+            } 
         } else if(menuChoice == 3) {
             System.out.println(SearchInternship());
             ArrayList<Internship> internships = new ArrayList<Internship>();

@@ -51,9 +51,9 @@ public class SharedUI {
 
     public static String Profile() {
         String profile = "";
-        profile = "\n--------Profile--------";
-        profile = "1. Edit Bio \n2. Edit Profile Picture \n3. Edit Interests\n4. Return to Main Menu\n";
-        profile = QUESTION;
+        profile += "\n--------Profile--------\n";
+        profile += "1. Edit Bio \n2. Edit Profile Picture \n3. Edit Interests\n4. Return to Main Menu\n";
+        profile += QUESTION;
         return profile;
     }
 

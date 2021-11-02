@@ -6,32 +6,45 @@ import java.util.UUID;
  * @author We Lit Design Company
  */
 public class CompanyUI {
-
-    private static Scanner scanner;
+    private static Scanner scanner = new Scanner(System.in);
+   // private static Scanner scanner;
 
     public CompanyUI() {
-        scanner = new Scanner(System.in);
+        //scanner = new Scanner(System.in);
     }
     
+    /**
+     * UI for company menu options
+     */
     public static void CompanyMenu() {
         String companyMenu = "";
-        companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!";
-        companyMenu += "--------Menu--------";
+        companyMenu+= "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
+        companyMenu += "--------Menu--------\n";
         companyMenu+= "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n";
         companyMenu += SharedUI.QUESTION;
         System.out.println(companyMenu);
+        CompanyMenuChoice();
     }
 
+    /**
+     * Creates name, username, password for a new company account
+     * @param name company name linked to new account
+     * @param username company username linked to new account
+     * @param password company password linked to new account
+     */
     public static void createCompany(String name, String username, String password) {
         AccountList.getInstance().getAccounts().add(new Company(name, username, password, new Rating(), new ArrayList<Internship>(), UUID.randomUUID()));
         GarnetInternships.getInstance().login(username, password);
     }
 
+    /**
+     * Choices for company to change profile or post internships or ratings
+     */
     public static void CompanyMenuChoice() {
-        int menuChoice = scanner.nextInt();
+        int menu = scanner.nextInt();
         scanner.nextLine();
-        if(menuChoice == 1) {
-            SharedUI.Profile();
+        if(menu == 1) {
+            System.out.print(SharedUI.Profile());
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if(profileChoice == 1) {
@@ -51,24 +64,40 @@ public class CompanyUI {
                 System.out.println("Returning to main menu...");
                 CompanyMenu();
             }
-        } else if(menuChoice == 2) {
+        } else if(menu == 2) {
             PostInternship();
-            System.out.println("Success: returning to main menu...");
+            System.out.println("Success: returning to profile...");
             CompanyMenu();
-        } else if(menuChoice == 3) {
-            SharedUI.Rating();
-            String ratingInput = scanner.nextLine();
-            if(ratingInput.equalsIgnoreCase("back")) {
-                System.out.println("Returning to main menu...");
+        } else if(menu == 3) {
+            System.out.println("Enter the name of the student that you would like to rate: ");
+            String studentName = scanner.nextLine();
+            Account match = AccountList.getInstance().getAccountByName(studentName);
+            if (match == null) {
+                System.out.println("That student does not exist");
+                CompanyMenu();
+            } else {
+                if (match.getType() != 0) {
+                    System.out.println("That student does not exist");
+                    CompanyMenu();
+                }
+                System.out.println("Please enter a rating from 1.0 to 5.0: ");
+                double numValue = scanner.nextDouble();
+                scanner.nextLine();
+                System.out.println("Please enter a description for this rating: ");
+                String description = scanner.nextLine();
+                Student student = (Student)match;
+                student.giveRating(numValue, description);
                 CompanyMenu();
             }
-            //Needs Functionality to Input Rating Information
         } else {
             System.out.println("Invalid input: Returning to main menu...");
             CompanyMenu();
         }
     }
 
+    /**
+     * UI for posting internships
+     */
     public static void PostInternship() {
         System.out.println("\n--------Post Internship--------\nEnter the following:\n");
         System.out.println("\nPlease enter the position title:");
