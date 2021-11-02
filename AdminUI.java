@@ -43,10 +43,12 @@ public class AdminUI {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if(menuChoice == 1) {
-            System.out.println("Enter the username for the account you would like to delete");
-            System.out.println("Username:");
-            String username = scanner.nextLine();
-            Admin.removeRating(null);
+            System.out.println("Enter the name for the account rating you would like to delete");
+            System.out.println("Name:");
+            String name = scanner.nextLine();
+            if(GarnetInternships.getUser().getType() == 0 || GarnetInternships.getUser().getType() == 2) {
+                Admin.removeRating(name);
+            }
             System.out.println("Success: returning to admin menu...");
             AdminMenu();
         } else if(menuChoice == 2) {
