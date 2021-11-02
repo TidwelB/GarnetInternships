@@ -37,16 +37,12 @@ public class GarnetInternships {
         }
         return garnetInternships;
     }
-
-<<<<<<< HEAD
-    public static Account getUser() {
-=======
+    
     /**
      * 
      * @return returns user
      */
-    public Account getUser() {
->>>>>>> 95d502adac729e1fb4b0fa3d87f9665a9fbc5cd9
+    public static Account getUser() {
         return user;
     }
 
