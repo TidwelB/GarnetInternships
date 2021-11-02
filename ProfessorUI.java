@@ -55,7 +55,7 @@ public class ProfessorUI {
                 System.out.println("Returning to main menu...");
                 ProfessorMenu();
             }
-        } else if(menuChoice == 3) {
+        } else if(menuChoice == 2) {
             System.out.println("Enter the name of the student that you would like to rate: ");
             String studentName = scanner.nextLine();
             Account match = AccountList.getInstance().getAccountByName(studentName);
