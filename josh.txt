@@ -1,0 +1,25 @@
+Your Resume:
+Prior Education:
+----Education----
+School: ufsc
+Graduation Date: 2025
+Location: columbie
+Degree: csisc
+Awards
+
+Related Experiences
+----Experience----
+Organization: jp
+Location: ny
+Position: intern
+Date: 2019 - 2019
+Accomplishments: [coded, goated the code]----Experience----
+Organization: bofa
+Location: america
+Position: intern
+Date: 2020 - 2020
+Accomplishments: [coded, tests]
+Community Experiences
+aard
+java
+python

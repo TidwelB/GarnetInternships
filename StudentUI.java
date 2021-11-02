@@ -44,7 +44,9 @@ public class StudentUI {
         String email = scanner.nextLine();
         System.out.println("Please enter your graduation year");
         String gradYear = scanner.nextLine();
-        AccountList.getInstance().getAccounts().add(new Student(name, username, password, email, new Resume(), new Rating(), gradYear, new ArrayList<Internship>(), UUID.randomUUID()));
+        Resume resume = new Resume();
+        ResumeList.getInstance().getResumes().add(resume);
+        AccountList.getInstance().getAccounts().add(new Student(name, username, password, email, resume, new Rating(), gradYear, new ArrayList<Internship>(), UUID.randomUUID()));
         GarnetInternships.getInstance().login(username, password);
     }
 
@@ -59,7 +61,6 @@ public class StudentUI {
             int profileChoice = scanner.nextInt();
            scanner.nextLine();
             if(profileChoice == 1) {
-                // Bio Extra Challenge for Later
                 SharedUI.bio();
                 System.out.println("Success: returning to profile...");
                 System.out.println(SharedUI.Profile());
@@ -69,7 +70,6 @@ public class StudentUI {
                 System.out.println("Returning to profile...");
                 System.out.println(SharedUI.Profile());
             } else if(profileChoice == 3) {
-                // Interests Extra Challenge for Later
                 SharedUI.interests();
                 System.out.println("Success: returning to profile...");
                 System.out.println(SharedUI.Profile());
@@ -171,7 +171,6 @@ public class StudentUI {
             }
         } else if (menuChoice == 5) {
             writeToFile();
-            StudentMenu();
         } else if(menuChoice == 6) {
             System.out.println("Goodbye!");
             GarnetInternships.getInstance().logout();
@@ -224,6 +223,7 @@ public class StudentUI {
         do {
             System.out.println("Please enter your school name:");
             String schoolName = scanner.nextLine();
+            if (schoolName.equals("")) break;
             System.out.println("\nPlease enter your graduation date.");
             String gradDate = scanner.nextLine();
             System.out.println("Please enter the location of your school.");
@@ -250,6 +250,7 @@ public class StudentUI {
         do {
             System.out.println("Please enter an award you have recieved:");
             String award = scanner.nextLine();
+            if (award.equals("")) break;
             if (!GarnetInternships.getInstance().addAward(award)) {
                 System.out.println("Input failed.");
             } else {
@@ -268,6 +269,7 @@ public class StudentUI {
         do {
             System.out.println("Please enter a skill that you have:");
             String skill = scanner.nextLine();
+            if (skill.equals("")) break;
             if (!GarnetInternships.getInstance().addSkill(skill)) {
                 System.out.println("Input failed.");
             } else {
@@ -286,11 +288,12 @@ public class StudentUI {
         do {
             System.out.println("Enter an organization where you previously worked:");
             String organization = scanner.nextLine();
+            if (organization.equals("")) break;
             System.out.println("Enter the location of that organization:");
             String locationOrg = scanner.nextLine();
             System.out.println("Enter the position you were in:");
             String positionIn = scanner.nextLine();
-            System.out.println("Enter your starding date:");
+            System.out.println("Enter your starting date:");
             String startDate = scanner.nextLine();
             System.out.println("Enter your finishing date:");
             String finishDate = scanner.nextLine();
@@ -299,6 +302,7 @@ public class StudentUI {
             do {
                 System.out.println("Please enter an accomplishment that you made:");
                 String accomplishment = scanner.nextLine();
+                if (accomplishment.equals("")) break;
                 accomplishments.add(accomplishment);
                 System.out.println("Would you like to add another accomplishment?\n1. Yes\n2. No");
                 int choice = scanner.nextInt();
@@ -327,11 +331,12 @@ public class StudentUI {
         do {
             System.out.println("Enter an organization where you previously served your community:");
             String organization = scanner.nextLine();
+            if (organization.equals("")) break;
             System.out.println("Enter the location of that organization:");
             String locationOrg = scanner.nextLine();
             System.out.println("Enter the position you were in:");
             String positionIn = scanner.nextLine();
-            System.out.println("Enter your starding date:");
+            System.out.println("Enter your starting date:");
             String startDate = scanner.nextLine();
             System.out.println("Enter your finishing date:");
             String finishDate = scanner.nextLine();
@@ -340,6 +345,7 @@ public class StudentUI {
             do {
                 System.out.println("Please enter an accomplishment that you made:");
                 String accomplishment = scanner.nextLine();
+                if (accomplishment.equals("")) break;
                 accomplishments.add(accomplishment);
                 System.out.println("Would you like to add another accomplishment?\n1. Yes\n2. No");
                 int choice = scanner.nextInt();
@@ -370,5 +376,4 @@ public class StudentUI {
         
 
     }
-
 }

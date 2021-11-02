@@ -76,7 +76,12 @@
         "skills": [
             "Java",
             "Python",
+<<<<<<< HEAD
+            "Git",
+            "C Sharp"
+=======
             "Git"
+>>>>>>> 2a700d363fae294e830f0479276cd3025c3fe622
         ],
         "commExp": [
             [
@@ -290,5 +295,13 @@
                 ]
             ]
         ]
+    },
+    {
+        "skills": [],
+        "commExp": [],
+        "awards": [],
+        "priorEd": [],
+        "id": "7dec067b-aaae-48c7-8524-aceab5e351a3",
+        "relatedExp": []
     }
 ]

@@ -16,9 +16,10 @@ public class ProfessorUI {
         String professorMenu = "";
         professorMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
         professorMenu += "--------Menu--------\n";
-        professorMenu += "1. Edit Profile \n2. Give a Rating\n";
+        professorMenu += "1. Edit Profile \n2. Give a Rating\n3. Logout\n";
         professorMenu += SharedUI.QUESTION;
         System.out.println(professorMenu);
+        ProfessorMenuChoice();
     }
 
     public static void createProfessor(String name, String username, String password) {
@@ -77,6 +78,10 @@ public class ProfessorUI {
                 student.giveRating(numValue, description);
                 ProfessorMenu();
             }
+        } else if (menuChoice == 3) {
+            System.out.println("Goodbye!");
+            GarnetInternships.getInstance().logout();
+            System.exit(1);
         } else {
             System.out.println("Invalid input: returning to main menu...");
             ProfessorMenu();
