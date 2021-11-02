@@ -47,8 +47,8 @@ public class AdminUI {
         } else if(menuChoice == 2) {
             System.out.println("Enter the position for the internship you would like to delete");
             System.out.println("Position:");
-            String position = scanner.nextLine();
-                Admin.deleteInternship(null);
+            String internship = scanner.nextLine();
+            Admin.deleteInternship(internship);
         } else if(menuChoice == 3) {
             System.out.println("Enter the name and username for the account you would like to delete");
             System.out.println("Username:");

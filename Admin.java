@@ -33,9 +33,8 @@ public class Admin extends Account {
      * Allows the admin to remove internship listings off the site.
      * @param internship business listings of possible internships
      */
-    public static void deleteInternship(Internship internship) {
-        InternshipList.getInstance().getInternships().remove(internship);
-        internship = null;
+    public static void deleteInternship(String internship) {
+        InternshipList.removeInternship(internship);
     }
 
     /**
@@ -43,7 +42,7 @@ public class Admin extends Account {
      * @param account user access to the site
      */
     public static void deleteAccount(String username) {
-        AccountList.getInstance().getAccounts().remove(username);
+        AccountList.removeUser(username);
     }
 
     /**

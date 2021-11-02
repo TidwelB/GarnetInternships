@@ -9,7 +9,7 @@ public class InternshipList {
 
     //Create instance variables
     private static InternshipList internshipList;
-    private ArrayList<Internship> internships;
+    private static ArrayList<Internship> internships;
 
     private InternshipList(ArrayList<Internship> internships) {
         this.internships = internships;
@@ -67,6 +67,14 @@ public class InternshipList {
             }
         }
         return retList;
+    }
+
+    public static void removeInternship(String internship) {
+        for(int i=0;i<internships.size();i++) {
+            if(internships.get(i).getPosition().equalsIgnoreCase(internship)) {
+                internships.remove(i);
+            }
+        }
     }
 }
 
