@@ -62,7 +62,7 @@ public class StudentUI {
                 StudentMenu();
             }
         } else if(menuChoice == 2) {
-            StudentResume();
+            System.out.println(StudentResume());
             int resumeChoice = scanner.nextInt();
             scanner.nextLine();
             if(resumeChoice == 1) {
@@ -78,12 +78,9 @@ public class StudentUI {
                 StudentMenu();
             }
         } else if(menuChoice == 3) {
-<<<<<<< HEAD
             System.out.println(SearchInternship());
-            ArrayList<Internship> internships = null;
-=======
             GarnetInternships.getInstance().viewInternships();
->>>>>>> a7ba066939b4bb8bdcb7fbb1a60de1139285b864
+            ArrayList<Internship> internships = null;
             String internshipInput = scanner.nextLine();
             if(internshipInput.equalsIgnoreCase("back")) {
                 System.out.println("Returning to main menu...");
@@ -160,44 +157,34 @@ public class StudentUI {
 
     public static String StudentResume() {
         String studentResume = "";
-        studentResume += "\n--------Resume--------";
+        studentResume += "\n--------Resume--------\n";
         studentResume += "1. Upload Resume \n2. Edit Skills\n3. Return to Main Menu\n";
-        studentResume = SharedUI.QUESTION;
+        studentResume += SharedUI.QUESTION;
         return studentResume;
     }
 
-<<<<<<< HEAD
-    public static String SearchInternship() {
-        String searchInternship = "";
-        searchInternship += "--------Search Internship--------\n";
-        searchInternship += "How would you like to search?\n1. Position\n2. Payrate\n3. Required Skill\n4. View all internships\n";
-        searchInternship += "Type 'back' to Return to Main Menu";
-        return searchInternship;
-    }
-=======
-    // public static String SearchInternship() {
-    //     String searchInternship = "";
-    //     searchInternship += "\n--------Search Internship--------";
-    //     searchInternship += "Avaliable Internships:";
-    //     //EXAMPLE INTERNSHIPS FOR TESTING
-    //     searchInternship += "- Software Engineer \n- Cyber Security Analyst \n- Tech Support \n- Computer Hardware Engineer \n- Information Systems Analyst\nType 'back' to Return to Main Menu\n";
-    //     return searchInternship;
-    // }
->>>>>>> a7ba066939b4bb8bdcb7fbb1a60de1139285b864
+     public static String SearchInternship() {
+         String searchInternship = "";
+         searchInternship += "\n--------Search Internship--------\n";
+         searchInternship += "Avaliable Internships:\n";
+         //EXAMPLE INTERNSHIPS FOR TESTING
+         searchInternship += "- Software Engineer \n- Cyber Security Analyst \n- Tech Support \n- Computer Hardware Engineer \n- Information Systems Analyst\nType 'back' to Return to Main Menu\n";
+         return searchInternship;
+     }
 
-    // public static Internship viewFromAllInternships() {
-    //     String allInternships = "Avaliable Internships:";
-    //     int i = 1;
-    //     for (Internship internship : InternshipList.getInstance().getInternships()) {
-    //         allInternships += i + ". " + internship.getPosition() + "\n";
-    //         i++;
-    //     }
-    //     System.out.println(allInternships);
-    //     System.out.println("Which would you like to view?");
-    //     int choice = scanner.nextInt();
-    //     scanner.nextLine();
-    //     return InternshipList.getInstance().getInternships().get(choice - 1);
-    // }
+     public static Internship viewFromAllInternships() {
+         String allInternships = "Avaliable Internships:";
+         int i = 1;
+         for (Internship internship : InternshipList.getInstance().getInternships()) {
+             allInternships += i + ". " + internship.getPosition() + "\n";
+             i++;
+         }
+         System.out.println(allInternships);
+         System.out.println("Which would you like to view?");
+         int choice = scanner.nextInt();
+         scanner.nextLine();
+         return InternshipList.getInstance().getInternships().get(choice - 1);
+     }
 
     public static ArrayList<Internship> searchByPosition(String position) {
         return InternshipList.getInstance().getInternshipsByPosition(position);
