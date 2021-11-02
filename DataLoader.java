@@ -10,6 +10,10 @@ import org.json.simple.parser.JSONParser;
  */
 public class DataLoader extends DataConstants{
     
+    /**
+     * File starts new instance of an internship parser. internship UUID, Required Skills, required year, pay rate, number of applicants, and a description are collected.
+     * @return returns all collected information for internships
+     */
     public static ArrayList<Internship> getInternships() {
         ArrayList<Internship> internships = new ArrayList<Internship>();
 
@@ -50,6 +54,10 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
+    /**
+     * File starts new instance of account parser. name, username, password, UUID. The account is checked for its account type and collects further appropriate information
+     * @return returns all collected data for accounts.
+     */
     public static ArrayList<Account> getAccounts() {
         ArrayList<Account> accounts = new ArrayList<Account>();
 
@@ -88,6 +96,11 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
+    /**
+     * File starts new instance of interhsip application parser. student UUID for the application, internship associated with application, internship UUID are all collected
+     * @param internships internships is from the ArrayList Internship and is what a student uses their application in reference to.
+     * @return returns internships a student can apply to.
+     */
     public static ArrayList<Internship> setInternshipApplications(ArrayList<Internship> internships) {
 
         try {
@@ -117,6 +130,11 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
+    /**
+     * Creates account application from user inputted information
+     * @param accounts accounts in this case is a student account where the application is being added from
+     * @return returns user account for the application
+     */
     public static ArrayList<Account> setAccountApplications(ArrayList<Account> accounts) {
         try {
             FileReader reader = new FileReader(APPLICATIONS_FILE_NAME);
@@ -149,12 +167,30 @@ public class DataLoader extends DataConstants{
         return null;
     }
 
+    /**
+     * Creates a class of professor with parameters name, username, password, id, privilegeSpecific information
+     * @param name name of the professor for the new account
+     * @param username username of the professor for the new accout
+     * @param password password of the new professor account
+     * @param id id of the new professor account
+     * @param privilegeSpecificJSON credentials and specific information for new professor account
+     * @return returns the new account for writting
+     */
     private static Account makeProfessor(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
         String email = (String)privilegeSpecificJSON.get(0);
         String credentials = (String)privilegeSpecificJSON.get(1);
         return new Professor(name, username, password, email, credentials, id);
     }
 
+    /**
+     * Creates a class of company with parameters name, username, password, id, privilegeSpecific information
+     * @param name name of the company for the new account
+     * @param username username of the company for the new account
+     * @param password password of the company for the new account
+     * @param id id of the company for the new account
+     * @param privilegeSpecificJSON specific user information for the new company
+     * @return returns company for writting
+     */
     private static Account makeCompany(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
         JSONArray ratingJSON = (JSONArray) privilegeSpecificJSON.get(0);
         JSONArray descriptionsJSON = (JSONArray) ratingJSON.get(1);
@@ -172,6 +208,15 @@ public class DataLoader extends DataConstants{
         return new Company(name, username, password, rating, availJobs, id);
     }
 
+    /**
+     * Creates new student account with parameters name, username, password, id, and privilege specific information
+     * @param name name of the new student account
+     * @param username username of the new student account
+     * @param password password of the new student account
+     * @param id id of the new student account
+     * @param privilegeSpecificJSON specific user information for the new student account
+     * @return returns student account for writting
+     */
     private static Account makeStudent(String name, String username, String password, UUID id, JSONArray privilegeSpecificJSON) {
         String email = (String)privilegeSpecificJSON.get(0);
         Resume resume = ResumeList.getInstance().getResumeById(UUID.fromString((String)privilegeSpecificJSON.get(1)));
@@ -187,6 +232,10 @@ public class DataLoader extends DataConstants{
         return new Student(name, username, password, email, resume, rating, gradYear, listOfAppJobs, id);
     }
 
+    /**
+     * Collects information for resume after initilizing new parser. Parsing for prior education, skills, awards, related experience, comm experience
+     * @return returns all information collected from the students resume
+     */
     public static ArrayList<Resume> getResumes() {
         ArrayList<Resume> resumes = new ArrayList<Resume>();
 

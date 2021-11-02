@@ -25,8 +25,8 @@ public class Admin extends Account {
      * 
      * @param rating rating values associated with students and businesses
      */
-    public static void removeRating(Rating rating) {
-        rating = null;
+    public static void removeRating(String name) {
+        Rating.removeRating(name);
     }
 
     /**

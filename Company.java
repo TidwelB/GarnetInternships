@@ -88,11 +88,15 @@ public class Company extends Account {
     public String getListingsString() {
         String ret = "";
         for (int i = 0; i < availJobs.size(); i++) {
-            ret += i + ".\n";
+            ret += (i+1) + ".\n";
             ret += availJobs.get(i).toString();
-            ret += "\n";
+            ret += "\n\n";
         }
         return ret;
+    }
+
+    public void removeRating() {
+        rating = null;
     }
 
     public void giveApplicants() {

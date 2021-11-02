@@ -6,10 +6,16 @@ import java.util.UUID;
 public class InternshipsUI {
     private GarnetInternships garnetInternships;
 
+    /**
+     * New instance of garnetInternships to run Interface
+     */
     InternshipsUI() {
         garnetInternships = GarnetInternships.getInstance();
     }
 
+    /**
+     * Checks if user is logging in or creating an account. Calls shared UI to continue appropriately
+     */
     public void run() {
         int loginOrCreate = SharedUI.loginOrCreateAccount();
         if (loginOrCreate == 1) {
@@ -31,6 +37,9 @@ public class InternshipsUI {
         displayMainMenu();
     }
 
+    /**
+     * Displays the correct UI for the specific user Type
+     */
     private void displayMainMenu() {
         if(garnetInternships.getUser().getType() == 0) {
             StudentUI.StudentMenu();
@@ -43,6 +52,10 @@ public class InternshipsUI {
         }
     }
 
+    /**
+     * Drive time
+     * @param args general argument
+     */
     public static void main(String[] args) {
         InternshipsUI driver = new InternshipsUI();
         driver.run();

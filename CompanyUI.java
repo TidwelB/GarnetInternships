@@ -21,7 +21,7 @@ public class CompanyUI {
         String companyMenu = "";
         companyMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
         companyMenu += "--------Menu--------\n";
-        companyMenu += "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. View Listings\n5. Logout\n";
+        companyMenu += "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. View Applicants\n5. Logout\n";
         companyMenu += SharedUI.QUESTION;
         System.out.println(companyMenu);
         CompanyMenuChoice();
@@ -47,7 +47,7 @@ public class CompanyUI {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if (menuChoice == 1) {
-            System.out.print(SharedUI.Profile());
+            System.out.print(SharedUI.Profile()); 
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if (profileChoice == 1) {
@@ -95,13 +95,48 @@ public class CompanyUI {
                 CompanyMenu();
             }
         } else if (menuChoice == 4) {
-            System.out.println(company.getListingsString());
-            System.out.println("Which listing would you like to view the applicants for?");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
-            Internship listing = company.getAvailJobs().get(choice - 1);
-            System.out.println("--------Applicants--------");
-            System.out.println(listing.getApplicantsString());
+            boolean viewInternships;
+            do {
+                viewInternships = false;
+                System.out.println(company.getListingsString());
+                System.out.println("Which listing would you like to view the applicants for?");
+                int choice = scanner.nextInt();
+                scanner.nextLine();
+                if (choice > company.getAvailJobs().size()) {
+                    System.out.println("Invalid Entry!");
+                    viewInternships = true;
+                    continue;
+                }
+                Internship listing = company.getAvailJobs().get(choice - 1);
+                boolean viewApplicants;;
+                do {
+                    viewApplicants = false;
+                    System.out.println("--------Applicants--------");
+                    System.out.println(listing.getApplicantsString());
+                    System.out.println("Which student's resume would you like to view?");
+                    int input = scanner.nextInt();
+                    scanner.nextLine();
+                    if (input > listing.getApplicants().size()) {
+                        System.out.println("Invalid Entry!");
+                        viewApplicants = true;
+                        continue;
+                    }
+                    System.out.println(listing.getApplicants().get(input - 1).getResume());
+                    System.out.println("Would you like to view another student's resume?\n1. Yes\n2. No");
+                    input = scanner.nextInt();
+                    scanner.nextLine();
+                    if (input == 1) viewApplicants = true;
+                } while (viewApplicants);
+                System.out.println("Would you like to view another internship?\n1. Yes\n2. No");
+                int input = scanner.nextInt();
+                scanner.nextLine();
+                if (input == 1)
+                    viewInternships = true;
+            } while (viewInternships);
+            CompanyMenu();
+            // pullInternships();
+            // System.out.println("Choose a position to view applicants.");
+            
 
         } else if (menuChoice == 5) {
             System.out.println("Goodbye!");
@@ -129,4 +164,12 @@ public class CompanyUI {
         System.out.println("Posting Internship!\n");
 
     }
+    public static void pullInternships() {
+        ArrayList<Internship> internships = new ArrayList<Internship>();
+        internships = InternshipList.getInstance().getInternships();
+
+        for (int i = 0; i < internships.size(); i++) {
+            System.out.println((i+1) + ". \n" + internships.get(i) + "\n");
+    }
+}
 }
