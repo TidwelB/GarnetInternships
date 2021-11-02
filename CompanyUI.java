@@ -21,7 +21,7 @@ public class CompanyUI {
         String companyMenu = "";
         companyMenu += "\nWelcome " + GarnetInternships.getInstance().getUser().getName() + "!\n";
         companyMenu += "--------Menu--------\n";
-        companyMenu += "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. View Listings\n5. Logout\n";
+        companyMenu += "1. Edit Profile \n2. Post Internship \n3. Give a Rating\n4. View Applicants\n5. Logout\n";
         companyMenu += SharedUI.QUESTION;
         System.out.println(companyMenu);
         CompanyMenuChoice();
@@ -47,7 +47,7 @@ public class CompanyUI {
         int menuChoice = scanner.nextInt();
         scanner.nextLine();
         if (menuChoice == 1) {
-            System.out.print(SharedUI.Profile());
+            System.out.print(SharedUI.Profile()); 
             int profileChoice = scanner.nextInt();
             scanner.nextLine();
             if (profileChoice == 1) {
@@ -95,8 +95,9 @@ public class CompanyUI {
                 CompanyMenu();
             }
         } else if (menuChoice == 4) {
-            System.out.println("");
-            System.out.println("Pulling applicants.");
+            pullInternships();
+            System.out.println("Choose a position to view applicants.");
+            
 
         } else if (menuChoice == 5) {
             System.out.println("Goodbye!");
@@ -124,4 +125,12 @@ public class CompanyUI {
         System.out.println("Posting Internship!\n");
 
     }
+    public static void pullInternships() {
+        ArrayList<Internship> internships = new ArrayList<Internship>();
+        internships = InternshipList.getInstance().getInternships();
+
+        for (int i = 0; i < internships.size(); i++) {
+            System.out.println((i+1) + ". \n" + internships.get(i) + "\n");
+    }
+}
 }
