@@ -55,12 +55,6 @@ public class ProfessorUI {
                 ProfessorMenu();
             }
         } else if(menuChoice == 2) {
-<<<<<<< HEAD
-            System.out.print(SharedUI.Rating());
-            String ratingInput = scanner.nextLine();
-            if(ratingInput.equalsIgnoreCase("back")) {
-                System.out.println("Returning to main menu...");
-=======
             System.out.println("Enter the name of the student that you would like to rate: ");
             String studentName = scanner.nextLine();
             Account match = AccountList.getInstance().getAccountByName(studentName);
@@ -79,7 +73,6 @@ public class ProfessorUI {
                 String description = scanner.nextLine();
                 Student student = (Student) match;
                 student.giveRating(numValue, description);
->>>>>>> 6d89b44f9b9a3d6462363485011855280b469a8d
                 ProfessorMenu();
             }
         } else {
