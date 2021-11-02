@@ -152,24 +152,46 @@ public class Resume {
      * To String that returns all parameters of Resume
      */
     public String toString() {
-        String ret = "Your Resume:\nPrior Education:\n";
-        for(Education education : priorEd) {
-            ret += education.toString();
+        String name = "";
+        String email = "";
+        for (int i = 0; i < AccountList.getInstance().getAccounts().size(); i++) {
+            if (AccountList.getInstance().getAccounts().get(i).getType() == 0) {
+                if (((Student) AccountList.getInstance().getAccounts().get(i)).getResume().getId().equals(this.id)) {
+                    name = AccountList.getInstance().getAccounts().get(i).getName();
+                    email = ((Student)AccountList.getInstance().getAccounts().get(i)).getEmail();
+                }
+            }
         }
-        ret += "\nAwards\n";
-        for(String award : awards) {
-            ret += (award + "\n");
+        String ret = "";
+        if (priorEd.size() > 0) {
+            ret = name + "\n" + email + "\n\nPrior Education:\n";
+            for (Education education : priorEd) {
+                ret += education.toString() + "\n";
+            }
         }
-        ret += "\nRelated Experiences\n";
-        for (Experience exp : relatedExp) {
-            ret += exp.toString();
+        if (skills.size() > 0) {
+            ret += "\nAwards:\n";
+            for (String award : awards) {
+                ret += (award + "\n");
+            }
         }
-        ret += "\nCommunity Experiences\n";
-        for (Experience exp : commExp) {
-            ret += exp.toString();
+        if (relatedExp.size() > 0) {
+            ret += "\nRelated Experiences:\n";
+            for (Experience exp : relatedExp) {
+                ret += exp.toString();
+            }
         }
-        for (String skill : skills) {
-            ret += (skill + "\n");
+        if (commExp.size() > 0) {
+            ret += "\nCommunity Experiences:\n";
+            for (Experience exp : commExp) {
+                ret += exp.toString();
+            }
+        }
+        if (skills.size() > 0) {
+            ret += "\nSkills:\n";
+            for (String skill : skills) {
+                ret += (skill + "\n");
+            }
         }
         return ret;
         //return "Your Resume:\n:"+priorEd.toString()+"Awards:\n"+awards.toString()+relatedExp.toString()+commExp.toString()+"Skills:\n"+skills.toString();

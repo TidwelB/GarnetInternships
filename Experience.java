@@ -90,7 +90,11 @@ public class Experience {
         experience += "\nLocation: "+location;
         experience += "\nPosition: "+position;
         experience += "\nDate: "+startDate+" - "+endDate;
-        experience += "\nAccomplishments: "+accomplishments;
+        experience += "\nAccomplishments:\n";
+        for (String accomplishment : accomplishments) {
+            experience += accomplishment + "\n";
+        }
+        
         return experience;
     }
 }

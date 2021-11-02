@@ -1,0 +1,59 @@
+Thomas Lloyd
+talloyd@email.sc.edu
+
+Prior Education:
+----Education----
+School: high school
+Graduation Date: 2020
+Location: kentucky
+Degree: high school degree
+----Education----
+School: middle school
+Graduation Date: 2016
+Location: kentucky
+Degree: middle school degree
+
+Awards:
+dean's scholar
+
+Related Experiences:
+----Experience----
+Organization: we lit summer camp
+Location: UofSC
+Position: programmer
+Date: 2020 - 2021
+Accomplishments:
+coded
+goated
+----Experience----
+Organization: we lit summer camp
+Location: UofSC
+Position: programmer
+Date: 2020 - 2021
+Accomplishments:
+coded
+goated
+
+Community Experiences:
+----Experience----
+Organization: canned food drive
+Location: UofSC
+Position: donator
+Date: 2019 - 2020
+Accomplishments:
+donated
+fed the hungry
+----Experience----
+Organization: soup kitchen
+Location: UofSC
+Position: cook
+Date: 2020 - 2021
+Accomplishments:
+cooked
+fed the hungry
+
+Skills:
+Java
+Python
+Git
+C Sharp

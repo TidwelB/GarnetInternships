@@ -84,6 +84,10 @@ public class AccountList {
         return null;
     }
 
+    /**
+     * This method removes a user from the list of accounts
+     * @param name
+     */
     public static void removeUser(String name) {
         for(int i=0;i<getInstance().getAccounts().size();i++) {
             if(getInstance().getAccounts().get(i).getName().equalsIgnoreCase(name)) {
