@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
 /**
  * @author We Lit Design Company
@@ -21,7 +23,8 @@ public class CompanyUI {
     }
 
     public static void createCompany(String name, String username, String password) {
-
+        AccountList.getInstance().getAccounts().add(new Company(name, username, password, new Rating(), new ArrayList<Internship>(), UUID.randomUUID()));
+        GarnetInternships.getInstance().login(username, password);
     }
 
     public static void CompanyMenuChoice() {
