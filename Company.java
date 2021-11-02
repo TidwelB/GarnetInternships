@@ -85,6 +85,10 @@ public class Company extends Account {
         return 2;
     }
 
+    public void removeRating() {
+        rating = null;
+    }
+
     public void giveApplicants() {
         
     }

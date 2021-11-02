@@ -39,5 +39,14 @@ public class Rating {
     public String toString() {
         return "Number Value: "+numValue+"\nDescription: "+description;
     }
+
+    public static void removeRating(String name) {
+        Account account = AccountList.getInstance().getAccountByName(name);
+        if(account.getType() == 0) {
+            ((Student)account).removeRating();
+        } else if(account.getType() == 2) {
+            ((Company)account).removeRating();
+        }
+    }
     
 }

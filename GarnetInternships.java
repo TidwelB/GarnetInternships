@@ -12,7 +12,7 @@ public class GarnetInternships {
     //Create instance variables
     private InternshipList internshipList;
     private AccountList accountList;
-    private Account user;
+    private static Account user;
     private static GarnetInternships garnetInternships;
 
     /**
@@ -37,12 +37,12 @@ public class GarnetInternships {
         }
         return garnetInternships;
     }
-
+    
     /**
      * 
      * @return returns user
      */
-    public Account getUser() {
+    public static Account getUser() {
         return user;
     }
 
