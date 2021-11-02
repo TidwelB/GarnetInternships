@@ -63,15 +63,29 @@ public class Resume {
         return true;
     }
 
+    public boolean addAward(String award) {
+        if (awards.contains(award))
+            return false;
+        skills.add(award);
+        return true;
+    }
+
     public boolean addEducation(Education education) {
         if (priorEd.contains(education)) return false;
         priorEd.add(education);
         return true;
     }
 
-    public boolean addExperience(Experience experience) {
+    public boolean addRelatedExperience(Experience experience) {
         if(relatedExp.contains(experience)) return false;
         relatedExp.add(experience);
+        return true;
+    }
+
+    public boolean addCommunityExperience(Experience experience) {
+        if (commExp.contains(experience))
+            return false;
+        commExp.add(experience);
         return true;
     }
 

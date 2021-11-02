@@ -74,16 +74,32 @@ public class GarnetInternships {
         return ((Student)user).addSkill(skill);
     }
 
+    public boolean addAward(String award) {
+        if (!isLoggedIn())
+            return false;
+        if (user.getType() != 0)
+            return false;
+        return ((Student) user).addAward(award);
+    }
+
     public boolean addEducation(Education education) {
         if(!isLoggedIn()) return false;
         if (user.getType() != 0) return false;
         return ((Student)user).addEducation(education);
     }
 
-    public boolean addExperience(Experience experience) {
+    public boolean addRelatedExperience(Experience experience) {
         if(!isLoggedIn()) return false;
         if (user.getType() != 0) return false;
-        return ((Student)user).addExperience(experience);
+        return ((Student)user).addRelatedExperience(experience);
+    }
+
+    public boolean addCommunityExperience(Experience experience) {
+        if (!isLoggedIn())
+            return false;
+        if (user.getType() != 0)
+            return false;
+        return ((Student) user).addCommunityExperience(experience);
     }
 
     public boolean logout() {
@@ -98,6 +114,18 @@ public class GarnetInternships {
 
     public boolean isLoggedIn() {
         return user != null;
+    }
+
+    public static ArrayList<Internship> searchByPosition(String position) {
+        return InternshipList.getInstance().getInternshipsByPosition(position);
+    }
+
+    public static ArrayList<Internship> searchByPayrate(double payrate) {
+        return InternshipList.getInstance().getInternshipsByPayrate(payrate);
+    }
+
+    public static ArrayList<Internship> searchBySkill(String skill) {
+        return InternshipList.getInstance().getInternshipsBySkills(skill);
     }
 
     public UUID createNewId() {

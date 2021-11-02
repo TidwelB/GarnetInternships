@@ -72,10 +72,10 @@ public class Internship {
     }
 
     public String toString() {
-        String ret = "Company: "+getCompany().getName() + "Position: "+position+"\nDescription: "+description+"\n";
-        ret += "Required Skills:\n";
+        String ret = "Company: "+getCompany().getName() + "\nPosition: "+position+"\nDescription: "+description+"\n";
+        ret += "Required Skills:";
         for (String skill : requiredSkills) {
-            ret += skill + "\n";
+            ret += "\n" + skill;
         }
         ret += "\nRecYear: "+recYear+"\nPayrate: "+payrate;
         return ret;
