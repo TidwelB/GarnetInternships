@@ -1,46 +1,47 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class DataLoaderTest {
-	private Users users = Users.getInstance();
-	private ArrayList<User> userList = users.getUsers();
+	private AccountList accountList = AccountList.getInstance();
+	private ArrayList<Account> accounts = accountList.getAccounts();
 	
 	@BeforeEach
 	public void setup() {
-		userList.clear();
-		userList.add(new User("asmith", "Amy", "Smith", 19, "803-454-3344"));
-		userList.add(new User("bwhite", "Bob", "White", 23, "803-333-3544"));
-		DataWriter.saveUsers();
+		accounts.clear();
+		accounts.add(new Student("Thomas Lloyd", "talloyd", "12345", "talloyd@email.sc.edu", new Resume(), new Rating(), "2024", new ArrayList<Internship>(), UUID.randomUUID()));
+		accounts.add(new Professor("Dr. Smith", "dsmith", "12345", "dsmith@sc.edu", "Doctorate in Computer Science", UUID.randomUUID()));
+		DataWriter.saveAccounts();
 	}
 	
 	@AfterEach
 	public void tearDown() {
-		Users.getInstance().getUsers().clear();
-		DataWriter.saveUsers();
+		accountList.getInstance().getAccounts().clear();
+		DataWriter.saveAccounts();
 	}
 	
 	
 	@Test
-	void testGetUsersSize() {
-		userList = DataLoader.getUsers();
-		assertEquals(2, userList.size());
+	void testGetAccountsSize() {
+		accounts = DataLoader.getAccounts();
+		assertEquals(2, accounts.size());
 	}
 
 	@Test
-	void testGetUsersSizeZero() {
-		Users.getInstance().getUsers().clear();
-		DataWriter.saveUsers();
-		assertEquals(0, userList.size());
+	void testGetAccountSizeZero() {
+		accountList.getInstance().getAccounts().clear();
+		DataWriter.saveAccounts();
+		assertEquals(0, accounts.size());
 	}
 	
 	@Test
 	void testGetUserFirstUserName() {
-		userList = DataLoader.getUsers();
-		assertEquals("asmith", userList.get(0).getUserName());
+		accounts= DataLoader.getAccounts();
+		assertEquals("talloyd", accounts.get(0).getUsername());
 	}
 }
