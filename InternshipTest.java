@@ -48,7 +48,7 @@ public class InternshipTest {
         Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         Company testCompany = new Company("Test Company", "company", "12345", new Rating(), new ArrayList<Internship>(), UUID.randomUUID());
         testCompany.addJob(testInternship);
-        assertEquals(testInternship.getCompany(),testCompany);
+        assertTrue(testCompany.getAvailJobs().contains(testInternship));
     }
 
     @Test

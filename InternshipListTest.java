@@ -35,21 +35,24 @@ public class InternshipListTest {
     public void testGetInternshipsByPosition() {
         Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         InternshipList.getInstance().getInternships().add(testInternship);
-        assertEquals(InternshipList.getInstance().getInternshipsByPosition(testInternship.getPosition()), testInternship);
+        assertTrue(InternshipList.getInstance().getInternshipsByPosition("Test Position").contains(testInternship));
     }
 
     @Test
     public void testGetInternshipsByPayrate() {
         Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         InternshipList.getInstance().getInternships().add(testInternship);
-        assertEquals(InternshipList.getInstance().getInternshipsByPayrate(8.0), testInternship);
+        //assertEquals(InternshipList.getInstance().getInternshipsByPayrate(8.0), testInternship);
+        assertTrue(InternshipList.getInstance().getInternshipsByPayrate(8.0).contains(testInternship));
     }
 
     @Test
     public void testGetInternshipsBySkills() {
-        Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
+        ArrayList<String> testSkills = new ArrayList<String>();
+        testSkills.add("JavaScript");
+        Internship testInternship = new Internship("Test Position", "Testing the program.", testSkills, "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         InternshipList.getInstance().getInternships().add(testInternship);
-        assertEquals(InternshipList.getInstance().getInternshipsBySkills("Javascript"), testInternship.getReqSkills().contains("Javascript"));
+        assertTrue(InternshipList.getInstance().getInternshipsBySkills("JavaScript").contains(testInternship));
     }
     
     @Test
@@ -57,6 +60,6 @@ public class InternshipListTest {
         Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         InternshipList.getInstance().getInternships().add(testInternship);
         InternshipList.removeInternship("Test Position");
-        assertTrue(InternshipList.getInstance().getInternships().contains(testInternship));
+        assertFalse(InternshipList.getInstance().getInternships().contains(testInternship));
     }
 }
