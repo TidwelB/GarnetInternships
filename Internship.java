@@ -102,6 +102,14 @@ public class Internship {
     }
 
     /**
+     * Getter for number of applicants
+     * @return the number of applicants applied to this internship.
+     */
+    public int getNumOfApps() {
+        return numOfApplicants;
+    }
+
+    /**
      * 
      * @return getter for list of applicants to the position
      */
