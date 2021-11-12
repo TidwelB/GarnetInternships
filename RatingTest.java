@@ -21,6 +21,10 @@ public class RatingTest {
         testStudent.getRating().addRating(5.0, "test");
         assertTrue(testStudent.getRating().getDescription().contains("test"));
     }
+    @Test
+    public void testAdd0Rating() {
+        
+    }
 
     @Test
     public void testRemoveRating() {
