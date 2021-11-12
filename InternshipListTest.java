@@ -15,13 +15,12 @@ public class InternshipListTest {
     
     @Test
     public void testGetInstance() {
-        //InternshipList.getInstance();
-        
+        assertTrue(InternshipList.getInstance() != null);
     }
 
     @Test
     public void testGetInstanceNull() {
-        
+        assertFalse(InternshipList.getInstance() == null);
     }
 
     @Test
@@ -39,11 +38,31 @@ public class InternshipListTest {
     }
 
     @Test
+    public void testGetInternshipsByPositionNull() {
+        Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
+        InternshipList.getInstance().getInternships().add(testInternship);
+        assertTrue(InternshipList.getInstance().getInternshipsByPosition(null).contains(testInternship));
+    }
+
+    @Test
     public void testGetInternshipsByPayrate() {
         Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         InternshipList.getInstance().getInternships().add(testInternship);
-        //assertEquals(InternshipList.getInstance().getInternshipsByPayrate(8.0), testInternship);
         assertTrue(InternshipList.getInstance().getInternshipsByPayrate(8.0).contains(testInternship));
+    }
+
+    @Test
+    public void testGetInternshipsByPayrateNull() {
+        Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", null, new ArrayList<Student>(), 0, UUID.randomUUID());
+        InternshipList.getInstance().getInternships().add(testInternship);
+        assertTrue(InternshipList.getInstance().getInternshipsByPayrate(8.0).contains(testInternship));
+    }
+
+    @Test
+    public void testGetInternshipByPayrateNegative() {
+        Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", -8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
+        InternshipList.getInstance().getInternships().add(testInternship);
+        assertTrue(InternshipList.getInstance().getInternshipsByPayrate(-8.0).contains(testInternship));
     }
 
     @Test
