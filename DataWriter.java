@@ -128,13 +128,12 @@ public class DataWriter extends DataConstants {
         for (int i = 0; i < internships.size(); i++) {
             InternshipJSON.add(getInternshipJSON(internships.get(i)));
 
-            try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
-                file.write(InternshipJSON.toJSONString());
-                file.flush();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+        }
+        try (FileWriter file = new FileWriter(INTERNSHIP_FILE_NAME)) {
+            file.write(InternshipJSON.toJSONString());
+            file.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -177,13 +176,13 @@ public class DataWriter extends DataConstants {
 
         for (int i = 0; i < students.size(); i++) {
             ApplicationsJSON.add(getApplicationJSON(students.get(i)));
+        }
 
-            try (FileWriter file = new FileWriter(APPLICATIONS_FILE_NAME)) {
-                file.write(ApplicationsJSON.toJSONString());
-                file.flush();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        try (FileWriter file = new FileWriter(APPLICATIONS_FILE_NAME)) {
+            file.write(ApplicationsJSON.toJSONString());
+            file.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
