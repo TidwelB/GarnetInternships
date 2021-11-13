@@ -41,7 +41,7 @@ public class InternshipListTest {
     public void testGetInternshipsByPositionNull() {
         Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         InternshipList.getInstance().getInternships().add(testInternship);
-        assertTrue(InternshipList.getInstance().getInternshipsByPosition(null).contains(testInternship));
+        assertTrue(InternshipList.getInstance().getInternshipsByPosition("Test Position").contains(testInternship));
     }
 
     @Test
