@@ -16,10 +16,35 @@ class AccountListTest {
     private Resume bobResume = new Resume();
     Student student1 = new Student("Bob Bob", "bbob", "12345", "bbob@email.sc.edu", bobResume, new Rating(), "2022", new ArrayList<Internship>(), uu);
     
+    @BeforeEach
+	public void setup() {
+        accounts.add(student1);
+        resumes.add(bobResume);
+        DataWriter.saveAccounts();
+		DataWriter.saveInternships();
+		DataWriter.saveResumes();
+		DataWriter.saveApplications();
+    }
 
-@Test
+    @AfterEach
+	public void tearDown() {
+        accountList.getInstance().getAccounts().clear();
+		resumeList.getInstance().getResumes().clear();
+		DataWriter.saveAccounts();
+		DataWriter.saveInternships();
+		DataWriter.saveResumes();
+		DataWriter.saveApplications();
+    }
+
+
+    @Test
     public void testGetInstance() {
         assertTrue(AccountList.getInstance() != null);
+    }
+
+    @Test
+    public void testGetInstanceNull() {
+        assertFalse(AccountList.getInstance() == null);
     }
 
     @Test
@@ -28,25 +53,27 @@ class AccountListTest {
     }
 
     @Test
-    public void testGetAccountByName() {
-        accounts.add(student1);
-        resumes.add(bobResume);
-        assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), student1);
+    public void testGetAccountsContainsStudent() {
+        assertTrue(AccountList.getInstance().getAccounts().contains(student1));
+    }
 
+    @Test
+    public void testGetAccountsNull() {
+        assertFalse(accountList.getAccounts() == null);
+    }
+
+    @Test
+    public void testGetAccountByName() {
+        assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), student1);
     }
 
     @Test
     public void testGetAccountByID() {
-        accounts.add(student1);
-        resumes.add(bobResume);
         assertEquals(AccountList.getInstance().getAccountById(uu), student1);
     }
 
     @Test
     public void testRemoveUser() {
-        accounts.add(student1);
-        resumes.add(bobResume);
-        assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), student1);
         AccountList.getInstance().removeUser("Bob Bob");
         assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), null);
     }
