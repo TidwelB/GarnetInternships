@@ -22,23 +22,27 @@ public class GarnetInternshipsTest {
     @Test
     public void testCreateAccountStudent() {
         int studentTestPriv = 0;
+        GarnetInternships.getInstance().createAccount("name", "username", "password", studentTestPriv);
         assertEquals(GarnetInternships.getUser().getType() == 0, studentTestPriv);
     }
 
     @Test
     public void testCreateAccountProfessor() {
         int professorTestPriv = 3;
+        GarnetInternships.getInstance().createAccount("name", "username", "password", professorTestPriv);
         assertEquals(GarnetInternships.getUser().getType() == 3, professorTestPriv);
     }
 
     public void testCreateAccountCompany() {
-        int professorTestPriv = 2;
-        assertEquals(GarnetInternships.getUser().getType() == 2, professorTestPriv);
+        int companyTestPriv = 2;
+        GarnetInternships.getInstance().createAccount("name", "username", "password", companyTestPriv);
+        assertEquals(GarnetInternships.getUser().getType() == 2, companyTestPriv);
     }
 
     public void testCreateAccountAdmin() {
-        int professorTestPriv = 1;
-        assertEquals(GarnetInternships.getUser().getType() == 1, professorTestPriv);
+        int adminTestPriv = 1;
+        GarnetInternships.getInstance().createAccount("name", "username", "password", adminTestPriv);
+        assertEquals(GarnetInternships.getUser().getType() == 1, adminTestPriv);
     }
 
     @Test
