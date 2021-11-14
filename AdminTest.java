@@ -17,18 +17,21 @@ public class AdminTest {
     private InternshipList internshipList = InternshipList.getInstance();
 	private ArrayList<Internship> internships = internshipList.getInternships();
     Internship internship = new Internship("Software Engineer", "description", new ArrayList<String>(), "recYear", 10.0, new ArrayList<Student>(), 0, UUID.randomUUID());
+    Admin admin = new Admin("Test Admin", "TAdmin", "12345", UUID.randomUUID());
 @Test
 public void testRemoveRating(){
     accounts.add(student1);
-    assertEquals (Admin.removeRating("Bob Bob"), null);
-
+    Admin.removeRating("Bob Bob");
+    assertEquals(student1.getRating(),  null);
 }
 
 @Test
 public void testdeleteInternship() {
-    internships.add(new Internship("Web Developer", "description", new ArrayList<String>(), "recYear", 10.0, new ArrayList<Student>(), 0, UUID.randomUUID()));  
-    Admin.deleteInternship("Web Developer");
-    assertFalse(InternshipList.getInstance().getInternshipsByPosition("Web Devleoper").contains(internship));
+    Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
+    InternshipList.getInstance().getInternships().add(testInternship);
+    assertTrue(InternshipList.getInstance().getInternships().contains(testInternship));
+    Admin.deleteInternship("Test Position");
+    assertFalse(InternshipList.getInstance().getInternships().contains(testInternship));
 }
 
 @Test
@@ -37,6 +40,11 @@ public void testdeleteAccount() {
     Admin.deleteAccount("Bob Bob");
     assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), null);
 
+}
+
+@Test
+public void testGetType() {
+    assertEquals(admin.getType(), 1);
 }
 }
 
