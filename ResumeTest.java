@@ -48,7 +48,7 @@ public class ResumeTest {
         awards.add(testAward);
         Resume testResume = new Resume(new ArrayList<Education>(), awards, new ArrayList<Experience>(), new ArrayList<Experience>(), new ArrayList<String>(), UUID.randomUUID());
         testResume.addAward(testAward);
-        assertTrue(testResume.getAwards().contains(testAward));
+        assertFalse(testResume.getAwards().contains(testAward));
     }
 
     @Test
@@ -64,6 +64,7 @@ public class ResumeTest {
         Education testEducation = null;
         Resume testResume = new Resume(new ArrayList<Education>(), new ArrayList<String>(), new ArrayList<Experience>(), new ArrayList<Experience>(), new ArrayList<String>(), UUID.randomUUID());
         testResume.addEducation(testEducation);
+        assertFalse(testResume.getPriorEd().contains(testEducation));
     }
 
     @Test
@@ -79,7 +80,7 @@ public class ResumeTest {
         Experience testExperience = null;
         Resume testResume = new Resume(new ArrayList<Education>(), new ArrayList<String>(), new ArrayList<Experience>(), new ArrayList<Experience>(), new ArrayList<String>(), UUID.randomUUID());
         testResume.addRelatedExperience(testExperience);
-        assertTrue(testResume.getRelatedExp().contains(testExperience));
+        assertFalse(testResume.getRelatedExp().contains(testExperience));
     }
 
     @Test
@@ -95,7 +96,7 @@ public class ResumeTest {
         Experience testExperience = null;
         Resume testResume = new Resume(new ArrayList<Education>(), new ArrayList<String>(), new ArrayList<Experience>(), new ArrayList<Experience>(), new ArrayList<String>(), UUID.randomUUID());
         testResume.addCommunityExperience(testExperience);
-        assertTrue(testResume.getCommExp().contains(testExperience));
+        assertFalse(testResume.getCommExp().contains(testExperience));
     }
 
 }
