@@ -7,6 +7,11 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * @author We Lit Design Company (Ben Tidwell)
+ */
+
+
 class AccountListTest {
     private AccountList accountList = AccountList.getInstance();
     private ArrayList<Account> accounts = accountList.getAccounts();

@@ -8,6 +8,10 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * @author We Lit Design Company (Ben Tidwell)
+ */
+
 public class CompanyTest {
     
    Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());

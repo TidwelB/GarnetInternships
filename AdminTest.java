@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * @author We Lit Design Company (Ben Tidwell)
+ */
 
 public class AdminTest {
 
