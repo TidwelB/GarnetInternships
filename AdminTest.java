@@ -19,10 +19,17 @@ public class AdminTest {
     Internship internship = new Internship("Software Engineer", "description", new ArrayList<String>(), "recYear", 10.0, new ArrayList<Student>(), 0, UUID.randomUUID());
     Admin admin = new Admin("Test Admin", "TAdmin", "12345", UUID.randomUUID());
 @Test
-public void testRemoveRating(){
+public void testRemoveRatingDescription(){
     accounts.add(student1);
     Admin.removeRating("Bob Bob");
     assertTrue(student1.getRating().getDescription().contains("No ratings"));
+}
+
+@Test
+public void testRemoveRatingNum(){
+    accounts.add(student1);
+    Admin.removeRating("Bob Bob");
+    assertTrue(student1.getRating().getNumValue() == -1.0);
 }
 
 @Test
@@ -35,11 +42,33 @@ public void testdeleteInternship() {
 }
 
 @Test
+public void testdeleteDifferentInternship() {
+    Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
+    InternshipList.getInstance().getInternships().add(testInternship);
+    Admin.deleteInternship("Not an Internship");
+    assertTrue(InternshipList.getInstance().getInternships().contains(testInternship));
+}
+
+@Test
 public void testdeleteAccount() {
     accounts.add(student1);
     Admin.deleteAccount("Bob Bob");
     assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), null);
 
+}
+
+@Test
+public void testdeleteDifferentAccount() {
+    accounts.add(student1);
+    Admin.deleteAccount("I don't Exist");
+    assertTrue(AccountList.getInstance().getAccounts().contains(student1));
+
+}
+
+@Test
+public void testDeleteNonAccount() {
+    Admin.deleteAccount("I don't Exist");
+    assertEquals(AccountList.getInstance().getAccountByName("I don't Exist"), null);
 }
 
 @Test
