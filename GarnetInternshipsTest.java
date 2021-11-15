@@ -20,6 +20,8 @@ public class GarnetInternshipsTest {
     }
 
     @Test
+<<<<<<< HEAD
+=======
     public void testCreateAccountStudent() {
         int studentTestPriv = 0;
         GarnetInternships.getInstance().createAccount("name", "username", "password", studentTestPriv);
@@ -46,6 +48,7 @@ public class GarnetInternshipsTest {
     }
 
     @Test
+>>>>>>> c950388d1651895edbcfc8977097f4f38adb60fa
     public void testLoginStudent() {
         Student testStudent = new Student("Test Account", "tester", "12345", "email@email.com", new Resume(), new Rating(), "2025", new ArrayList<Internship>(), UUID.randomUUID());
         assertTrue(testStudent.getUsername().contains("tester"));
