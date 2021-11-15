@@ -36,9 +36,21 @@ public void testGiveRating() {
 }
 
 @Test
+public void testGiveIncorrectRating() {
+    company.giveRating(-1.0, "");
+    assertTrue(company.getRating().getDescription().contains("No ratings") && company.getRating().getNumValue()== (0.0));
+}
+
+@Test
 public void testGiveEmptyRating() {
     company.giveRating(5.0, "");
-    assertFalse(company.getRating().getDescription().contains(""));
+    assertTrue(company.getRating().getDescription().contains("No ratings"));
+}
+
+@Test
+public void testGiveIncorrectRatingNum() {
+    company.giveRating( -1, "meh");
+    assertTrue(company.getRating().getNumValue() == (0.0));
 }
 
 @Test
