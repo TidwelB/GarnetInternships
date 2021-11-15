@@ -55,8 +55,13 @@ public class InternshipTest {
     public void testGetCompanyNull() {
         Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         Company testCompany = new Company(null, null, null, null, null, null);
-        testCompany.addJob(testInternship);
-        assertEquals(testInternship.getCompany(),testCompany);
+        boolean thrown = false;
+        try {
+            testCompany.addJob(testInternship);
+        } catch (Exception e) {
+            thrown = true;
+        }
+        assertTrue(thrown);
     }
 
 }
