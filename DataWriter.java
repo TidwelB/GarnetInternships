@@ -207,7 +207,7 @@ public class DataWriter extends DataConstants {
      * @param account instance of JSON account, holds all information for the account
      * @return userDetails is used to return all collected information
      */
-    public static JSONObject getAccountJSON(Account account) {
+    private static JSONObject getAccountJSON(Account account) {
         JSONObject userDetails = new JSONObject();
         userDetails.put(ACCOUNT_NAME, account.getName());
         userDetails.put(ACCOUNT_USER_NAME, account.getUsername());

@@ -1,4 +1,5 @@
 // Import packages
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.AfterClass;
@@ -32,7 +33,7 @@ public class RatingTest {
     public void testAddNullRating() {
         Student testStudent = new Student("Test Account", "tester", "12345", "email@email.com", new Resume(), new Rating(), "2025", new ArrayList<Internship>(), UUID.randomUUID());
         testStudent.getRating().addRating(5.0, null);
-        assertTrue(testStudent.getRating().getDescription().contains("test"));
+        assertTrue(testStudent.getRating().getDescription().contains(null));
     }
 
     @Test
@@ -45,9 +46,10 @@ public class RatingTest {
     @Test
     public void testRemoveRating() {
         Student testStudent = new Student("Test Account", "tester", "12345", "email@email.com", new Resume(), new Rating(), "2025", new ArrayList<Internship>(), UUID.randomUUID());
-        Rating testRating = new Rating(5.0, new ArrayList<String>());
-        testStudent.getRating().addRating(5.0, "Test rating");
-        testStudent.getRating().removeRating("Test rating");
+        AccountList.getInstance().getAccounts().add(testStudent);
+        testStudent.giveRating(5.0, "Test rating");
+        testStudent.getRating().removeRating("Test Account");
+        assertEquals(testStudent.getRating().getDescription().get(0), "No ratings");
     }
 
 
