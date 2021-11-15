@@ -14,8 +14,10 @@ class AccountListTest {
 	private ArrayList<Resume> resumes = resumeList.getResumes();
     UUID uu = UUID.randomUUID();
     private Resume bobResume = new Resume();
+    private Resume thomasResume = new Resume();
     Student student1 = new Student("Bob Bob", "bbob", "12345", "bbob@email.sc.edu", bobResume, new Rating(), "2022", new ArrayList<Internship>(), uu);
-    
+    Student student0 = new Student("Thomas Lloyd", "talloyd", "12345", "talloyd@email.sc.edu", thomasResume, new Rating(), "2024", new ArrayList<Internship>(), UUID.randomUUID());
+   
     @BeforeEach
 	public void setup() {
         accounts.add(student1);
@@ -52,15 +54,23 @@ class AccountListTest {
         assertTrue(accountList.getAccounts() != null);
     }
 
+
+    @Test
+    public void testGetAccountsNull() {
+        assertFalse(accountList.getAccounts() == null);
+    }
+    
     @Test
     public void testGetAccountsContainsStudent() {
         assertTrue(AccountList.getInstance().getAccounts().contains(student1));
     }
 
     @Test
-    public void testGetAccountsNull() {
-        assertFalse(accountList.getAccounts() == null);
+    public void testGetAllAccounts() {
+        accounts.add(student0);
+        assertTrue(AccountList.getInstance().getAccounts().contains(student1) && AccountList.getInstance().getAccounts().contains(student0));
     }
+    
 
     @Test
     public void testGetAccountByName() {
