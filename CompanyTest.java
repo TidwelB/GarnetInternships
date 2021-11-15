@@ -12,6 +12,7 @@ public class CompanyTest {
     
    Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
     Company company = new Company("Test Company", "Test", "12345", new Rating (), new ArrayList<Internship> (), UUID.randomUUID());
+    private Rating rating = new Rating();
 
 @Test
 public void testGetRating(){
@@ -31,9 +32,9 @@ public void testAvailJobsNotPopulated() {
 @Test
 public void testGiveRating() {
     company.giveRating(5.0, "meh");
-    assertEquals(company.getRating(), 5.0 "meh");
-    
+    assertTrue(company.getRating().getNumValue() == 5.0 && (company.getRating().getDescription().get(0).equals("meh")) );
 }
+
 @Test
 public void testAddJob() {
     company.addJob(testInternship);
