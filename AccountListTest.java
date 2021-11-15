@@ -46,6 +46,7 @@ class AccountListTest {
 
     @Test
     public void testGetInstanceNull() {
+        accountList = null;
         assertFalse(AccountList.getInstance() == null);
     }
 
@@ -73,8 +74,43 @@ class AccountListTest {
     
 
     @Test
+    public void testGetAccount() {
+        assertEquals(AccountList.getInstance().getAccount("bbob"), student1);
+    }
+
+    @Test
+    public void testGetAccountNotInList() {
+        assertEquals(AccountList.getInstance().getAccount("No username"), null);
+    }
+
+    @Test
+    public void testGetAccountNull() {
+        assertEquals(AccountList.getInstance().getAccount(null), null);
+    }
+
+    @Test
+    public void testGetAccountEmpty() {
+        assertEquals(AccountList.getInstance().getAccount(""), null);
+    }
+
+    @Test
     public void testGetAccountByName() {
         assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), student1);
+    }
+
+    @Test
+    public void testGetAccountByNameNotInList() {
+        assertEquals(AccountList.getInstance().getAccountByName("No name"), null);
+    }
+
+    @Test
+    public void testGetAccountByNameNull() {
+        assertEquals(AccountList.getInstance().getAccountByName(null), null);
+    }
+
+    @Test
+    public void testGetAccountByNameEmpty() {
+        assertEquals(AccountList.getInstance().getAccountByName(""), null);
     }
 
     @Test
@@ -83,9 +119,26 @@ class AccountListTest {
     }
 
     @Test
+    public void testGetAccountByIDNotInList() {
+        assertEquals(AccountList.getInstance().getAccountById(UUID.randomUUID()), null);
+    }
+
+    @Test
+    public void testGetAccountByIdNull() {
+        assertEquals(AccountList.getInstance().getAccountById(null), null);
+    }
+
+    @Test
     public void testRemoveUser() {
         AccountList.getInstance().removeUser("Bob Bob");
         assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), null);
+    }
+
+    @Test
+    public void testRemoveUserNotInList() {
+        int sizeBefore = AccountList.getInstance().getAccounts().size();
+        AccountList.getInstance().removeUser("User not there");
+        assertEquals(sizeBefore, AccountList.getInstance().getAccounts().size());
     }
 
 }

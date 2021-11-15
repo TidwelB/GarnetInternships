@@ -52,10 +52,10 @@ public class InternshipListTest {
     }
 
     @Test
-    public void testGetInternshipsByPayrateNull() {
-        Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", null, new ArrayList<Student>(), 0, UUID.randomUUID());
+    public void testGetInternshipsByPayrateZero() {
+        Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 0.0, new ArrayList<Student>(), 0, UUID.randomUUID());
         InternshipList.getInstance().getInternships().add(testInternship);
-        assertTrue(InternshipList.getInstance().getInternshipsByPayrate(8.0).contains(testInternship));
+        assertTrue(InternshipList.getInstance().getInternshipsByPayrate(0.0).contains(testInternship));
     }
 
     @Test
@@ -70,8 +70,14 @@ public class InternshipListTest {
         ArrayList<String> testSkills = new ArrayList<String>();
         testSkills.add("JavaScript");
         Internship testInternship = new Internship("Test Position", "Testing the program.", testSkills, "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
-        InternshipList.getInstance().getInternships().add(testInternship);
-        assertTrue(InternshipList.getInstance().getInternshipsBySkills("JavaScript").contains(testInternship));
+        InternshipList internshipList = InternshipList.getInstance();
+        internshipList.getInternships().add(testInternship);
+        assertTrue(internshipList.getInternshipsBySkills("JavaScript").contains(testInternship));
+    }
+
+    @Test
+    public void testGetInternshipsBySkillsNotInList() {
+        assertEquals(InternshipList.getInstance().getInternshipsBySkills("No skill").size(), 0);
     }
     
     @Test

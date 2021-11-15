@@ -36,6 +36,12 @@ public void testGiveRating() {
 }
 
 @Test
+public void testGiveEmptyRating() {
+    company.giveRating(5.0, "");
+    assertFalse(company.getRating().getDescription().contains(""));
+}
+
+@Test
 public void testAddJob() {
     company.addJob(testInternship);
     assertTrue(company.getAvailJobs().contains(testInternship));

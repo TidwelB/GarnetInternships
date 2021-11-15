@@ -22,7 +22,7 @@ public class AdminTest {
 public void testRemoveRating(){
     accounts.add(student1);
     Admin.removeRating("Bob Bob");
-    assertEquals(student1.getRating(),  null);
+    assertTrue(student1.getRating().getDescription().contains("No ratings"));
 }
 
 @Test

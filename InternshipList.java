@@ -92,7 +92,7 @@ public class InternshipList {
     public ArrayList<Internship> getInternshipsBySkills(String skill) {
         ArrayList<Internship> retList = new ArrayList<Internship>();
         for(int i = 0; i < internships.size(); i++) {
-            for(int j = 0; j < internships.get(j).getReqSkills().size(); j++) {
+            for(int j = 0; j < internships.get(i).getReqSkills().size(); j++) {
                 if(internships.get(i).getReqSkills().get(j).equalsIgnoreCase(skill)) {
                     retList.add(internships.get(i));
                 }
