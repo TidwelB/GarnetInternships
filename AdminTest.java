@@ -34,6 +34,7 @@ public void testRemoveRatingNum(){
 
 @Test
 public void testdeleteInternship() {
+    internshipList.getInternships().clear();
     Internship testInternship = new Internship("Test Position", "Testing the program.", new ArrayList<String>(), "2025", 8.0, new ArrayList<Student>(), 0, UUID.randomUUID());
     InternshipList.getInstance().getInternships().add(testInternship);
     assertTrue(InternshipList.getInstance().getInternships().contains(testInternship));
@@ -51,6 +52,7 @@ public void testdeleteDifferentInternship() {
 
 @Test
 public void testdeleteAccount() {
+    accounts.clear();
     accounts.add(student1);
     Admin.deleteAccount("Bob Bob");
     assertEquals(AccountList.getInstance().getAccountByName("Bob Bob"), null);
