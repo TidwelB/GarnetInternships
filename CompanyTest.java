@@ -58,6 +58,6 @@ assertFalse(company.getListingsString() == null);
 @Test
 public void testTemoveRating() {
 company.removeRating();
-assertTrue(company.getRating() == null);
+assertTrue(company.getRating().getNumValue() == -1);
 }
 }

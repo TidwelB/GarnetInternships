@@ -165,7 +165,7 @@ public class Student extends Account{
     }
 
     public void removeRating() {
-        rating = null;
+        rating = new Rating();
     }
 
     

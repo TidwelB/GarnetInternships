@@ -96,7 +96,7 @@ public class Company extends Account {
     }
 
     public void removeRating() {
-        rating = null;
+        rating = new Rating();
     }
 
     public void giveApplicants() {
