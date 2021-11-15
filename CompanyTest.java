@@ -48,6 +48,12 @@ public void testGiveIncorrectRatingNum() {
 }
 
 @Test
+public void testGiveNullRating() {
+    company.giveRating(0.0, null);
+    assertFalse(company.getRating().getDescription().contains(null));
+}
+
+@Test
 public void testAddJob() {
     company.addJob(testInternship);
     assertTrue(company.getAvailJobs().contains(testInternship));

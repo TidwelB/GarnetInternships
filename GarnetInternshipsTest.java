@@ -57,13 +57,14 @@ public class GarnetInternshipsTest {
     @Test
     public void testPasswordCheck() {
         Student testAccount = new Student("Test Account", "tester", "12345", "email@email.com", new Resume(), new Rating(), "2025", new ArrayList<Internship>(), UUID.randomUUID());
-        assertEquals(testAccount.getPassword(), "12345");
+        AccountList.getInstance().getAccounts().add(testAccount);
+        assertTrue(GarnetInternships.getInstance().login("tester", "12345"));
     }
 
     @Test
     public void testPasswordCheckWrong() {
         Student testAccount = new Student("Test Account", "tester", "12345", "email@email.com", new Resume(), new Rating(), "2025", new ArrayList<Internship>(), UUID.randomUUID());
-        assertFalse(testAccount.getPassword() != "12345");
+        assertFalse(GarnetInternships.getInstance().login("tester", "not the passord"));
     }
 
     @Test
@@ -78,6 +79,7 @@ public class GarnetInternshipsTest {
 
     @Test
     public void testLogoutNoOneLoggedIn() {
+        GarnetInternships.getInstance().logout();
         assertTrue(GarnetInternships.getInstance().logout() == false);
     }
 
